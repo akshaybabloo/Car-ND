@@ -25,8 +25,14 @@ f = plt.figure()
 
 f.add_subplot(1, 3, 1)
 plt.imshow(image)
+plt.title("Original image")
+
 f.add_subplot(1, 3, 2)
 plt.imshow(blur_gray, cmap='gray')
+plt.title('Gaussian blur image')
+
 f.add_subplot(1, 3, 3)
 plt.imshow(edges, cmap='Greys_r')
+plt.title("Canny edges")
+
 plt.show()
