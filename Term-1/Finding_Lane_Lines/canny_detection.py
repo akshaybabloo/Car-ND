@@ -11,7 +11,7 @@ except FileNotFoundError as e:
 gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)  # 8-bit image
 
 # Adds a blur to the image see http://docs.opencv.org/2.4/modules/imgproc/doc/filtering.html?highlight=gaussianblur#gaussianblur
-kernel_size = 5
+kernel_size = 5  # should be odd numbers
 blur_gray = cv2.GaussianBlur(gray, (kernel_size, kernel_size), 0)
 
 # Canny edge detection see http://docs.opencv.org/2.4/doc/tutorials/imgproc/imgtrans/canny_detector/canny_detector.html
