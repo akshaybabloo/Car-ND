@@ -51,31 +51,38 @@ color_edges = np.dstack((edges, edges, edges))
 # Draw the lines on edge image
 lines_edges = cv2.addWeighted(color_edges, 0.8, line_image, 1, 0)
 
+# Draw the lines on original image
+image_lines_edges = cv2.addWeighted(image, 0.8, line_image, 1, 0)
+
 # show images
 f = plt.figure()
 
-f.add_subplot(2, 3, 1)
+f.add_subplot(3, 3, 1)
 plt.imshow(image)
 plt.title('Original image')
 
-f.add_subplot(2, 3, 2)
+f.add_subplot(3, 3, 2)
 plt.imshow(blur_gray, cmap='gray')
 plt.title('Gaussian blurred gray image')
 
-f.add_subplot(2, 3, 3)
+f.add_subplot(3, 3, 3)
 plt.imshow(edges, cmap='Greys_r')
 plt.title("Canny edges of Gaussian image")
 
-f.add_subplot(2, 3, 3)
+f.add_subplot(3, 3, 3)
 plt.imshow(poly, cmap='Greys_r')
 plt.title("Raw mask")
 
-f.add_subplot(2, 3, 4)
+f.add_subplot(3, 3, 4)
 plt.imshow(masked_edges, cmap='gray')
 plt.title("Masked edges of Hough lines")
 
-f.add_subplot(2, 3, 5)
+f.add_subplot(3, 3, 5)
 plt.imshow(lines_edges)
 plt.title("Masked Hough transform")
+
+f.add_subplot(3, 3, 6)
+plt.imshow(image_lines_edges)
+plt.title("Masked Hough transform on original image")
 
 plt.show()
