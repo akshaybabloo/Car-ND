@@ -23,5 +23,14 @@ thresholds = (image[:, :, 0] < rgb_threshold[0]) | (image[:, :, 1] < rgb_thresho
 color_select[thresholds] = [0, 0, 0]
 
 # Show image.
+f = plt.figure()
+
+f.add_subplot(1, 2, 1)
+plt.imshow(image)
+plt.title("Original image")
+
+f.add_subplot(1, 2, 2)
 plt.imshow(color_select)
+plt.title("Gradient image")
+
 plt.show()
