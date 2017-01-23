@@ -49,10 +49,13 @@ y = [left_bottom[1], right_bottom[1], apex[1], left_bottom[1]]
 f.add_subplot(1, 3, 1)
 plt.plot(x, y, 'b--', lw=4)
 plt.imshow(image)  # Image superimposed with plotted lines
+plt.title("Original image superimposed with plotted lines")
 
 f.add_subplot(1, 3, 2)
 plt.imshow(color_select)  # bright color line with triangle
+plt.title("Bright lines with triangle selected")
 
 f.add_subplot(1, 3, 3)
 plt.imshow(line_image)  # Masked image
+plt.title("Original image with masked color")
 plt.show()
