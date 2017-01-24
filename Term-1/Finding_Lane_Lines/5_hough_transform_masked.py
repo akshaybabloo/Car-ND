@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
 import cv2
+import sys
 
 np.set_printoptions(threshold=np.nan)
 
@@ -9,6 +10,7 @@ try:
     image = mpimg.imread('exit-ramp.jpg')
 except FileNotFoundError as e:
     print(e)
+    sys.exit(1)
 
 gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)  # 8-bit image
 

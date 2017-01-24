@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import cv2
+import sys
 
 try:
     image = mpimg.imread('exit-ramp.jpg')
 except FileNotFoundError as e:
     print(e)
+    sys.exit(1)
 
 # Converts an image into 8-bit gray scale
 gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)  # 8-bit image

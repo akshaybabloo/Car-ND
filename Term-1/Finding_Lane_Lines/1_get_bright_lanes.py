@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import numpy as np
+import sys
 
 # np.set_printoptions(threshold=np.nan)
 
@@ -8,6 +9,7 @@ try:
     image = mpimg.imread('test.jpg')  # Reading a image file.
 except FileNotFoundError as e:
     print(e)
+    sys.exit(1)
 print('This image is: {}, with dimensions: {}'.format(type(image), image.shape))
 
 # Making a copy of the image.
