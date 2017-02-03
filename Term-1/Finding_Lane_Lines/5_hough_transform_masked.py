@@ -7,7 +7,7 @@ import sys
 np.set_printoptions(threshold=np.nan)
 
 try:
-    image = mpimg.imread('exit-ramp.jpg')
+    image = mpimg.imread('test.jpg')
 except FileNotFoundError as e:
     print(e)
     sys.exit(1)
@@ -28,7 +28,7 @@ ignore_mask_color = 255
 # This time we are defining a four sided polygon to mask
 imshape = image.shape
 # vertices = np.array([[(left_bottom_y, left_bottom_x), (400, 315), (500, 300), (imshape[1], imshape[0])]], dtype=np.int32)
-vertices = np.array([[(50, imshape[0]), (400, 315), (500, 300), (imshape[1], imshape[0])]], dtype=np.int32)
+vertices = np.array([[(50, imshape[0]), (400, 350), (600, 350), (imshape[1], imshape[0])]], dtype=np.int32)
 poly = cv2.fillPoly(mask, vertices, ignore_mask_color)
 masked_edges = cv2.bitwise_and(edges, poly)
 
