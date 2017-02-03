@@ -5,7 +5,7 @@ import cv2
 import sys
 
 try:
-    image = mpimg.imread('exit-ramp.jpg')
+    image = mpimg.imread('test.jpg')
 except FileNotFoundError as e:
     print(e)
     sys.exit(1)
