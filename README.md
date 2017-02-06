@@ -2,8 +2,6 @@
 
 Udacity "Self-Driving Car Engineer" Nanodegree files
 
-> All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the MIT License.
-
 ## Index
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -12,6 +10,7 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 - [File Structure](#file-structure)
 - [Term 1](#term-1)
 	- [Finding Lanes](#finding-lanes)
+- [License and Disclaimer](#license-and-disclaimer)
 
 <!-- /TOC -->
 
@@ -66,3 +65,9 @@ More on this in my blog [Part 1 Car-ND: Detect road lanes using Computer Vision 
 **Outcome**
 
 ![Road lanes](https://github.com/akshaybabloo/Car-ND/raw/master/Screenshots/road_lanes.png)
+
+## License and Disclaimer
+
+[MIT License](https://github.com/akshaybabloo/Car-ND/blob/master/LICENSE)
+
+> All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the MIT License.
