@@ -81,6 +81,4 @@ More on this in my blog [Part 1 Car-ND: Detect road lanes using Computer Vision 
 
 ## License and Disclaimer
 
-[MIT License](https://github.com/akshaybabloo/Car-ND/blob/master/LICENSE)
-
-> All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License, and code samples are licensed under the MIT License.
+All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 3.0 License](https://creativecommons.org/licenses/by/3.0/), and code samples are licensed under the [MIT License](https://github.com/akshaybabloo/Car-ND/blob/master/LICENSE).
