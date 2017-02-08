@@ -96,15 +96,15 @@ class Sigmoid(Node):
 
 
 class MSE(Node):
+    r"""
+    The mean squared error cost function.
+    Should be used as the last node for a network.
+
+    Equation is given by
+
+    .. math:: C(w,b)= \frac{1}{m}\sum_{x}^{n}(y(x)-a)^{2}
+    """
     def __init__(self, y, a):
-        """
-        The mean squared error cost function.
-        Should be used as the last node for a network.
-
-        Equation is given by
-
-        C(w,b) = \frac{1}{m}\sum_{x}^{n}(y(x)-a)^{2}
-        """
         # Call the base class' constructor.
         Node.__init__(self, [y, a])
 
