@@ -73,7 +73,7 @@ Term 1 is mainly focused on finding the lanes and objects correctly using variou
 
 In this section we were introduced to the basic knowledge of Computer Vison using [OpenCV](http://opencv.org/) and [Python](https://www.python.org/download/releases/3.0/). The files are available [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term-1/Finding_Lane_Lines).
 
-More on this in my blog [Part 1 Car-ND: Detect road lanes using Computer Vision and Python 3](https://blog.gollahalli.com/blog/29/1/2017/part-1-1-car-nd-detect-road-lanes-using-computer-vision-and-python)
+More on this in my blog [Part 1.1 Car-ND: Detect road lanes using Computer Vision and Python 3](https://blog.gollahalli.com/blog/29/1/2017/part-1-1-car-nd-detect-road-lanes-using-computer-vision-and-python)
 
 **Outcome**
 
