@@ -11,6 +11,7 @@ Welcome to Car-ND's documentation!
    :caption: Contents:
 
    miniflow/miniflow
+   others
 
 Indices and tables
 ==================
