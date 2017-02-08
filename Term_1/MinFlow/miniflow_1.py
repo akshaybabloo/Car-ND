@@ -4,9 +4,6 @@ You need to change the Add() class below.
 
 
 class Node(object):
-    """
-    hello
-    """
     def __init__(self, inbound_nodes=[]):
         # Nodes from which this Node receives values
         self.inbound_nodes = inbound_nodes
