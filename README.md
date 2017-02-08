@@ -5,6 +5,7 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [File Structure](#file-structure)
+- [Documentations](#documentations)
 - [Term 1](#term-1)
 	- [Finding Lanes](#finding-lanes)
 - [License and Disclaimer](#license-and-disclaimer)
@@ -47,6 +48,21 @@ Car-ND
                     solidYellowCurve2.jpg
                     solidYellowLeft.jpg
                     whiteCarLaneSwitch.jpg
+```
+
+## Documentations
+
+To build Python documentations
+
+```
+make html
+```
+
+To rebuild the documentations
+
+```
+make clean
+make html
 ```
 
 ## Term 1
