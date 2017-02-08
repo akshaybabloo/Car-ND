@@ -142,8 +142,8 @@ fabric.properties
 /vendor/
 
 gollahalli_me/templates/test.html
-/test.py
-Term-1/Finding_Lane_Lines/P1/test.py
-Term-1/Finding_Lane_Lines/P1/test2.py
-Term-1/Finding_Lane_Lines/P1/test3.py
+
 test.py
+/Docs/build/
+Term_1/Finding_Lane_Lines/P1/test3.py
+Term_1/Finding_Lane_Lines/P1/test2.py
