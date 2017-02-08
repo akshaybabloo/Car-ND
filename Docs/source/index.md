@@ -10,7 +10,7 @@ Welcome to Car-ND's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   miniflow/miniflow
 
 Indices and tables
 ==================
