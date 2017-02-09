@@ -3,7 +3,6 @@ import struct
 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas
 
 """
 Loosely inspired by http://abel.ee.ucla.edu/cvxopt/_downloads/mnist.py
