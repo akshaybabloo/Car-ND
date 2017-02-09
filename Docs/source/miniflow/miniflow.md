@@ -12,3 +12,4 @@ MiniFlow is a node based implementation much like TensorFlow. In this module we 
    miniflow_linear_transform
    gradient_descent_backpropagation
    stochastic_gradient_descent
+   challenge/challenge
