@@ -3,6 +3,7 @@ import struct
 
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas
 
 """
 Loosely inspired by http://abel.ee.ucla.edu/cvxopt/_downloads/mnist.py
@@ -17,23 +18,37 @@ def read(path="."):
     being a numpy.uint8 2D array of pixel data for the given image.
     """
 
-    fname_img = os.path.join(path, 'train-images.idx3-ubyte')
-    fname_lbl = os.path.join(path, 'train-labels.idx1-ubyte')
+    fname_img_training = os.path.join(path, 'train-images.idx3-ubyte')
+    fname_lbl_training = os.path.join(path, 'train-labels.idx1-ubyte')
 
-    # Load everything in some numpy arrays
-    with open(fname_lbl, 'rb') as flbl:
-        magic, num = struct.unpack(">II", flbl.read(8))
-        lbl = np.fromfile(flbl, dtype=np.int8)
+    fname_img_testing = os.path.join(path, 't10k-images.idx3-ubyte')
+    fname_lbl_testing = os.path.join(path, 't10k-labels.idx1-ubyte')
 
-    with open(fname_img, 'rb') as fimg:
-        magic, num, rows, cols = struct.unpack(">IIII", fimg.read(16))
-        img = np.fromfile(fimg, dtype=np.uint8).reshape(len(lbl), rows, cols)
+    # Load everything in some numpy arrays for training
+    with open(fname_lbl_training, 'rb') as flbl_training:
+        magic, num = struct.unpack(">II", flbl_training.read(8))
+        lbl_training = np.fromfile(flbl_training, dtype=np.int8)
 
-    get_img = lambda idx: (lbl[idx], img[idx])
+    with open(fname_img_training, 'rb') as fimg_training:
+        magic, num, rows, cols = struct.unpack(">IIII", fimg_training.read(16))
+        img_training = np.fromfile(fimg_training, dtype=np.uint8).reshape(len(lbl_training), rows, cols)
 
-    # Create an iterator which returns each image in turn
-    for i in range(len(lbl)):
-        yield get_img(i)
+    # ----------------------------------------------------------------------------------------------------------
+
+    # Load everything in some numpy arrays for testing
+    with open(fname_lbl_testing, 'rb') as flbl_testing:
+        magic, num = struct.unpack(">II", flbl_testing.read(8))
+        lbl_testing = np.fromfile(flbl_testing, dtype=np.int8)
+
+    with open(fname_img_testing, 'rb') as fimg_testing:
+        magic, num, rows, cols = struct.unpack(">IIII", fimg_testing.read(16))
+        img_testing = np.fromfile(fimg_testing, dtype=np.uint8).reshape(len(lbl_testing), rows, cols)
+
+    # -----------------------------------------------------------------------------------------------------------
+
+    images = {'training': img_training, 'testing': img_testing}
+
+    return images
 
 
 def show(image):
@@ -52,8 +67,10 @@ def show(image):
 if __name__ == '__main__':
     img = read()
 
-    # t = (group.sort_index(ascending=True) for key, group in img.iteritems())
+    for i in img['training']:
+        show(i)
+        break
 
-    for i in img:
-        show(i[1])
+    for i in img['testing']:
+        show(i)
         break
