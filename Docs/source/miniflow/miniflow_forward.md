@@ -1,5 +1,5 @@
-MiniFlow Addition of Numbers
-----------------------------
+Addition of Numbers
+-------------------
 
 .. automodule:: Term_1.MinFlow.miniflow_1
    :members:
@@ -7,8 +7,8 @@ MiniFlow Addition of Numbers
    :show-inheritance:
    :private-members:
 
-MiniFlow Challenge for Adding List
-----------------------------------
+Challenge for Adding List
+-------------------------
 
 .. automodule:: Term_1.MinFlow.miniflow_challenge_add_1_1
    :members:
@@ -16,8 +16,8 @@ MiniFlow Challenge for Adding List
    :show-inheritance:
    :private-members:
 
-MiniFlow Challenge for Multiplying List
----------------------------------------
+Challenge for Multiplying List
+------------------------------
 
 .. automodule:: Term_1.MinFlow.miniflow_challenge_mul_1_2
    :members:
