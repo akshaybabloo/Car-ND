@@ -1,6 +1,4 @@
 import numpy as np
-from sklearn.datasets import load_boston
-from sklearn.utils import shuffle, resample
 
 
 class Node(object):
@@ -191,173 +189,96 @@ class MSE(Node):
         self.gradients[self.inbound_nodes[1]] = (-2 / self.m) * self.diff
 
 
-def topological_sort(feed_dict):
-    """
-    Sort the nodes in topological order using Kahn's Algorithm.
+class MathStuff:
+    @staticmethod
+    def topological_sort(feed_dict):
+        """
+        Sort the nodes in topological order using Kahn's Algorithm.
 
-    `feed_dict`: A dictionary where the key is a `Input` Node and the value is the respective value feed to that Node.
+        `feed_dict`: A dictionary where the key is a `Input` Node and the value is the respective value feed to that Node.
 
-    Returns a list of sorted nodes.
-    """
+        Returns a list of sorted nodes.
+        """
 
-    input_nodes = [n for n in feed_dict.keys()]
+        input_nodes = [n for n in feed_dict.keys()]
 
-    G = {}
-    nodes = [n for n in input_nodes]
-    while len(nodes) > 0:
-        n = nodes.pop(0)
-        if n not in G:
-            G[n] = {'in': set(), 'out': set()}
-        for m in n.outbound_nodes:
-            if m not in G:
-                G[m] = {'in': set(), 'out': set()}
-            G[n]['out'].add(m)
-            G[m]['in'].add(n)
-            nodes.append(m)
+        G = {}
+        nodes = [n for n in input_nodes]
+        while len(nodes) > 0:
+            n = nodes.pop(0)
+            if n not in G:
+                G[n] = {'in': set(), 'out': set()}
+            for m in n.outbound_nodes:
+                if m not in G:
+                    G[m] = {'in': set(), 'out': set()}
+                G[n]['out'].add(m)
+                G[m]['in'].add(n)
+                nodes.append(m)
 
-    L = []
-    S = set(input_nodes)
-    while len(S) > 0:
-        n = S.pop()
+        L = []
+        S = set(input_nodes)
+        while len(S) > 0:
+            n = S.pop()
 
-        if isinstance(n, Input):
-            n.value = feed_dict[n]
+            if isinstance(n, Input):
+                n.value = feed_dict[n]
 
-        L.append(n)
-        for m in n.outbound_nodes:
-            G[n]['out'].remove(m)
-            G[m]['in'].remove(n)
-            # if no other incoming edges add to S
-            if len(G[m]['in']) == 0:
-                S.add(m)
-    return L
+            L.append(n)
+            for m in n.outbound_nodes:
+                G[n]['out'].remove(m)
+                G[m]['in'].remove(n)
+                # if no other incoming edges add to S
+                if len(G[m]['in']) == 0:
+                    S.add(m)
+        return L
 
+    @staticmethod
+    def forward_and_backward(graph):
+        """
+        Performs a forward pass and a backward pass through a list of sorted Nodes.
 
-def forward_and_backward(graph):
-    """
-    Performs a forward pass and a backward pass through a list of sorted Nodes.
+        Arguments:
 
-    Arguments:
+            `graph`: The result of calling `topological_sort`.
+        """
+        # Forward pass
+        for n in graph:
+            n.forward()
 
-        `graph`: The result of calling `topological_sort`.
-    """
-    # Forward pass
-    for n in graph:
-        n.forward()
+        # Backward pass
+        # see: https://docs.python.org/2.3/whatsnew/section-slices.html
+        for n in graph[::-1]:
+            n.backward()
 
-    # Backward pass
-    # see: https://docs.python.org/2.3/whatsnew/section-slices.html
-    for n in graph[::-1]:
-        n.backward()
+    @staticmethod
+    def sgd_update(trainables, learning_rate=1e-2):
+        r"""
+        Updates the value of each trainable with SGD.
 
+        The equation is given by:
 
-def sgd_update(trainables, learning_rate=1e-2):
-    r"""
-    Updates the value of each trainable with SGD.
+        .. math:: x=x-\alpha *\frac{\partial cost}{\partial x}
 
-    The equation is given by:
+        Where as :math:`\alpha` is the learning rate
 
-    .. math:: x=x-\alpha *\frac{\partial cost}{\partial x}
+        The line
 
-    Where as :math:`\alpha` is the learning rate
+        .. code-block:: python
 
-    The line
+            t.value -= learning_rate * partial
 
-    .. code-block:: python
+        Is given by
 
-        t.value -= learning_rate * partial
+        .. math:: {x}'=x-\eta \triangledown C
 
-    Is given by
+        Arguments:
 
-    .. math:: {x}'=x-\eta \triangledown C
-
-    Arguments:
-
-        `trainables`: A list of `Input` Nodes representing weights/biases.
-        `learning_rate`: The learning rate.
-    """
-    # Change the trainable's value by subtracting the learning rate
-    # multiplied by the partial of the cost with respect to this
-    # trainable.
-    for t in trainables:
-        partial = t.gradients[t]
-        t.value -= learning_rate * partial
-
-
-if __name__ == '__main__':
-    """
-    Check out the new network architecture and dataset!
-
-    Notice that the weights and biases are
-    generated randomly.
-
-    No need to change anything, but feel free to tweak
-    to test your network, play around with the epochs, batch size, etc!
-    """
-
-    # Load data
-    data = load_boston()
-    X_ = data['data']
-    y_ = data['target']
-
-    # Normalize data
-    X_ = (X_ - np.mean(X_, axis=0)) / np.std(X_, axis=0)
-
-    n_features = X_.shape[1]
-    n_hidden = 10
-    W1_ = np.random.randn(n_features, n_hidden)
-    b1_ = np.zeros(n_hidden)
-    W2_ = np.random.randn(n_hidden, 1)
-    b2_ = np.zeros(1)
-
-    # Neural network
-    X, y = Input(), Input()
-    W1, b1 = Input(), Input()
-    W2, b2 = Input(), Input()
-
-    l1 = Linear(X, W1, b1)
-    s1 = Sigmoid(l1)
-    l2 = Linear(s1, W2, b2)
-    cost = MSE(y, l2)
-
-    feed_dict = {
-        X: X_,
-        y: y_,
-        W1: W1_,
-        b1: b1_,
-        W2: W2_,
-        b2: b2_
-    }
-
-    epochs = 1000
-    # Total number of examples
-    m = X_.shape[0]
-    batch_size = 11
-    steps_per_epoch = m // batch_size
-
-    graph = topological_sort(feed_dict)
-    trainables = [W1, b1, W2, b2]
-
-    print("Total number of examples = {}".format(m))
-
-    # Step 4
-    for i in range(epochs):
-        loss = 0
-        for j in range(steps_per_epoch):
-            # Step 1
-            # Randomly sample a batch of examples
-            X_batch, y_batch = resample(X_, y_, n_samples=batch_size)
-
-            # Reset value of X and y Inputs
-            X.value = X_batch
-            y.value = y_batch
-
-            # Step 2
-            forward_and_backward(graph)
-
-            # Step 3
-            sgd_update(trainables)
-
-            loss += graph[-1].value
-
-        print("Epoch: {}, Loss: {:.3f}".format(i + 1, loss / steps_per_epoch))
+            `trainables`: A list of `Input` Nodes representing weights/biases.
+            `learning_rate`: The learning rate.
+        """
+        # Change the trainable's value by subtracting the learning rate
+        # multiplied by the partial of the cost with respect to this
+        # trainable.
+        for t in trainables:
+            partial = t.gradients[t]
+            t.value -= learning_rate * partial
