@@ -329,7 +329,7 @@ if __name__ == '__main__':
         b2: b2_
     }
 
-    epochs = 1000
+    epochs = 10
     # Total number of examples
     m = X_.shape[0]
     batch_size = 11
