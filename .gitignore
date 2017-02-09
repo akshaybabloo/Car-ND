@@ -147,3 +147,5 @@ test.py
 /Docs/build/
 Term_1/Finding_Lane_Lines/P1/test3.py
 Term_1/Finding_Lane_Lines/P1/test2.py
+/Term_1/MinFlow/MiniFlow_challenge/train-labels.idx1-ubyte
+/Term_1/MinFlow/MiniFlow_challenge/train-images.idx3-ubyte
