@@ -7,3 +7,4 @@ TensorFLow
    :caption: Contents:
 
    introduction
+   softmax
