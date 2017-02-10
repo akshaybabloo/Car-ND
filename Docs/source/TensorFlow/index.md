@@ -8,3 +8,4 @@ TensorFLow
 
    introduction
    softmax
+   cross_entropy
