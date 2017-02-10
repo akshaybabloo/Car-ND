@@ -8,7 +8,7 @@ one_ = 1
 
 
 def run():
-    """
+    r"""
     Calculating
 
     .. math::
@@ -19,7 +19,7 @@ def run():
 
     Returns
     -------
-        `output`: int
+        output: numpy.int32
     """
     x = tf.constant(x_)
     y = tf.constant(y_)
