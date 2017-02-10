@@ -37,3 +37,12 @@ Initialisation of Variable
    :undoc-members:
    :show-inheritance:
    :private-members:
+
+Truncated Normal
+----------------
+
+.. automodule:: Term_1.TensorFlow.itruncated_normal_5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
