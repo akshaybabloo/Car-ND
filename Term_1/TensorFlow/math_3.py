@@ -13,13 +13,14 @@ def run():
     y = tf.constant(y_)
     one = tf.constant(one_)
 
-    first_div = tf.div(x,y)
+    first_div = tf.div(x, y)
     z = tf.sub(first_div, one)
 
     with tf.Session() as sess:
         output = sess.run(z)
 
     return output
+
 
 if __name__ == '__main__':
     print(run())
