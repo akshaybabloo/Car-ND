@@ -19,6 +19,8 @@ def softmax(x):
     """
     return np.divide(np.exp(x), np.sum(np.exp(x), axis=0))
 
-logits = [3.0, 1.0, 0.2]
+if __name__ == '__main__':
 
-print(softmax(logits))
+    logits = [3.0, 1.0, 0.2]
+
+    print(softmax(logits))
