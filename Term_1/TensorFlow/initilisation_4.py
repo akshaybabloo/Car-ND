@@ -4,10 +4,6 @@ import tensorflow as tf
 def run():
     """
     Setting a variable in TensorFlow
-
-    Returns
-    -------
-        'b': The value of the variable.
     """
     var = tf.Variable([10.0, 20.0])
 

@@ -9,6 +9,13 @@ one_ = 1
 
 def run():
     """
+    Calculating
+
+    .. math::
+
+        z = \frac{x}{y}-1
+
+    using TensorFlow
 
     Returns
     -------
