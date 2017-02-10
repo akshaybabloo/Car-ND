@@ -3,6 +3,13 @@ import tensorflow as tf
 
 
 def run():
+    """
+    A `placeholder` is like a block which is empty but it has a pre-initialised data type associated to it and the value of it cannot be changed.
+
+    Returns
+    -------
+        `output`: A place holder value
+    """
     output = None
     x = tf.placeholder(tf.int32)
 
