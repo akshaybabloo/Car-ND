@@ -41,7 +41,19 @@ Initialisation of Variable
 Truncated Normal
 ----------------
 
-.. automodule:: Term_1.TensorFlow.itruncated_normal_5
+.. automodule:: Term_1.TensorFlow.truncated_normal_5
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Linear Function
+===============
+
+Using the above methods let's a linear function to minimise the error in MNIST data.
+
+
+.. automodule:: Term_1.TensorFlow.linear_function_6
    :members:
    :undoc-members:
    :show-inheritance:
