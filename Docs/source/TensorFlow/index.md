@@ -11,3 +11,4 @@ TensorFLow
    cross_entropy
    minibatch
    epochs
+   lenet
