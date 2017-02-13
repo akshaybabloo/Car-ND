@@ -10,3 +10,4 @@ TensorFLow
    softmax
    cross_entropy
    minibatch
+   epochs
