@@ -152,3 +152,8 @@ Term_1/Finding_Lane_Lines/P1/test2.py
 /Term_1/MinFlow/MiniFlow_challenge/t10k-images.idx3-ubyte
 /Term_1/MinFlow/MiniFlow_challenge/t10k-labels.idx1-ubyte
 /Term_1/TensorFlow/MNIST_data/
+
+checkpoint
+lenet.data-00000-of-00001
+lenet.index
+lenet.meta
