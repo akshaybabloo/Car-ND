@@ -62,6 +62,9 @@ def print_epoch_stats(epoch_i, sess, last_features, last_labels, cost, accuracy,
 
 
 def run():
+    """
+    Run the TensorFlow to train and validate on MNIST data.
+    """
     n_input = 784  # MNIST data input (img shape: 28*28)
     n_classes = 10  # MNIST total classes (0-9 digits)
 
