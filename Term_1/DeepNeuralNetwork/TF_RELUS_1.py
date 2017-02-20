@@ -30,7 +30,6 @@ hidden_layer = tf.nn.relu(hidden_layer)
 logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 
 if __name__ == '__main__':
-
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         print(sess.run(logits))

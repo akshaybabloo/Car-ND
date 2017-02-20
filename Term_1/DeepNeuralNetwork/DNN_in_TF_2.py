@@ -12,7 +12,7 @@ display_step = 1
 n_input = 784  # MNIST data input (img shape: 28*28)
 n_classes = 10  # MNIST total classes (0-9 digits)
 
-n_hidden_layer = 256 # layer number of features
+n_hidden_layer = 256  # layer number of features
 
 # Store layers weight & bias
 weights = {
@@ -43,13 +43,12 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate).minim
 # Initializing the variables
 init = tf.global_variables_initializer()
 
-
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
     # Training cycle
     for epoch in range(training_epochs):
-        total_batch = int(mnist.train.num_examples/batch_size)
+        total_batch = int(mnist.train.num_examples / batch_size)
         # Loop over all batches
         for i in range(total_batch):
             batch_x, batch_y = mnist.train.next_batch(batch_size)
@@ -58,7 +57,7 @@ with tf.Session() as sess:
         # Display logs per epoch step
         if epoch % display_step == 0:
             c = sess.run(cost, feed_dict={x: batch_x, y: batch_y})
-            print("Epoch:", '%04d' % (epoch+1), "cost=", "{:.9f}".format(c))
+            print("Epoch:", '%04d' % (epoch + 1), "cost=", "{:.9f}".format(c))
     print("Optimization Finished!")
 
     # Test model
