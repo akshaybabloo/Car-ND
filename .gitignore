@@ -159,3 +159,7 @@ lenet.index
 lenet.meta
 /Term_1/TensorFlow/TensorFlow_Lab/notMNIST_test.zip
 /Term_1/TensorFlow/TensorFlow_Lab/notMNIST_train.zip
+train-images-idx3-ubyte.gz
+t10k-images-idx3-ubyte.gz
+t10k-labels-idx1-ubyte.gz
+train-labels-idx1-ubyte.gz
