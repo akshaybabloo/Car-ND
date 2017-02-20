@@ -12,6 +12,7 @@ Welcome to Car-ND's documentation!
 
    miniflow/miniflow
    TensorFlow/index
+   DeepNeuralNetwork/index
    others
 
 Indices and tables

@@ -1,3 +1,6 @@
+"""
+Rectified Non-Linear Units (ReLUs)
+"""
 import tensorflow as tf
 
 output = None
@@ -26,6 +29,8 @@ hidden_layer = tf.add(tf.matmul(features, weights[0]), biases[0])
 hidden_layer = tf.nn.relu(hidden_layer)
 logits = tf.add(tf.matmul(hidden_layer, weights[1]), biases[1])
 
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    print(sess.run(logits))
+if __name__ == '__main__':
+
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        print(sess.run(logits))
