@@ -43,6 +43,9 @@ For example, see the image below:
 
 Another option is to double the randomly unselected numbers, this will average to the original values.
 
+Code for Dropout
+----------------
+
 .. automodule:: Term_1.DeepNeuralNetwork.dropout_8
    :members:
    :undoc-members:
