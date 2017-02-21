@@ -39,6 +39,8 @@ For example, see the image below:
 .. figure:: dropout-node.jpeg
    :align: center
 
+   Source: Udacity
+
 Another option is to double the randomly unselected numbers, this will average to the original values.
 
 .. automodule:: Term_1.DeepNeuralNetwork.dropout_8
