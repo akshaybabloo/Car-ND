@@ -7,3 +7,4 @@ Deep Neural Network
    :caption: Contents:
 
    RELUS
+   regularization
