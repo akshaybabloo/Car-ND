@@ -45,3 +45,14 @@ To get the number of parameters shared, we would do the following
    :undoc-members:
    :show-inheritance:
    :private-members:
+
+What does each layer show?
+--------------------------
+
+A paper written by Zeiler and Fergus (2014) [1]_, shows how each layer learns.
+
+
+References
+----------
+
+.. [1] Zeiler, M. D., & Fergus, R. (2014, September). Visualizing and understanding convolutional networks. In European conference on computer vision (pp. 818-833). Springer International Publishing.
