@@ -1,6 +1,6 @@
 def python_run():
     """
-    Pythonic way of getting the ``new width`` and ``new height``
+    Pythonic way of getting the ``Total Parameters``
     """
     input_shape = [32, 32, 3]  # HxWxD
     filter_shape = [20, 8, 8, 3]  # number_of_filtersxHxWxD
