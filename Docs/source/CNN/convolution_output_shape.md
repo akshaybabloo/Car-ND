@@ -23,9 +23,24 @@ To get the memory used by the CNN, we would do the following:
 
 .. math::
 
-    \frac{\left ( filter~height~*~filter~width~*~filter~depth \right ) + 1{new~layer~height~*~new~layer~width~*~new~layer~depth}
+    \frac{\left ( filter~height~*~filter~width~*~filter~depth \right ) + 1}{new~layer~height~*~new~layer~width~*~new~layer~depth}
 
 .. automodule:: Term_1.CNN.num_of_parameters_2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
+
+Parameter Sharing
+-----------------
+
+To get the number of parameters shared, we would do the following
+
+.. math::
+
+    \left ( filter~height~*~filter~width~*~filter~depth + 1 \right ) * number~of~filters + biases~or~new~layer~depth
+
+.. automodule:: Term_1.CNN.parameter_sharing_3
    :members:
    :undoc-members:
    :show-inheritance:
