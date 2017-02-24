@@ -3,8 +3,6 @@ import matplotlib.image as mpimg
 import numpy as np
 import sys
 
-np.set_printoptions(threshold=np.nan)
-
 try:
     image = mpimg.imread('test.jpg')
 except FileNotFoundError as e:
