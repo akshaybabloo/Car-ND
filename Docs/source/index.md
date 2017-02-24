@@ -10,7 +10,7 @@ Welcome to Car-ND's documentation!
    :maxdepth: 3
    :caption: Contents:
 
-   miniflow/miniflow
+   miniflow/index
    TensorFlow/index
    DeepNeuralNetwork/index
    CNN/index
