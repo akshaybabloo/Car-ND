@@ -163,9 +163,9 @@ train-images-idx3-ubyte.gz
 t10k-images-idx3-ubyte.gz
 t10k-labels-idx1-ubyte.gz
 train-labels-idx1-ubyte.gz
-/Term_1/DeepNeuralNetwork/files/model.ckpt.data-00000-of-00001
-/Term_1/DeepNeuralNetwork/files/model.ckpt.meta
-/Term_1/DeepNeuralNetwork/files/model.ckpt.index
-/Term_1/DeepNeuralNetwork/files/train_model.ckpt.index
-/Term_1/DeepNeuralNetwork/files/train_model.ckpt.meta
-/Term_1/DeepNeuralNetwork/files/train_model.ckpt.data-00000-of-00001
+/Term_1/DeepNeuralNetwork_4/files/model.ckpt.data-00000-of-00001
+/Term_1/DeepNeuralNetwork_4/files/model.ckpt.meta
+/Term_1/DeepNeuralNetwork_4/files/model.ckpt.index
+/Term_1/DeepNeuralNetwork_4/files/train_model.ckpt.index
+/Term_1/DeepNeuralNetwork_4/files/train_model.ckpt.meta
+/Term_1/DeepNeuralNetwork_4/files/train_model.ckpt.data-00000-of-00001
