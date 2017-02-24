@@ -5,7 +5,7 @@ Gradient Descent
 Principle of Gradient Descent
 -----------------------------
 
-.. automodule:: Term_1.MinFlow.gradient_descent_6_1
+.. automodule:: Term_1.MinFlow_2.gradient_descent_6_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -14,7 +14,7 @@ Principle of Gradient Descent
 Gradient Descent and Backpropagation
 ------------------------------------
 
-.. automodule:: Term_1.MinFlow.gradient_descent_6_2
+.. automodule:: Term_1.MinFlow_2.gradient_descent_6_2
    :members:
    :undoc-members:
    :show-inheritance:

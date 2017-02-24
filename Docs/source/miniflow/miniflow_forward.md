@@ -1,7 +1,7 @@
 Addition of Numbers
 -------------------
 
-.. automodule:: Term_1.MinFlow.miniflow_1
+.. automodule:: Term_1.MinFlow_2.miniflow_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -10,7 +10,7 @@ Addition of Numbers
 Challenge for Adding List
 -------------------------
 
-.. automodule:: Term_1.MinFlow.miniflow_challenge_add_1_1
+.. automodule:: Term_1.MinFlow_2.miniflow_challenge_add_1_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -19,7 +19,7 @@ Challenge for Adding List
 Challenge for Multiplying List
 ------------------------------
 
-.. automodule:: Term_1.MinFlow.miniflow_challenge_mul_1_2
+.. automodule:: Term_1.MinFlow_2.miniflow_challenge_mul_1_2
    :members:
    :undoc-members:
    :show-inheritance:

@@ -147,10 +147,10 @@ test.py
 /Docs/build/
 Term_1/Finding_Lane_Lines_1/P1/test3.py
 Term_1/Finding_Lane_Lines_1/P1/test2.py
-/Term_1/MinFlow/MiniFlow_challenge/train-labels.idx1-ubyte
-/Term_1/MinFlow/MiniFlow_challenge/train-images.idx3-ubyte
-/Term_1/MinFlow/MiniFlow_challenge/t10k-images.idx3-ubyte
-/Term_1/MinFlow/MiniFlow_challenge/t10k-labels.idx1-ubyte
+/Term_1/MinFlow_2/MiniFlow_challenge/train-labels.idx1-ubyte
+/Term_1/MinFlow_2/MiniFlow_challenge/train-images.idx3-ubyte
+/Term_1/MinFlow_2/MiniFlow_challenge/t10k-images.idx3-ubyte
+/Term_1/MinFlow_2/MiniFlow_challenge/t10k-labels.idx1-ubyte
 /Term_1/TensorFlow/MNIST_data/
 
 checkpoint

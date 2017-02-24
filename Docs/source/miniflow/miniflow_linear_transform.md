@@ -1,7 +1,7 @@
 MiniFlow Linear Transformation
 ------------------------------
 
-.. automodule:: Term_1.MinFlow.linear_transform_3
+.. automodule:: Term_1.MinFlow_2.linear_transform_3
    :members:
    :undoc-members:
    :show-inheritance:
@@ -10,7 +10,7 @@ MiniFlow Linear Transformation
 MiniFlow Mean Squared Error (MSE)
 ---------------------------------
 
-.. automodule:: Term_1.MinFlow.mean_squared_error_5
+.. automodule:: Term_1.MinFlow_2.mean_squared_error_5
    :members:
    :undoc-members:
    :show-inheritance:

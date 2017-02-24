@@ -4,7 +4,7 @@ MNIST Challeng with Backpropogation
 MiniFlow Algorithm
 ------------------
 
-.. automodule:: Term_1.MinFlow.MiniFlow_challenge.MiniFLow
+.. automodule:: Term_1.MinFlow_2.MiniFlow_challenge.MiniFLow
    :members:
    :undoc-members:
    :show-inheritance:
@@ -14,7 +14,7 @@ MiniFlow Algorithm
 Reading and Displaying MNIST file
 ---------------------------------
 
-.. automodule:: Term_1.MinFlow.MiniFlow_challenge.mnist
+.. automodule:: Term_1.MinFlow_2.MiniFlow_challenge.mnist
    :members:
    :undoc-members:
    :show-inheritance:
@@ -24,7 +24,7 @@ Reading and Displaying MNIST file
 Running the Algorithm
 ---------------------
 
-.. automodule:: Term_1.MinFlow.MiniFlow_challenge.main
+.. automodule:: Term_1.MinFlow_2.MiniFlow_challenge.main
    :members:
    :undoc-members:
    :show-inheritance:
