@@ -5,7 +5,7 @@ Introduction
 Hello World
 -----------
 
-.. automodule:: Term_1.TensorFlow.tensorflow_HelloWorld_1
+.. automodule:: Term_1.TensorFlow_3.tensorflow_HelloWorld_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -14,7 +14,7 @@ Hello World
 Input
 -----
 
-.. automodule:: Term_1.TensorFlow.input_2
+.. automodule:: Term_1.TensorFlow_3.input_2
    :members:
    :undoc-members:
    :show-inheritance:
@@ -23,7 +23,7 @@ Input
 Math
 ----
 
-.. automodule:: Term_1.TensorFlow.math_3
+.. automodule:: Term_1.TensorFlow_3.math_3
    :members:
    :undoc-members:
    :show-inheritance:
@@ -32,7 +32,7 @@ Math
 Initialisation of Variable
 --------------------------
 
-.. automodule:: Term_1.TensorFlow.initialisation_4
+.. automodule:: Term_1.TensorFlow_3.initialisation_4
    :members:
    :undoc-members:
    :show-inheritance:
@@ -41,7 +41,7 @@ Initialisation of Variable
 Truncated Normal
 ----------------
 
-.. automodule:: Term_1.TensorFlow.truncated_normal_5
+.. automodule:: Term_1.TensorFlow_3.truncated_normal_5
    :members:
    :undoc-members:
    :show-inheritance:
@@ -53,7 +53,7 @@ Linear Function
 Using the above methods let's a linear function to minimise the error in MNIST data.
 
 
-.. automodule:: Term_1.TensorFlow.linear_function_6
+.. automodule:: Term_1.TensorFlow_3.linear_function_6
    :members:
    :undoc-members:
    :show-inheritance:

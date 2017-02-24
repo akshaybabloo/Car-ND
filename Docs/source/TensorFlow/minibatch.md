@@ -6,7 +6,7 @@ Due to the memory constraints it is good to divide the data into group (batch) o
 Splitting a Double List into Batches
 ------------------------------------
 
-.. automodule:: Term_1.TensorFlow.mini_batch_9_1
+.. automodule:: Term_1.TensorFlow_3.mini_batch_9_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ Splitting a Double List into Batches
 Splitting MNIST Data and Apply Optimisation
 -------------------------------------------
 
-.. automodule:: Term_1.TensorFlow.mini_batch_9_2
+.. automodule:: Term_1.TensorFlow_3.mini_batch_9_2
    :members:
    :undoc-members:
    :show-inheritance:
