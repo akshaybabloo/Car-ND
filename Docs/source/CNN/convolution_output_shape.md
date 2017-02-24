@@ -9,7 +9,7 @@ To get the number of neurons in the next layer we have to calculate its dimensio
 
 Where :math:`W` is the input volume, :math:`F` is the filter volume i.e. ``(height*width*depth)``, :math:`P` is number opf strides and :math:`S` is the padding.
 
-.. automodule:: Term_1.CNN.output_shape_1
+.. automodule:: Term_1.CNN_5.output_shape_1
    :members:
    :undoc-members:
    :show-inheritance:
@@ -25,7 +25,7 @@ To get the memory used by the CNN, we would do the following:
 
     \frac{\left ( filter~height~*~filter~width~*~filter~depth \right ) + 1}{new~layer~height~*~new~layer~width~*~new~layer~depth}
 
-.. automodule:: Term_1.CNN.num_of_parameters_2
+.. automodule:: Term_1.CNN_5.num_of_parameters_2
    :members:
    :undoc-members:
    :show-inheritance:
@@ -40,7 +40,7 @@ To get the number of parameters shared, we would do the following
 
     \left ( filter~height~*~filter~width~*~filter~depth + 1 \right ) * number~of~filters + biases~or~new~layer~depth
 
-.. automodule:: Term_1.CNN.parameter_sharing_3
+.. automodule:: Term_1.CNN_5.parameter_sharing_3
    :members:
    :undoc-members:
    :show-inheritance:
