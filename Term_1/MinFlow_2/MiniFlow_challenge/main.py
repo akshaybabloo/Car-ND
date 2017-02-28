@@ -1,5 +1,5 @@
-from Term_1.MinFlow.MiniFlow_challenge.MiniFLow import *
-from Term_1.MinFlow.MiniFlow_challenge.mnist import *
+from Term_1.MinFlow_2.MiniFlow_challenge.MiniFLow import *
+from Term_1.MinFlow_2.MiniFlow_challenge.mnist import *
 from sklearn.utils import shuffle, resample
 import numpy as np
 
