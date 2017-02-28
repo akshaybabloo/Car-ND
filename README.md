@@ -17,16 +17,21 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 
 To build Python documentations
 
-```
-make html
-```
+Make sure you have installed [Node.js 6](https://nodejs.org/en/download/)
 
-To rebuild the documentations
+Once you have installed `Node.js`, do the following
 
-```
-make clean
-make html
-```
+1. Open the `Car-ND` folder in `terminal` or `Command Prompt`.
+2. Type in the following once
+    ```
+    npm install
+    ```
+3. To build the Python docs, type in
+    ```
+    gulp
+    ```
+
+If there are no errors, the `index.html` will be in `build/html/index.html`, double clicking that will open in a web browser.
 
 ## Term 1
 
