@@ -1,0 +1,26 @@
+{
+  "name": "car-nd",
+  "version": "1.0.0",
+  "description": "To make Python docs",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshaybabloo/Car-ND.git"
+  },
+  "keywords": [
+    "Car-ND"
+  ],
+  "author": "Akshay Raj Gollahalli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akshaybabloo/Car-ND/issues"
+  },
+  "homepage": "https://github.com/akshaybabloo/Car-ND#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.6.1"
+  }
+}
