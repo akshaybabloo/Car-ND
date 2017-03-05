@@ -9,6 +9,7 @@ See ``Convolutional Deep Learning`` in NVIDIA's blog [1]_
    :caption: Contents:
 
    convolution_output_shape
+   max_pooling
 
 Reference
 ---------
