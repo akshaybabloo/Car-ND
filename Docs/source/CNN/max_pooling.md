@@ -21,3 +21,8 @@ For more information on it, please visit https://www.tensorflow.org/api_docs/pyt
    :undoc-members:
    :show-inheritance:
    :private-members:
+
+Average Pooling
+---------------
+
+Instead of taking the ``max`` of the inputs, take the mean of them.
