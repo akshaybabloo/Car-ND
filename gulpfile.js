@@ -1,7 +1,18 @@
 var gulp = require('gulp');
-var shell = require('gulp-shell');
+var exec = require('gulp-exec');
 
 
-gulp.task('make_html', shell.task('make html', {cwd: './Docs'}));
+gulp.task('make_html', function (cb) {
+    process.chdir("./Docs");
+    var reportOptions = {
+        err: true, // default = true, false means don't write err
+        stderr: true, // default = true, false means don't write stderr
+        stdout: true // default = true, false means don't write stdout
+    };
+    return gulp.src(".")
+        .pipe(exec('make clean'))
+        .pipe(exec('make html'))
+        .pipe(exec.reporter(reportOptions))
+});
 
 gulp.task('default', ['make_html']);

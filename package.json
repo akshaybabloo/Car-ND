@@ -21,6 +21,6 @@
   "homepage": "https://github.com/akshaybabloo/Car-ND#readme",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-shell": "^0.6.1"
+    "gulp-exec": "^2.1.3"
   }
 }
