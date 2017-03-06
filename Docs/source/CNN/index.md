@@ -11,6 +11,7 @@ See ``Convolutional Deep Learning`` in NVIDIA's blog [1]_
    convolution_output_shape
    max_pooling
    CNN_example
+   other_examples
 
 Reference
 ---------
