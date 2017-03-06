@@ -59,6 +59,14 @@ An introduction to [TensorFlow](https://www.tensorflow.org).
 
 Files can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/TensorFlow)
 
+### Deep Neural Network
+
+Files for DNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/DeepNeuralNetwork_4).
+
+### Convolutional Neural Network
+
+Files fo CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/CNN_5)
+
 ## License and Disclaimer
 
 All product and company names are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. Except as otherwise noted, the content of this page is licensed under the [Creative Commons Attribution 3.0 License](https://creativecommons.org/licenses/by/3.0/), and code samples are licensed under the [MIT License](https://github.com/akshaybabloo/Car-ND/blob/master/LICENSE).
