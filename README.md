@@ -9,6 +9,8 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 	- [Finding Lanes](#finding-lanes)
 	- [MiniFlow](#miniflow)
 	- [TensorFlow](#tensorflow)
+	- [Deep Neural Network](#deep-neural-network)
+	- [Convolutional Neural Network](#convolutional-neural-network)
 - [License and Disclaimer](#license-and-disclaimer)
 
 <!-- /TOC -->
