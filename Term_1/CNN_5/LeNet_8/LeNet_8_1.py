@@ -1,10 +1,11 @@
-from tensorflow.examples.tutorials.mnist import input_data
-import numpy as np
 import random
+
 import matplotlib.pyplot as plt
-from sklearn.utils import shuffle
+import numpy as np
 import tensorflow as tf
+from sklearn.utils import shuffle
 from tensorflow.contrib.layers import flatten
+from tensorflow.examples.tutorials.mnist import input_data
 
 
 def LeNet(x):
@@ -94,6 +95,7 @@ def LeNet(x):
     logits = tf.matmul(fc2, fc3_w) + fc3_b
 
     return logits
+
 
 x = tf.placeholder(tf.float32, (None, 32, 32, 1))
 y = tf.placeholder(tf.int32, (None))
