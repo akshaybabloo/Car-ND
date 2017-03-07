@@ -104,7 +104,7 @@ one_hot_y = tf.one_hot(y, 10, dtype=tf.float32)
 rate = 0.001
 
 logits = LeNet(x)
-cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits, one_hot_y)
+cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot_y)
 loss_operation = tf.reduce_mean(cross_entropy)
 optimizer = tf.train.AdamOptimizer(learning_rate=rate)
 training_operation = optimizer.minimize(loss_operation)
