@@ -99,7 +99,7 @@ def LeNet(x):
 
 x = tf.placeholder(tf.float32, (None, 32, 32, 1))
 y = tf.placeholder(tf.int32, (None))
-one_hot_y = tf.one_hot(y, 10)
+one_hot_y = tf.one_hot(y, 10, dtype=tf.float32)
 
 rate = 0.001
 
