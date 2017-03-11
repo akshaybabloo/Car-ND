@@ -1,5 +1,12 @@
 # Load pickled data
 import pickle
+import random
+
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+from sklearn.utils import shuffle
+from tensorflow.contrib.layers import flatten
 
 training_file = 'train.p'
 validation_file = 'valid.p'
@@ -16,23 +23,13 @@ X_train, y_train = train['features'], train['labels']
 X_validation, y_validation = valid['features'], valid['labels']
 X_test, y_test = test['features'], test['labels']
 
-### Replace each question mark with the appropriate value.
-### Use python, pandas or numpy methods rather than hard coding the results
-import numpy as np
-import random
-
-# TODO: Number of training examples
 n_train = len(X_train)
-
-# TODO: Number of testing examples.
 n_test = len(X_test)
 
-# TODO: What's the shape of an traffic sign image?
 index = random.randint(0, len(X_train))
 image = X_train[index].squeeze()
 image_shape = np.shape(image)
 
-# TODO: How many unique classes/labels there are in the dataset.
 n_classes = len(y_train) + len(y_test)
 
 print("Number of training examples =", n_train)
@@ -42,10 +39,6 @@ print("Number of classes =", n_classes)
 
 
 def show_image():
-    import random
-    import numpy as np
-    import matplotlib.pyplot as plt
-
     index = random.randint(0, len(X_train))
     image = X_train[index].squeeze()
 
@@ -54,16 +47,10 @@ def show_image():
     print(y_train[index])
 
 
-from sklearn.utils import shuffle
-
 X_train, y_train = shuffle(X_train, y_train)
-
-import tensorflow as tf
 
 EPOCHS = 10
 BATCH_SIZE = 128
-
-from tensorflow.contrib.layers import flatten
 
 
 def LeNet(x):
