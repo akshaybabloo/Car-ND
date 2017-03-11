@@ -23,19 +23,21 @@ X_train, y_train = train['features'], train['labels']
 X_validation, y_validation = valid['features'], valid['labels']
 X_test, y_test = test['features'], test['labels']
 
-n_train = len(X_train)
-n_test = len(X_test)
 
-index = random.randint(0, len(X_train))
-image = X_train[index].squeeze()
-image_shape = np.shape(image)
+def get_description():
+    n_train = len(X_train)
+    n_test = len(X_test)
 
-n_classes = len(y_train) + len(y_test)
+    index = random.randint(0, len(X_train))
+    image = X_train[index].squeeze()
+    image_shape = np.shape(image)
 
-print("Number of training examples =", n_train)
-print("Number of testing examples =", n_test)
-print("Image data shape =", image_shape)
-print("Number of classes =", n_classes)
+    n_classes = len(y_train) + len(y_test)
+
+    print("Number of training examples =", n_train)
+    print("Number of testing examples =", n_test)
+    print("Image data shape =", image_shape)
+    print("Number of classes =", n_classes)
 
 
 def show_image():
