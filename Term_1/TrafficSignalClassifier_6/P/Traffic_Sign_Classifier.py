@@ -145,13 +145,14 @@ def evaluate(X_data, y_data):
     numpy.float64
 
     """
+    _num_examples = len(X_data)
     total_accuracy = 0
-    sess = tf.get_default_session()
-    for offset in range(0, num_examples, BATCH_SIZE):
-        batch_x, batch_y = X_data[offset:offset + BATCH_SIZE], y_data[offset:offset + BATCH_SIZE]
-        accuracy = sess.run(accuracy_operation, feed_dict={x: batch_x, y: batch_y})
-        total_accuracy += (accuracy * len(batch_x))
-    return total_accuracy / num_examples
+    _sess = tf.get_default_session()
+    for _offset in range(0, _num_examples, BATCH_SIZE):
+        _batch_x, _batch_y = X_data[_offset:_offset + BATCH_SIZE], y_data[_offset:_offset + BATCH_SIZE]
+        accuracy = _sess.run(accuracy_operation, feed_dict={x: _batch_x, y: _batch_y})
+        total_accuracy += (accuracy * len(_batch_x))
+    return total_accuracy / _num_examples
 
 
 with tf.Session() as sess:
