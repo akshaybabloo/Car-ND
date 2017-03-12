@@ -25,6 +25,9 @@ X_test, y_test = test['features'], test['labels']
 
 
 def get_description():
+    """
+    Prints the description of the dataset.
+    """
     n_train = len(X_train)
     n_test = len(X_test)
 
@@ -41,6 +44,9 @@ def get_description():
 
 
 def show_image():
+    """
+    Displays a random image from the dataset with the class label.
+    """
     index = random.randint(0, len(X_train))
     image = X_train[index].squeeze()
 
@@ -127,7 +133,18 @@ saver = tf.train.Saver()
 
 
 def evaluate(X_data, y_data):
-    num_examples = len(X_data)
+    """
+    Evaluates the total accuracy for the given inputs.
+    Parameters
+    ----------
+    X_data
+    y_data
+
+    Returns
+    -------
+    numpy.float64
+
+    """
     total_accuracy = 0
     sess = tf.get_default_session()
     for offset in range(0, num_examples, BATCH_SIZE):
