@@ -8,15 +8,15 @@ import tensorflow as tf
 from sklearn.utils import shuffle
 from tensorflow.contrib.layers import flatten
 
-training_file = 'train.p'
-validation_file = 'valid.p'
-testing_file = 'test.p'
+TRAINING_FILE = 'train.p'
+VALIDATION_FILE = 'valid.p'
+TESTING_FILE = 'test.p'
 
-with open(training_file, mode='rb') as f:
+with open(TRAINING_FILE, mode='rb') as f:
     train = pickle.load(f)
-with open(validation_file, mode='rb') as f:
+with open(VALIDATION_FILE, mode='rb') as f:
     valid = pickle.load(f)
-with open(testing_file, mode='rb') as f:
+with open(TESTING_FILE, mode='rb') as f:
     test = pickle.load(f)
 
 X_train, y_train = train['features'], train['labels']
