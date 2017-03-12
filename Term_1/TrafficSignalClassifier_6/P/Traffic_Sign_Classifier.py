@@ -146,24 +146,6 @@ def evaluate(X_data, y_data):
     """
     num_examples = len(X_data)
     total_accuracy = 0
-
-
-with tf.Session() as sess:
-    sess.run(tf.global_variables_initializer())
-    num_examples = len(X_train)
-
-    print("Training...")
-    print()
-    for i in range(EPOCHS):
-        X_train, y_train = shuffle(X_train, y_train)
-        for offset in range(0, num_examples, BATCH_SIZE):
-            end = offset + BATCH_SIZE
-            batch_x, batch_y = X_train[offset:end], y_train[offset:end]
-            sess.run(training_operation, feed_dict={x: batch_x, y: batch_y})
-
-        validation_accuracy = evaluate(X_validation, y_validation)
-        print("EPOCH {} ...".format(i + 1))
-        print("Validation Accuracy = {:.3f}".format(validation_accuracy))
     sess = tf.get_default_session()
     for offset in range(0, num_examples, BATCH_SIZE):
         batch_x, batch_y = X_data[offset:offset + BATCH_SIZE], y_data[offset:offset + BATCH_SIZE]
@@ -171,13 +153,37 @@ with tf.Session() as sess:
         total_accuracy += (accuracy * len(batch_x))
     return total_accuracy / num_examples
 
+
+def run_training():
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        num_examples = len(X_train)
+
+        print("Training...")
         print()
+        for i in range(EPOCHS):
+            _X_train, _y_train = shuffle(X_train, y_train)
+            for offset in range(0, num_examples, BATCH_SIZE):
+                end = offset + BATCH_SIZE
+                batch_x, batch_y = _X_train[offset:end], _y_train[offset:end]
+                sess.run(training_operation, feed_dict={x: batch_x, y: batch_y})
 
-    saver.save(sess, './lenet')
-    print("Model saved")
+            validation_accuracy = evaluate(X_validation, y_validation)
+            print("EPOCH {} ...".format(i + 1))
+            print("Validation Accuracy = {:.3f}".format(validation_accuracy))
+            print()
 
-with tf.Session() as sess:
-    saver.restore(sess, tf.train.latest_checkpoint('.'))
+            saver.save(sess, './lenet')
+            print("Model saved")
 
-    test_accuracy = evaluate(X_test, y_test)
-    print("Test Accuracy = {:.3f}".format(test_accuracy))
+
+def run_testing():
+    with tf.Session() as sess:
+        saver.restore(sess, tf.train.latest_checkpoint('.'))
+
+        test_accuracy = evaluate(X_test, y_test)
+        print("Test Accuracy = {:.3f}".format(test_accuracy))
+
+if __name__ == '__main__':
+    run_training()
+    run_testing()
