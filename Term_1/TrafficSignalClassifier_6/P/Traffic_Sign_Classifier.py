@@ -1,4 +1,3 @@
-# Load pickled data
 import pickle
 import random
 
