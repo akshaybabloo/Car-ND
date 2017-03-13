@@ -17,6 +17,16 @@ Welcome to Car-ND's documentation!
    TrafficSignalClassifier_6/index
    others
 
+Projects
+========
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents: Projects for Car-ND
+
+   Projects/index
+
+
 Indices and tables
 ==================
 
