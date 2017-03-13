@@ -186,13 +186,11 @@ def run_training():
         sess.run(tf.global_variables_initializer())
         num_examples = len(X_train)
         validation_accuracy = 0
+        validation_accuracy_list = []
 
         print("Training...")
         print()
         for i in range(EPOCHS):
-            if validation_accuracy >= 0.95:
-                print('Break')
-                break
             _X_train, _y_train = shuffle(X_train, y_train)
             for offset in range(0, num_examples, BATCH_SIZE):
                 end = offset + BATCH_SIZE
@@ -200,10 +198,14 @@ def run_training():
                 sess.run(training_operation, feed_dict={x: batch_x, y: batch_y})
 
             validation_accuracy = evaluate(X_validation, y_validation)
+            validation_accuracy_list.append("{:.3f}".format(validation_accuracy))
             print("EPOCH {} ...".format(i + 1))
             print("Validation Accuracy = {:.3f}".format(validation_accuracy))
             print()
-
+        validation_accuracy_list = np.asarray(validation_accuracy_list, dtype=np.float64)
+        print(validation_accuracy_list)
+        print(np.max(validation_accuracy_list))
+        validation_accuracy_list.tofile('validation_accuracy.csv', sep=",")
         saver.save(sess, './lenet')
         print("Model saved")
 
