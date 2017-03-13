@@ -73,12 +73,12 @@ EPOCHS = 100
 BATCH_SIZE = 100
 
 
-def LeNet(x):
+def LeNet(x_input):
     """
     CNN for the dataset.
     Parameters
     ----------
-    x
+    x_input
 
     Returns
     -------
@@ -92,7 +92,7 @@ def LeNet(x):
     # Layer 1: Convolutional. Input = 32x32x1. Output = 28x28x6.
     conv1_w = tf.Variable(tf.truncated_normal(shape=(5, 5, 3, 6), mean=MU, stddev=SIGMA))
     conv1_b = tf.Variable(tf.zeros(6))
-    conv1 = tf.nn.conv2d(x, conv1_w, strides=[1, 1, 1, 1], padding=PADDING) + conv1_b
+    conv1 = tf.nn.conv2d(x_input, conv1_w, strides=[1, 1, 1, 1], padding=PADDING) + conv1_b
 
     # Activation.
     conv1 = tf.nn.relu(conv1)
