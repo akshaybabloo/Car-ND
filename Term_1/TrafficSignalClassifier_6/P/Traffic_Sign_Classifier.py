@@ -109,9 +109,9 @@ def LeNet(x):
     # SOLUTION: Layer 5: Fully Connected. Input = 84. Output = 43.
     fc3_w = tf.Variable(tf.truncated_normal(shape=(84, 43), mean=mu, stddev=sigma))
     fc3_b = tf.Variable(tf.zeros(43))
-    logits = tf.matmul(fc2, fc3_w) + fc3_b
+    _logits = tf.matmul(fc2, fc3_w) + fc3_b
 
-    return logits
+    return _logits
 
 
 x = tf.placeholder(tf.float32, (None, 32, 32, 3))
