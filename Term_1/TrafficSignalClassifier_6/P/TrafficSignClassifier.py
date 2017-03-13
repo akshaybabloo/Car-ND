@@ -200,6 +200,7 @@ def run_testing():
         test_accuracy = evaluate(X_test, y_test)
         print("Test Accuracy = {:.3f}".format(test_accuracy))
 
+
 if __name__ == '__main__':
     run_training()
     run_testing()
