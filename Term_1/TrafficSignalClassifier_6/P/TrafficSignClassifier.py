@@ -70,7 +70,7 @@ def show_image():
 X_train, y_train = shuffle(X_train, y_train)
 
 EPOCHS = 100
-BATCH_SIZE = 150
+BATCH_SIZE = 100
 
 
 def LeNet(x):
