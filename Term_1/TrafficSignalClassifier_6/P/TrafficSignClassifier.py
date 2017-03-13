@@ -61,6 +61,16 @@ BATCH_SIZE = 128
 
 
 def LeNet(x):
+    """
+    CNN for the dataset.
+    Parameters
+    ----------
+    x
+
+    Returns
+    -------
+    tensor
+    """
     # Arguments used for tf.truncated_normal, randomly defines variables for the weights and biases for each layer
     mu = 0
     sigma = 0.1
