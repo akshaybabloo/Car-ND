@@ -184,10 +184,14 @@ def run_training():
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         num_examples = len(X_train)
+        validation_accuracy = 0
 
         print("Training...")
         print()
         for i in range(EPOCHS):
+            if validation_accuracy >= 0.95:
+                print('Break')
+                break
             _X_train, _y_train = shuffle(X_train, y_train)
             for offset in range(0, num_examples, BATCH_SIZE):
                 end = offset + BATCH_SIZE
