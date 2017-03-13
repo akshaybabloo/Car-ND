@@ -165,6 +165,9 @@ def evaluate(X_data, y_data):
 
 
 def run_training():
+    """
+    Run the training and print the accuracy.
+    """
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
         num_examples = len(X_train)
@@ -188,6 +191,9 @@ def run_training():
 
 
 def run_testing():
+    """
+    Run testing with new data and get the accuracy.
+    """
     with tf.Session() as sess:
         saver.restore(sess, tf.train.latest_checkpoint('.'))
 
