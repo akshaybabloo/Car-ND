@@ -23,9 +23,9 @@ X_validation, y_validation = valid['features'], valid['labels']
 X_test, y_test = test['features'], test['labels']
 
 # Normalize data
-X_train = (X_train - np.min(X_train)) / (np.max(X_train) - np.min(X_train))
-X_validation = (X_validation - np.min(X_validation)) / (np.max(X_validation) - np.min(X_validation))
-X_test = (X_test - np.min(X_test)) / (np.max(X_test) - np.min(X_test))
+X_train = (X_train - X_train.mean()) / (np.max(X_train) - np.min(X_train))
+X_validation = (X_validation - X_validation.mean()) / (np.max(X_validation) - np.min(X_validation))
+X_test = (X_test - X_test.mean()) / (np.max(X_test) - np.min(X_test))
 
 
 def get_description():
@@ -214,6 +214,7 @@ def run_testing():
         print("Test Accuracy = {:.3f}".format(test_accuracy))
 
 
-if __name__ == '__main__':
-    run_training()
-    run_testing()
+# if __name__ == '__main__':
+    # run_training()
+    # run_testing()
+    # show_image()
