@@ -199,8 +199,8 @@ def run_training():
             print("Validation Accuracy = {:.3f}".format(validation_accuracy))
             print()
 
-            saver.save(sess, './lenet')
-            print("Model saved")
+        saver.save(sess, './lenet')
+        print("Model saved")
 
 
 def run_testing():
