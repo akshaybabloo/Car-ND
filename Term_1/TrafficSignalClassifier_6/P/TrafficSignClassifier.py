@@ -69,8 +69,8 @@ def show_image():
 
 X_train, y_train = shuffle(X_train, y_train)
 
-EPOCHS = 10
-BATCH_SIZE = 128
+EPOCHS = 100
+BATCH_SIZE = 150
 
 
 def LeNet(x):
@@ -142,7 +142,7 @@ x = tf.placeholder(tf.float32, (None, 32, 32, 3))
 y = tf.placeholder(tf.int32, (None))
 one_hot_y = tf.one_hot(y, 43)
 
-RATE = 0.01
+RATE = 0.001
 
 logits = LeNet(x)
 cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=one_hot_y)
