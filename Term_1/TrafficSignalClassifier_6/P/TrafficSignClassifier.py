@@ -44,14 +44,22 @@ def get_description():
 
 def show_image():
     """
-    Displays a random image from the dataset with the class label.
+    Displays a random images from the dataset with the class label.
     """
-    index = random.randint(0, len(X_train))
-    image = X_train[index].squeeze()
+    num = 1
+    index = random.sample(range(len(X_train)), 4)
 
-    plt.figure(figsize=(1, 1))
-    plt.imshow(image)
-    print(y_train[index])
+    fig = plt.figure()
+
+    for n in index:
+        fig.add_subplot(2, 2, num)
+        image = X_train[n].squeeze()
+        plt.imshow(image)
+        plt.title("Class Label {}".format(n))
+        num += 1
+
+    fig.tight_layout()
+    plt.show()
 
 
 X_train, y_train = shuffle(X_train, y_train)
