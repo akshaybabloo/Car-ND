@@ -221,7 +221,17 @@ def run_testing():
         print("Test Accuracy = {:.3f}".format(test_accuracy))
 
 
+def predict():
+    with tf.Session() as sess:
+        sampl = np.random.uniform(low=0.5, high=13.3, size=(32, 32, 3))
+        saver.restore(sess, tf.train.latest_checkpoint('.'))
+
+        classification = sess.run(tf.argmax(logits, 1), feed_dict={accuracy_operation: [sampl]})
+        print(classification)
+
+
 if __name__ == '__main__':
-    run_training()
-    run_testing()
+    # run_training()
+    # run_testing()
+    predict()
     # show_image()
