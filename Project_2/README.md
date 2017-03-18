@@ -7,18 +7,6 @@ This project involves in detecting the German traffic signs using the principals
 
 Before I go in the details of how the algorithm works, lets look at the images used to classify the trained model.
 
-## Images Used
-
-![10 KM](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/10.jpg)
-
-![Give way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/give_way_sign.jpg)
-
-![No entry](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/no_entry.jpg)
-
-![Stop](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/stop.jpg)
-
-![Wrong way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/wrong_way.jpg)
-
 ---
 ### Writeup / README
 
@@ -63,19 +51,17 @@ Sample of the normalised image:
 
 ![Normalised Image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/normalised.png)
 
-![alt text][image2]
+#### Training
 
-As a last step, I normalized the image data because ...
+The dataset has already been split into training, validation and testing. The only thing I had to do was to shuffle them (cell `76`) randomly by using `scikit-learn's` `shuffle`.
 
-#### 2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
+The training model is based up on `LeNet` architecture, which looks something like
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+![LeNet](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/lenet.png)
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
+The code for `LeNet` can be found in cell `77`, which uses two convolutions and three fully connected network.
 
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
 
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ...
 
 Here is an example of an original image and an augmented image:
 
@@ -84,31 +70,37 @@ Here is an example of an original image and an augmented image:
 The difference between the original data set and the augmented data set is the following ...
 
 
-#### 3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
-
-The code for my final model is located in the seventh cell of the ipython notebook.
+#### Final Architecture
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					|
-|:---------------------:|:---------------------------------------------:|
-| Input         		| 32x32x3 RGB image   							|
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Layers            | Inputs and Outputs                   | Computation                                                                                                                                                                                                                                                                                                  |
+|-------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Convolution 1     | Inputs: 32x32x1<br> Output: 28x28x6  | **Truncated Normal** <br> Mean: 0<br> Standard Devation: 0.1<br> Shape: (5, 5, 3, 6)<br><br> **2D Convolutions**<br> strides: [1, 1, 1, 1]<br> padding: VALID<br><br> **ReLU Activation**<br><br> **Max Pooling**<br> padding: VALID<br> ksize: [1, 2, 2, 1]<br> strides: [1, 2, 2, 1]<br> padding: VALID    |
+| Convolution 2     | Inputs: 14x14x6<br> Output: 10x10x16 | **Truncated Normal**<br><br> Mean: 0<br> Standard Devation: 0.1<br> Shape: (5, 5, 3, 6)<br><br> **2D Convolutions**<br> strides: [1, 1, 1, 1]<br> padding: VALID<br><br> **ReLU Activation**<br><br> **Max Pooling**<br> padding: VALID<br> ksize: [1, 2, 2, 1]<br> strides: [1, 2, 2, 1]<br> padding: VALID |
+| Flatten (Reshape) | Input: 10x10x16<br> Output: 400      |                                                                                                                                                                                                                                                                                                              |
+| Fully Connected 1 | Input: 400<br> Output: 120           | **Truncated Normal**<br> shape: (400, 120)<br> mean: 0<br> sigma: 0.1<br><br>  **WX+B**<br><br>  **ReLU Activation**                                                                                                                                                                                         |
+| Fully Connected 2 | Input: 120<br> Output: 84            | **Truncated Normal**<br> shape: (120, 84)<br> mean: 0<br> sigma: 0.1<br><br> **WX+B**<br><br> **ReLU Activation**                                                                                                                                                                                            |
+| Output            | Input: 84<br> Output:43              | **Truncated Normal**<br> shape: (84, 43)<br> mean: 0<br> sigma: 0.1<br><br> **WX+B**<br><br> **ReLU Activation**                                                                                                                                                                                             |
 
+#### Details for training the model
 
+The hyperparameters used for training the model are as follows:
 
-#### 4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+* Batch size: 100
+* Number of epochs: 100
+* Learning rate: 0.001
+* Mean for Truncated Normal: 0
+* Standard deviation for Truncated Normal: 0.1
+* Convolution type: VALID
 
-The code for training the model is located in the eigth cell of the ipython notebook.
+I have trained the model using the batch size ranging between 1 to 200. If the batch size is too small the time take for training the model seems to be high, though the time taken to train decreases significantly if the batch size is large, but the model is instable i.e. the validation accuracy is significantly less.
 
-To train the model, I used an ....
+I was able to get an optimum validation accuracy when the batch size was set to `100`.
+
+The validation graph for `1` to `200` is:
+
+![Validation graph](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/validation_graph.png)
 
 #### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -134,12 +126,18 @@ If a well known architecture was chosen:
 
 ### Test a Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### Images used
 
-Here are five German traffic signs that I found on the web:
+![10 KM](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/10.jpg)
 
-![alt text][image4] ![alt text][image5] ![alt text][image6]
-![alt text][image7] ![alt text][image8]
+![Give way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/give_way_sign.jpg)
+
+![No entry](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/no_entry.jpg)
+
+![Stop](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/stop.jpg)
+
+![Wrong way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/wrong_way.jpg)
+
 
 The first image might be difficult to classify because ...
 
