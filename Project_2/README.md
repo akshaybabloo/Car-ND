@@ -2,24 +2,20 @@
 
 **Table of Content**
 
-<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-	- [Data Set Summary & Exploration](#data-set-summary-exploration)
-		- [Data Structure](#data-structure)
-		- [Dataset sample](#dataset-sample)
-	- [Design and Test a Model Architecture](#design-and-test-a-model-architecture)
-		- [Data Preprocessing](#data-preprocessing)
-		- [Training](#training)
-		- [Final Architecture](#final-architecture)
-		- [Details for training the model](#details-for-training-the-model)
-		- [Results](#results)
-	- [Test a Model on New Images](#test-a-model-on-new-images)
-		- [Images used](#images-used)
-		- [Prediction](#prediction)
-		- [Softmax probabilities](#softmax-probabilities)
+- [Data Set Summary & Exploration](#data-set-summary-exploration)
+	- [Data Structure](#data-structure)
+	- [Dataset sample](#dataset-sample)
+- [Design and Test a Model Architecture](#design-and-test-a-model-architecture)
+	- [Data Preprocessing](#data-preprocessing)
+	- [Training](#training)
+	- [Final Architecture](#final-architecture)
+	- [Details for training the model](#details-for-training-the-model)
+	- [Results](#results)
+- [Test a Model on New Images](#test-a-model-on-new-images)
+	- [Images used](#images-used)
+	- [Prediction](#prediction)
+	- [Softmax probabilities](#softmax-probabilities)
 - [Reference](#reference)
-
-<!-- /TOC -->
 
 This project involves in detecting the German traffic signs using the principals of Convolutional Neural network (CNN).
 
