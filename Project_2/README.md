@@ -131,39 +131,78 @@ This approach got me an accuracy result of `95%`, which is not that good but doe
 
 These images are not German traffic signs, but they are signs from USA, UK and NZ.
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### Prediction
 
-The code for making predictions on my final model is located in the tenth cell of the Jupyter notebook.
+The code for making predictions on my final model is located in the cell `93` of the Jupyter notebook.
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| Stop Sign      		| Stop sign   									|
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| No Entry      		| No Entry   									|
+| Speed limit (10km/h) | Speed limit (20km/h) |
+| Wrong Way					| Stop											|
+| Give Way	      		| Yield					 				|
+| Stop			| Stop      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 2 of the 5 traffic signs.
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### Softmax probabilities
 
-The code for making predictions on my final model is located in the 11th cell of the Jupyter notebook.
+The code for making predictions on my final model is located in the cell `130` of the Jupyter notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, that detected the as `No Entry`
 
-| Probability         	|     Prediction	        					|
-|:---------------------:|:---------------------------------------------:|
-| .60         			| Stop sign   									|
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+**Image 1**
 
+![Image 1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image1_p.png)
 
-For the second image ...
+13 :  Yield
+36 :  Go straight or right
+20 :  Dangerous curve to the right
+5 :  Speed limit (80km/h)
+30 :  Beware of ice/snow
+
+**Image 2**
+
+![Image 2 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image2_p.png)
+
+16 :  Vehicles over 3.5 metric tons prohibited
+27 :  Pedestrians
+34 :  Turn left ahead
+6 :  End of speed limit (80km/h)
+19 :  Dangerous curve to the left
+
+**Image 3**
+
+![Image 3 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image3_p.png)
+
+1 :  Speed limit (30km/h)
+30 :  Beware of ice/snow
+16 :  Vehicles over 3.5 metric tons prohibited
+41 :  End of no passing
+24 :  Road narrows on the right
+
+**Image 4**
+
+![Image 4 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image4_p.png)
+
+30 :  Beware of ice/snow
+4 :  Speed limit (70km/h)
+27 :  Pedestrians
+19 :  Dangerous curve to the left
+8 :  Speed limit (120km/h)
+
+**Image 5**
+
+![Image 5 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image5_p.png)
+
+23 :  Slippery road
+31 :  Wild animals crossing
+42 :  End of no passing by vehicles over 3.5 metric tons
+6 :  End of speed limit (80km/h)
+17 :  No entry
 
 ## Reference
 
