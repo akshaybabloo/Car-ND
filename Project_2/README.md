@@ -8,7 +8,6 @@ This project involves in detecting the German traffic signs using the principals
 Before I go in the details of how the algorithm works, lets look at the images used to classify the trained model.
 
 ---
-### Writeup / README
 
 The project code can be found at [https://github.com/akshaybabloo/Car-ND/tree/master/Project_2/](https://github.com/akshaybabloo/Car-ND/tree/master/Project_2/)
 
@@ -18,7 +17,7 @@ The dataset used in this project is a public dataset by [Institute Fur Neuroinfo
 
 #### Data Structure
 
-The code for this step is contained in the cell `60` of the IPython notebook.  
+The code for this step is contained in the cell `60` of the Jupyter notebook.  
 
 I used the NumPy library to calculate summary statistics of the traffic
 signs data set:
@@ -102,27 +101,19 @@ The validation graph for `1` to `200` is:
 
 ![Validation graph](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/validation_graph.png)
 
-#### 5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### Results
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the accuracy of the model is located in the cell `80` of the Jupyter notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ?
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+* Test Accuracy = 0.929
+* Validation Accuracy = 0.950
 
 If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
 
+As mentioned earlier LeNet [1] architecture was chosen as it is a well known CNN for MNIST dataset.
+
+This approach got me an accuracy result of `95%`, which is not that good but does a good job.
 
 ### Test a Model on New Images
 
@@ -138,12 +129,11 @@ If a well known architecture was chosen:
 
 ![Wrong way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/wrong_way.jpg)
 
-
-The first image might be difficult to classify because ...
+These images are not German traffic signs, but they are signs from USA, UK and NZ.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the tenth cell of the Jupyter notebook.
 
 Here are the results of the prediction:
 
@@ -160,7 +150,7 @@ The model was able to correctly guess 4 of the 5 traffic signs, which gives an a
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 11th cell of the Jupyter notebook.
 
 For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
 
@@ -174,3 +164,7 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 For the second image ...
+
+## Reference
+
+[1] LeCun, Y., Jackel, L. D., Bottou, L., Brunot, A., Cortes, C., Denker, J. S., ... & Simard, P. (1995, October). Comparison of learning algorithms for handwritten digit recognition. In International conference on artificial neural networks (Vol. 60, pp. 53-60).
