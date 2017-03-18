@@ -2,6 +2,25 @@
 
 **Table of Content**
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Traffic Sign Recognition](#traffic-sign-recognition)
+		- [Data Set Summary & Exploration](#data-set-summary-exploration)
+			- [Data Structure](#data-structure)
+			- [Dataset sample](#dataset-sample)
+		- [Design and Test a Model Architecture](#design-and-test-a-model-architecture)
+			- [Data Preprocessing](#data-preprocessing)
+			- [Training](#training)
+			- [Final Architecture](#final-architecture)
+			- [Details for training the model](#details-for-training-the-model)
+			- [Results](#results)
+		- [Test a Model on New Images](#test-a-model-on-new-images)
+			- [Images used](#images-used)
+			- [Prediction](#prediction)
+			- [Softmax probabilities](#softmax-probabilities)
+	- [Reference](#reference)
+
+<!-- /TOC -->
 
 This project involves in detecting the German traffic signs using the principals of Convolutional Neural network (CNN).
 
@@ -158,51 +177,51 @@ For the first image, that detected the as `No Entry`
 
 ![Image 1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image1_p.png)
 
-13 :  Yield
-36 :  Go straight or right
-20 :  Dangerous curve to the right
-5 :  Speed limit (80km/h)
-30 :  Beware of ice/snow
+* 13 :  Yield
+* 36 :  Go straight or right
+* 20 :  Dangerous curve to the right
+* 5 :  Speed limit (80km/h)
+* 30 :  Beware of ice/snow
 
 **Image 2**
 
 ![Image 2 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image2_p.png)
 
-16 :  Vehicles over 3.5 metric tons prohibited
-27 :  Pedestrians
-34 :  Turn left ahead
-6 :  End of speed limit (80km/h)
-19 :  Dangerous curve to the left
+* 16 :  Vehicles over 3.5 metric tons prohibited
+* 27 :  Pedestrians
+* 34 :  Turn left ahead
+* 6 :  End of speed limit (80km/h)
+* 19 :  Dangerous curve to the left
 
 **Image 3**
 
 ![Image 3 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image3_p.png)
 
-1 :  Speed limit (30km/h)
-30 :  Beware of ice/snow
-16 :  Vehicles over 3.5 metric tons prohibited
-41 :  End of no passing
-24 :  Road narrows on the right
+* 1 :  Speed limit (30km/h)
+* 30 :  Beware of ice/snow
+* 16 :  Vehicles over 3.5 metric tons prohibited
+* 41 :  End of no passing
+* 24 :  Road narrows on the right
 
 **Image 4**
 
 ![Image 4 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image4_p.png)
 
-30 :  Beware of ice/snow
-4 :  Speed limit (70km/h)
-27 :  Pedestrians
-19 :  Dangerous curve to the left
-8 :  Speed limit (120km/h)
+* 30 :  Beware of ice/snow
+* 27 :  Pedestrians
+* 4 :  Speed limit (70km/h)
+* 19 :  Dangerous curve to the left
+* 8 :  Speed limit (120km/h)
 
 **Image 5**
 
 ![Image 5 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image5_p.png)
 
-23 :  Slippery road
-31 :  Wild animals crossing
-42 :  End of no passing by vehicles over 3.5 metric tons
-6 :  End of speed limit (80km/h)
-17 :  No entry
+* 23 :  Slippery road
+* 31 :  Wild animals crossing
+* 42 :  End of no passing by vehicles over 3.5 metric tons
+* 6 :  End of speed limit (80km/h)
+* 17 :  No entry
 
 ## Reference
 
