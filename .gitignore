@@ -171,3 +171,4 @@ train-labels-idx1-ubyte.gz
 /Term_1/DeepNeuralNetwork_4/files/train_model.ckpt.data-00000-of-00001
 /node_modules/
 *.p
+*.zip
