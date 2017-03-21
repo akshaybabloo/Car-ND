@@ -174,6 +174,8 @@ Contrast:  167.9383344340375 <br>
 
 These images are not German traffic signs, but they are signs from USA, UK and NZ.
 
+Due to the difference in the shape, I had to crop and rescale the image to `(32, 32, 3)`
+
 #### Prediction
 
 The code for making predictions on my final model is located in the cell `93` of the Jupyter notebook.
