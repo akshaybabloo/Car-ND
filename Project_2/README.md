@@ -133,13 +133,42 @@ This approach got me an accuracy result of `95%`, which is not that good but doe
 
 #### Images used
 
+Height: 425 and Width: 425
+Brightness:  157.91422560553633
+Mode:  RGB
+Contrast:  177.98636823506638
+
 ![10 KM](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/10.jpg)
+
+---
+Height: 300 and Width: 225 <br>
+Brightness:  127.69592592592592 <br>
+Mode:  RGB <br>
+Contrast:  145.30666763524397 <br>
 
 ![Give way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/give_way_sign.jpg)
 
+---
+Height: 300 and Width: 225 <br>
+Brightness:  127.69592592592592 <br>
+Mode:  RGB <br>
+Contrast:  145.30666763524397 <br>
+
 ![No entry](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/no_entry.jpg)
 
+---
+Height: 300 and Width: 225 <br>
+Brightness:  93.52752592592593 <br>
+Mode:  RGB <br>
+Contrast:  110.50265168596466 <br>
+
 ![Stop](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/stop.jpg)
+
+---
+Height: 876 and Width: 493 <br>
+Brightness:  155.05880268971075 <br>
+Mode:  RGB <br>
+Contrast:  167.9383344340375 <br>
 
 ![Wrong way](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/wrong_way.jpg)
 
