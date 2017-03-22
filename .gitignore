@@ -172,3 +172,4 @@ train-labels-idx1-ubyte.gz
 /node_modules/
 *.p
 *.zip
+*.html
