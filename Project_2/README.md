@@ -217,31 +217,31 @@ For the first image, that detected the as `No Entry`
       <th>0</th>
       <td>9</td>
       <td>No passing</td>
-      <td>96.5%%</td>
+      <td>96.5%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>39</td>
       <td>Keep left</td>
-      <td>3.5%%</td>
+      <td>3.5%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>15</td>
       <td>No vehicles</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>24</td>
       <td>Road narrows on the right</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>42</td>
       <td>End of no passing by vehicles over 3.5 metric ...</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
   </tbody>
 </table>
@@ -264,31 +264,31 @@ For the first image, that detected the as `No Entry`
       <th>0</th>
       <td>10</td>
       <td>No passing for vehicles over 3.5 metric tons</td>
-      <td>99.9%%</td>
+      <td>99.9%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>25</td>
       <td>Road work</td>
-      <td>0.1%%</td>
+      <td>0.1%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>18</td>
       <td>General caution</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>17</td>
       <td>No entry</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>27</td>
       <td>Pedestrians</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
   </tbody>
 </table>
@@ -311,31 +311,31 @@ For the first image, that detected the as `No Entry`
       <th>0</th>
       <td>37</td>
       <td>Go straight or left</td>
-      <td>100.0%%</td>
+      <td>100.0%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>33</td>
       <td>Turn right ahead</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>26</td>
       <td>Traffic signals</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>17</td>
       <td>No entry</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>2</td>
       <td>Speed limit (50km/h)</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
   </tbody>
 </table>
@@ -358,31 +358,31 @@ For the first image, that detected the as `No Entry`
       <th>0</th>
       <td>27</td>
       <td>Pedestrians</td>
-      <td>99.2%%</td>
+      <td>99.2%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>33</td>
       <td>Turn right ahead</td>
-      <td>0.8%%</td>
+      <td>0.8%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>34</td>
       <td>Turn left ahead</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2</td>
       <td>Speed limit (50km/h)</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>15</td>
       <td>No vehicles</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
   </tbody>
 </table>
@@ -405,31 +405,31 @@ For the first image, that detected the as `No Entry`
       <th>0</th>
       <td>11</td>
       <td>Right-of-way at the next intersection</td>
-      <td>100.0%%</td>
+      <td>100.0%</td>
     </tr>
     <tr>
       <th>1</th>
       <td>3</td>
       <td>Speed limit (60km/h)</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>2</th>
       <td>6</td>
       <td>End of speed limit (80km/h)</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>3</th>
       <td>15</td>
       <td>No vehicles</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
     <tr>
       <th>4</th>
       <td>28</td>
       <td>Children crossing</td>
-      <td>0.0%%</td>
+      <td>0.0%</td>
     </tr>
   </tbody>
 </table>
