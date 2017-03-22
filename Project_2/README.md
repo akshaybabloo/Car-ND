@@ -31,7 +31,7 @@ The dataset used in this project is a public dataset by [Institute Fur Neuroinfo
 
 #### Data Structure
 
-The code for this step is contained in the cell `60` of the Jupyter notebook.  
+The code for this step is contained in the cell `61` of the Jupyter notebook.  
 
 I used the NumPy library to calculate summary statistics of the traffic
 signs data set:
@@ -50,7 +50,7 @@ Where, the x axis represents the class labels and the y axis represents the numb
 
 #### Dataset sample
 
-The sample of the dataset can be found in the cell `63, 64` and `65` representing train, test and validation respectively.
+The sample of the dataset can be found in the cell `64, 65` and `66` representing train, test and validation respectively.
 
 ![Sample](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/sample.png)
 
@@ -58,7 +58,7 @@ The sample of the dataset can be found in the cell `63, 64` and `65` representin
 
 #### Data Preprocessing
 
-In cell `66` the data was normalised but not grey scaled, that's because I feel that the colour makes an important feature in the case of signs because what if the signs are inverted and somehow colour could be an import way to recognise the sign.
+In cell `67` the data was normalised but not grey scaled, that's because I feel that the colour makes an important feature in the case of signs because what if the signs are inverted and somehow colour could be an import way to recognise the sign.
 
 Sample of the normalised image:
 
@@ -66,13 +66,13 @@ Sample of the normalised image:
 
 #### Training
 
-The dataset has already been split into training, validation and testing. The only thing I had to do was to shuffle them (cell `76`) randomly by using `scikit-learn's` `shuffle`.
+The dataset has already been split into training, validation and testing. The only thing I had to do was to shuffle them (cell `70`) randomly by using `scikit-learn's` `shuffle`.
 
 The training model is based up on `LeNet` architecture, which looks something like
 
 ![LeNet](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/lenet.png)
 
-The code for `LeNet` can be found in cell `77`, which uses two convolutions and three fully connected network.
+The code for `LeNet` can be found in cell `71`, which uses two convolutions and three fully connected network.
 
 
 
@@ -117,11 +117,11 @@ The validation graph for `1` to `200` is:
 
 #### Results
 
-The code for calculating the accuracy of the model is located in the cell `80` of the Jupyter notebook.
+The code for calculating the accuracy of the model is located in the cell `75` of the Jupyter notebook.
 
 My final model results were:
-* Test Accuracy = 0.929
-* Validation Accuracy = 0.950
+* Test Accuracy = 0.935
+* Validation Accuracy = 0.951
 
 If a well known architecture was chosen:
 
@@ -195,7 +195,7 @@ The model was able to correctly guess 2 of the 5 traffic signs.
 
 #### Softmax probabilities
 
-The code for making predictions on my final model is located in the cell `130` of the Jupyter notebook.
+The code for making predictions on my final model is located in the cell `126` of the Jupyter notebook.
 
 For the first image, that detected the as `No Entry`
 
@@ -203,51 +203,236 @@ For the first image, that detected the as `No Entry`
 
 ![Image 1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image1_p.png)
 
-* 13 :  Yield
-* 36 :  Go straight or right
-* 20 :  Dangerous curve to the right
-* 5 :  Speed limit (80km/h)
-* 30 :  Beware of ice/snow
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>9</td>
+      <td>No passing</td>
+      <td>96.5%%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>39</td>
+      <td>Keep left</td>
+      <td>3.5%%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15</td>
+      <td>No vehicles</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>24</td>
+      <td>Road narrows on the right</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>42</td>
+      <td>End of no passing by vehicles over 3.5 metric ...</td>
+      <td>0.0%%</td>
+    </tr>
+  </tbody>
+</table>
 
 **Image 2**
 
 ![Image 2 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image2_p.png)
 
-* 16 :  Vehicles over 3.5 metric tons prohibited
-* 27 :  Pedestrians
-* 34 :  Turn left ahead
-* 6 :  End of speed limit (80km/h)
-* 19 :  Dangerous curve to the left
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10</td>
+      <td>No passing for vehicles over 3.5 metric tons</td>
+      <td>99.9%%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25</td>
+      <td>Road work</td>
+      <td>0.1%%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18</td>
+      <td>General caution</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17</td>
+      <td>No entry</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>27</td>
+      <td>Pedestrians</td>
+      <td>0.0%%</td>
+    </tr>
+  </tbody>
+</table>
 
 **Image 3**
 
 ![Image 3 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image3_p.png)
 
-* 1 :  Speed limit (30km/h)
-* 30 :  Beware of ice/snow
-* 16 :  Vehicles over 3.5 metric tons prohibited
-* 41 :  End of no passing
-* 24 :  Road narrows on the right
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>37</td>
+      <td>Go straight or left</td>
+      <td>100.0%%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>33</td>
+      <td>Turn right ahead</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>26</td>
+      <td>Traffic signals</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17</td>
+      <td>No entry</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Speed limit (50km/h)</td>
+      <td>0.0%%</td>
+    </tr>
+  </tbody>
+</table>
 
 **Image 4**
 
 ![Image 4 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image4_p.png)
 
-* 30 :  Beware of ice/snow
-* 27 :  Pedestrians
-* 4 :  Speed limit (70km/h)
-* 19 :  Dangerous curve to the left
-* 8 :  Speed limit (120km/h)
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>27</td>
+      <td>Pedestrians</td>
+      <td>99.2%%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>33</td>
+      <td>Turn right ahead</td>
+      <td>0.8%%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>34</td>
+      <td>Turn left ahead</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Speed limit (50km/h)</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15</td>
+      <td>No vehicles</td>
+      <td>0.0%%</td>
+    </tr>
+  </tbody>
+</table>
 
 **Image 5**
 
 ![Image 5 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image5_p.png)
 
-* 23 :  Slippery road
-* 31 :  Wild animals crossing
-* 42 :  End of no passing by vehicles over 3.5 metric tons
-* 6 :  End of speed limit (80km/h)
-* 17 :  No entry
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>11</td>
+      <td>Right-of-way at the next intersection</td>
+      <td>100.0%%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>Speed limit (60km/h)</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6</td>
+      <td>End of speed limit (80km/h)</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15</td>
+      <td>No vehicles</td>
+      <td>0.0%%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Children crossing</td>
+      <td>0.0%%</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Reference
 
