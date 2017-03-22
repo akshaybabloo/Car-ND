@@ -201,6 +201,8 @@ For the first image, that detected the as `No Entry`
 
 **Image 1**
 
+When compared to the test dataset, the new data wrongly classified, the data must be underfitting.
+
 ![Image 1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image1_p.png)
 
 <table>
@@ -246,7 +248,56 @@ For the first image, that detected the as `No Entry`
   </tbody>
 </table>
 
+Comparing this to the test dataset
+
+![Image 1_1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image1_1_p.png)
+
+<table>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40</td>
+      <td>Roundabout mandatory</td>
+      <td>2.6%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34</td>
+      <td>Turn left ahead</td>
+      <td>2.6%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>35</td>
+      <td>Ahead only</td>
+      <td>2.5%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>36</td>
+      <td>Go straight or right</td>
+      <td>2.5%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>12</td>
+      <td>Priority road</td>
+      <td>2.5%</td>
+    </tr>
+  </tbody>
+</table>
+
 **Image 2**
+
+When compared to the test dataset, the new data wrongly classified because there is no 10 KM sign in the test dataset.
 
 ![Image 2 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image2_p.png)
 
@@ -295,6 +346,8 @@ For the first image, that detected the as `No Entry`
 
 **Image 3**
 
+When compared to the test dataset, the new data wrongly classified because there is no Wrong Way sign in the test dataset.
+
 ![Image 3 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image3_p.png)
 
 <table>
@@ -341,6 +394,8 @@ For the first image, that detected the as `No Entry`
 </table>
 
 **Image 4**
+
+When compared to the test dataset, the new data wrongly classified because there is no Give Way sign in the test dataset.
 
 ![Image 4 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image4_p.png)
 
@@ -389,6 +444,8 @@ For the first image, that detected the as `No Entry`
 
 **Image 5**
 
+When compared to the test dataset, the new data wrongly classified, the data must be underfitting.
+
 ![Image 5 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image5_p.png)
 
 <table>
@@ -430,6 +487,53 @@ For the first image, that detected the as `No Entry`
       <td>28</td>
       <td>Children crossing</td>
       <td>0.0%</td>
+    </tr>
+  </tbody>
+</table>
+
+Comparing it to the test dataset
+
+![Image 5_1 probability](https://github.com/akshaybabloo/Car-ND/raw/master/Project_2/images/image5_1_p.png)
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Lable</th>
+      <th>Name</th>
+      <th>Probability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>21</td>
+      <td>Double curve</td>
+      <td>2.9%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>40</td>
+      <td>Roundabout mandatory</td>
+      <td>2.8%</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>22</td>
+      <td>Bumpy road</td>
+      <td>2.8%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>36</td>
+      <td>Go straight or right</td>
+      <td>2.8%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20</td>
+      <td>Dangerous curve to the right</td>
+      <td>2.7%</td>
     </tr>
   </tbody>
 </table>
