@@ -30,3 +30,12 @@ Dropout in Keras
    :undoc-members:
    :show-inheritance:
    :private-members:
+
+Testing in Keras
+----------------
+
+.. automodule:: Term_1.Keras_7.keras_testing_4
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
