@@ -67,7 +67,19 @@ Files for DNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/ma
 
 ### Convolutional Neural Network
 
-Files fo CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/CNN_5)
+Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/CNN_5)
+
+### Traffic Sign Classifier
+
+Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/TrafficSignalClassifier_6)
+
+### Keras
+
+Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/Keras_7)
+
+### Transfer learning
+
+Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/Transfer_Learning_8)
 
 ## License and Disclaimer
 
