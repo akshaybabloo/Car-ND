@@ -3,6 +3,12 @@ Keras
 
 Keras is a high level framework for Neural Networks, it also uses TensorFlow under the hood.
 
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+
+   keras_FFNN
+
 
 Multi-Layer Perceptron using Keras
 ----------------------------------
