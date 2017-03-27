@@ -6,14 +6,14 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 
 - [Documentations](#documentations)
 - [Term 1](#term-1)
-	- [Finding Lanes](#finding-lanes)
-	- [MiniFlow](#miniflow)
-	- [TensorFlow](#tensorflow)
-	- [Deep Neural Network](#deep-neural-network)
-	- [Convolutional Neural Network](#convolutional-neural-network)
-	- [Traffic Sign Classifier](#traffic-sign-classifier)
-	- [Keras](#keras)
-	- [Transfer learning](#transfer-learning)
+	- [1 Finding Lanes](#1-finding-lanes)
+	- [2 MiniFlow](#2-miniflow)
+	- [3 TensorFlow](#3-tensorflow)
+	- [4 Deep Neural Network](#4-deep-neural-network)
+	- [5 Convolutional Neural Network](#5-convolutional-neural-network)
+	- [6 Traffic Sign Classifier](#6-traffic-sign-classifier)
+	- [7 Keras](#7-keras)
+	- [8 Transfer learning](#8-transfer-learning)
 - [License and Disclaimer](#license-and-disclaimer)
 
 <!-- /TOC -->
@@ -50,7 +50,7 @@ If there are no errors, the `index.html` will be in `build/html/index.html`, dou
 
 Term 1 is mainly focused on finding the lanes and objects correctly using various algorithms and computer vision.
 
-### Finding Lanes
+### 1 Finding Lanes
 
 In this section we were introduced to the basic knowledge of Computer Vison using [OpenCV](http://opencv.org/) and [Python](https://www.python.org/download/releases/3.0/). The files are available [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term-1/Finding_Lane_Lines).
 
@@ -60,35 +60,35 @@ More on this in my blog [Part 1.1 Car-ND: Detect road lanes using Computer Visio
 
 ![Road lanes](https://github.com/akshaybabloo/Car-ND/raw/master/Screenshots/road_lanes.png)
 
-### MiniFlow
+### 2 MiniFlow
 
 A Stochastic Gradient Descent based Backpropogation algorithm to minimise the error.
 
 Files can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/MinFlow)
 
-### TensorFlow
+### 3 TensorFlow
 
 An introduction to [TensorFlow](https://www.tensorflow.org).
 
 Files can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/TensorFlow)
 
-### Deep Neural Network
+### 4 Deep Neural Network
 
 Files for DNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/DeepNeuralNetwork_4).
 
-### Convolutional Neural Network
+### 5 Convolutional Neural Network
 
 Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/CNN_5)
 
-### Traffic Sign Classifier
+### 6 Traffic Sign Classifier
 
 Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/TrafficSignalClassifier_6)
 
-### Keras
+### 7 Keras
 
 Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/Keras_7)
 
-### Transfer learning
+### 8 Transfer learning
 
 Files for CNN can be found [here](https://github.com/akshaybabloo/Car-ND/tree/master/Term_1/Transfer_Learning_8)
 
