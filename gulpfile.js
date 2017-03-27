@@ -3,7 +3,7 @@ var exec = require('gulp-exec');
 
 
 gulp.task('make_html', function (cb) {
-    process.chdir("./Docs");
+    process.chdir("./docs");
     var reportOptions = {
         err: true, // default = true, false means don't write err
         stderr: true, // default = true, false means don't write stderr

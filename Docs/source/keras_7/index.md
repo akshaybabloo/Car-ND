@@ -8,6 +8,7 @@ Keras is a high level framework for Neural Networks, it also uses TensorFlow und
    :caption: Contents:
 
    keras_FFNN
+   keras_CNN
 
 
 Multi-Layer Perceptron using Keras
