@@ -36,6 +36,8 @@ Once you have installed `Node.js`, do the following
     gulp
     ```
 
+If there are no errors, the `index.html` will be in `build/html/index.html`, double clicking that will open in a web browser.
+
 **or**
 
 Open `docs` folder in `Command Prompt` or `Terminal` and type in
@@ -43,8 +45,6 @@ Open `docs` folder in `Command Prompt` or `Terminal` and type in
 ```
 make html
 ```
-
-If there are no errors, the `index.html` will be in `build/html/index.html`, double clicking that will open in a web browser.
 
 ## Term 1
 
