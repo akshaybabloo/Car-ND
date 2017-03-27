@@ -157,8 +157,6 @@ checkpoint
 lenet.data-00000-of-00001
 lenet.index
 lenet.meta
-/Term_1/TensorFlow_3/TensorFlow_Lab/notMNIST_test.zip
-/Term_1/TensorFlow_3/TensorFlow_Lab/notMNIST_train.zip
 train-images-idx3-ubyte.gz
 t10k-images-idx3-ubyte.gz
 t10k-labels-idx1-ubyte.gz
