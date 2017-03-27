@@ -11,6 +11,9 @@ Udacity "Self-Driving Car Engineer" Nanodegree files
 	- [TensorFlow](#tensorflow)
 	- [Deep Neural Network](#deep-neural-network)
 	- [Convolutional Neural Network](#convolutional-neural-network)
+	- [Traffic Sign Classifier](#traffic-sign-classifier)
+	- [Keras](#keras)
+	- [Transfer learning](#transfer-learning)
 - [License and Disclaimer](#license-and-disclaimer)
 
 <!-- /TOC -->
