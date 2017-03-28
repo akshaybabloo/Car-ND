@@ -24,9 +24,10 @@ Projects
 
 .. toctree::
    :maxdepth: 3
-   :caption: Contents: Projects for Car-ND
+   :caption: Projects done in this course
 
-   Projects/index
+   Projects/project_1
+   Projects/project_2
 
 
 Indices and tables
