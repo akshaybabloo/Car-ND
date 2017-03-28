@@ -38,8 +38,75 @@ For example let us consider a very simple CNN network:
 .. figure:: 02-guide-how-transfer-learning-v3-03.png
    :align: center
 
-   Small Data Set, Similar Data (Source: Udacity).
+   Case 1: Small Data Set, Similar Data (Source: Udacity).
 
+If the new data set is small and similar to the original training data:
+
+* slice off the end of the neural network
+* add a new fully connected layer that matches the number of classes in the new data set
+* randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+* train the network to update the weights of the new fully connected layer
+
+To avoid overfitting on the small data set, the weights of the original network will be held constant rather than re-training the weights.
+
+Since the data sets are similar, images from each data set will have similar higher level features. Therefore most or all of the pre-trained neural network layers already contain relevant information about the new data set and should be kept.
+
+Here's how to visualize this approach:
+
+.. figure:: 02-guide-how-transfer-learning-v3-04.png
+   :align: center
+
+   Neural Network with Small Data Set, Similar Data (Source: Udacity).
+
+**Case 2: Small Data Set, Different Data:**
+
+.. figure:: 02-guide-how-transfer-learning-v3-05.png
+   :align: center
+
+   Case 2: Small Data Set, Different Data (Source: Udacity).
+
+If the new data set is small and different from the original training data:
+
+* slice off most of the pre-trained layers near the beginning of the network
+* add to the remaining pre-trained layers a new fully connected layer that matches the number of classes in the new data set
+* randomize the weights of the new fully connected layer; freeze all the weights from the pre-trained network
+* train the network to update the weights of the new fully connected layer
+
+Because the data set is small, overfitting is still a concern. To combat overfitting, the weights of the original neural network will be held constant, like in the first case.
+
+But the original training set and the new data set do not share higher level features. In this case, the new network will only use the layers containing lower level features.
+
+Here is how to visualize this approach:
+
+.. figure:: 02-guide-how-transfer-learning-v3-06.png
+   :align: center
+
+   Neural Network with Small Data Set, Different Data (Source: Udacity).
+
+**Case 3: Large Data Set, Similar Data**
+
+.. figure:: 02-guide-how-transfer-learning-v3-07.png
+   :align: center
+
+   Case 3: Large Data Set, Similar Data (Source: Udacity).
+
+If the new data set is large and similar to the original training data:
+
+* remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+* randomly initialize the weights in the new fully connected layer
+* initialize the rest of the weights using the pre-trained weights
+* re-train the entire neural network
+
+Overfitting is not as much of a concern when training on a large data set; therefore, you can re-train all of the weights.
+
+Because the original training set and the new data set share higher level features, the entire neural network is used as well.
+
+Here is how to visualize this approach:
+
+.. figure:: 02-guide-how-transfer-learning-v3-08.png
+   :align: center
+
+   Neural Network with Large Data Set, Similar Data (Source: Udacity).
 
 Reference
 ---------
