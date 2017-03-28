@@ -108,6 +108,30 @@ Here is how to visualize this approach:
 
    Neural Network with Large Data Set, Similar Data (Source: Udacity).
 
+**Case 4: Large Data Set, Different Data**
+
+.. figure:: 02-guide-how-transfer-learning-v3-09.png
+   :align: center
+
+   Case 4: Large Data Set, Different Data
+
+If the new data set is large and different from the original training data:
+
+* remove the last fully connected layer and replace with a layer matching the number of classes in the new data set
+* retrain the network from scratch with randomly initialized weights
+* alternatively, you could just use the same strategy as the "large and similar" data case
+
+Even though the data set is different from the training data, initializing the weights from the pre-trained network might make training faster. So this case is exactly the same as the case with a large, similar data set.
+
+If using the pre-trained network as a starting point does not produce a successful model, another option is to randomly initialize the convolutional neural network weights and train the network from scratch.
+
+Here is how to visualize this approach:
+
+.. figure:: 02-guide-how-transfer-learning-v3-10.png
+   :align: center
+
+   Neural Network with Large Data Set, Different Data (Source: Udacity).
+
 Reference
 ---------
 
