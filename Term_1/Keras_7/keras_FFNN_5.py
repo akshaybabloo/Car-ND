@@ -1,13 +1,14 @@
 """
 A simple two layer Feed Forward Neural Network using Keras.
 """
-import pickle
-import numpy as np
-from sklearn.model_selection import train_test_split
 import math
+import pickle
+
+import numpy as np
+from keras.layers import Dense
 from keras.models import Sequential
-from keras.layers import Dense, Input, Activation
 from keras.utils import np_utils
+from sklearn.model_selection import train_test_split
 
 
 def run():
