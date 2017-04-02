@@ -171,3 +171,4 @@ train-labels-idx1-ubyte.gz
 *.p
 *.zip
 *.html
+*.npy
