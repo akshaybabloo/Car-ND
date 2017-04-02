@@ -12,7 +12,8 @@ You must consider using Transfer Learning when consider these four use cases:
 
 A simple guide when using Transfer Learning.
 
-.. figure:: 02-guide-how-transfer-learning-v3-01.png
+.. figure:: images/02-guide-how-transfer-learning-v3-01.png
+   :scale: 50%
    :align: center
 
    Four Cases When Using Transfer Learning (Source: Udacity).
@@ -28,14 +29,16 @@ Example
 
 For example let us consider a very simple CNN network:
 
-.. figure:: 02-guide-how-transfer-learning-v3-02.png
+.. figure:: images/02-guide-how-transfer-learning-v3-02.png
+   :scale: 50%
    :align: center
 
    A simple CNN network (Source: Udacity).
 
 **Case 1: Small Data Set, Similar Data:**
 
-.. figure:: 02-guide-how-transfer-learning-v3-03.png
+.. figure:: images/02-guide-how-transfer-learning-v3-03.png
+   :scale: 50%
    :align: center
 
    Case 1: Small Data Set, Similar Data (Source: Udacity).
@@ -53,14 +56,16 @@ Since the data sets are similar, images from each data set will have similar hig
 
 Here's how to visualize this approach:
 
-.. figure:: 02-guide-how-transfer-learning-v3-04.png
+.. figure:: images/02-guide-how-transfer-learning-v3-04.png
+   :scale: 50%
    :align: center
 
    Neural Network with Small Data Set, Similar Data (Source: Udacity).
 
 **Case 2: Small Data Set, Different Data:**
 
-.. figure:: 02-guide-how-transfer-learning-v3-05.png
+.. figure:: images/02-guide-how-transfer-learning-v3-05.png
+   :scale: 50%
    :align: center
 
    Case 2: Small Data Set, Different Data (Source: Udacity).
@@ -78,14 +83,16 @@ But the original training set and the new data set do not share higher level fea
 
 Here is how to visualize this approach:
 
-.. figure:: 02-guide-how-transfer-learning-v3-06.png
+.. figure:: images/02-guide-how-transfer-learning-v3-06.png
+   :scale: 50%
    :align: center
 
    Neural Network with Small Data Set, Different Data (Source: Udacity).
 
 **Case 3: Large Data Set, Similar Data**
 
-.. figure:: 02-guide-how-transfer-learning-v3-07.png
+.. figure:: images/02-guide-how-transfer-learning-v3-07.png
+   :scale: 50%
    :align: center
 
    Case 3: Large Data Set, Similar Data (Source: Udacity).
@@ -103,14 +110,16 @@ Because the original training set and the new data set share higher level featur
 
 Here is how to visualize this approach:
 
-.. figure:: 02-guide-how-transfer-learning-v3-08.png
+.. figure:: images/02-guide-how-transfer-learning-v3-08.png
+   :scale: 50%
    :align: center
 
    Neural Network with Large Data Set, Similar Data (Source: Udacity).
 
 **Case 4: Large Data Set, Different Data**
 
-.. figure:: 02-guide-how-transfer-learning-v3-09.png
+.. figure:: images/02-guide-how-transfer-learning-v3-09.png
+   :scale: 50%
    :align: center
 
    Case 4: Large Data Set, Different Data
@@ -127,7 +136,8 @@ If using the pre-trained network as a starting point does not produce a successf
 
 Here is how to visualize this approach:
 
-.. figure:: 02-guide-how-transfer-learning-v3-10.png
+.. figure:: images/02-guide-how-transfer-learning-v3-10.png
+   :scale: 50%
    :align: center
 
    Neural Network with Large Data Set, Different Data (Source: Udacity).
