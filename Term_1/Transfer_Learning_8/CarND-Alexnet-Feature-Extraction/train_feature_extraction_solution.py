@@ -4,7 +4,7 @@ import tensorflow as tf
 from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
-from .alexnet import AlexNet
+from alexnet import AlexNet
 
 nb_classes = 43
 epochs = 10

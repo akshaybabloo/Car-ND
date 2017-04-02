@@ -1,7 +1,7 @@
 import pickle
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
-from .alexnet import AlexNet
+from alexnet import AlexNet
 
 # TODO: Load traffic signs data.
 
