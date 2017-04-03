@@ -4,10 +4,10 @@ import tensorflow as tf
 net_data = np.load("bvlc-alexnet.npy", encoding="latin1").item()
 
 
-def conv(input, kernel, biases, k_h, k_w, c_o, s_h, s_w,  padding="VALID", group=1):
-    '''
+def conv(input, kernel, biases, k_h, k_w, c_o, s_h, s_w, padding="VALID", group=1):
+    """
     From https://github.com/ethereon/caffe-tensorflow
-    '''
+    """
     c_i = input.get_shape()[-1]
     assert c_i % group == 0
     assert c_o % group == 0
