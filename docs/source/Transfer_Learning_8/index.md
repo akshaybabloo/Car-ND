@@ -8,6 +8,7 @@ Transfer Learning
    alex_net
    vgg_net
    GoogLeNet
+   ResNet
 
 What is Transfer Learning?
 --------------------------
