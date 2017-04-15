@@ -9,6 +9,7 @@ Transfer Learning
    vgg_net
    GoogLeNet
    ResNet
+   feature_extraction
 
 What is Transfer Learning?
 --------------------------
