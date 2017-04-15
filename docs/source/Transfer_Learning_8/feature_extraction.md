@@ -3,7 +3,7 @@ Feature Extraction
 
 Retraining the network with an additional fully connected layer.
 
-For code see
+For code see https://github.com/akshaybabloo/Car-ND/blob/master/Term_1/Transfer_Learning_8/feature_extraction_8_2.py
 
 
 When to use Feature extraction, fine-tuning or training from scratch
