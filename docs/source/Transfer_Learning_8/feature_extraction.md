@@ -5,6 +5,11 @@ Retraining the network with an additional fully connected layer.
 
 For code see https://github.com/akshaybabloo/Car-ND/blob/master/Term_1/Transfer_Learning_8/feature_extraction_8_2.py
 
+To run the code do::
+
+    python --training_file trained_weights.p --validation_file validated_weights.p
+
+    Make sure your trained and validated data has ``features`` and ``labels`` keywords.
 
 When to use Feature extraction, fine-tuning or training from scratch
 --------------------------------------------------------------------

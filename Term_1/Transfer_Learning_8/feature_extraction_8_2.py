@@ -1,3 +1,8 @@
+"""
+python --training_file trained_weights.p --validation_file validated_weights.p
+
+Make sure your trained and validated data has ``features`` and ``labels`` keywords.
+"""
 import pickle
 import tensorflow as tf
 import numpy as np
