@@ -6,6 +6,7 @@ Transfer Learning
    :caption: Contents:
 
    alex_net
+   vgg_net
 
 What is Transfer Learning?
 --------------------------
