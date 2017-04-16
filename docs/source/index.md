@@ -29,6 +29,7 @@ Projects
 
    Projects/project_1
    Projects/project_2
+   Projects/project_3
 
 
 Indices and tables
