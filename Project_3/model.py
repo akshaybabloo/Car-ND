@@ -2,6 +2,7 @@ import pickle
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Convolution2D, Dropout
 from keras.optimizers import Adam
 from keras.models import Sequential
+from keras.callbacks import ModelCheckpoint
 
 """
 2. Creating the model
@@ -53,7 +54,9 @@ model.compile(optimizer=adam, loss="mse", metrics=['accuracy'])
 
 print("Model summary:\n", model.summary())
 
-model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=7)
+check_point = ModelCheckpoint(filepath="./tmp/v2-weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=False)
+
+model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=7, callbacks=[check_point])
 
 # Saving model to json file
 model_json = model.to_json()
