@@ -36,8 +36,8 @@ for line in lines:
     for camera in range(3):
         source_path = line[camera]
         file_name = source_path.split('/')[-1]
-        current_path = full_path_img + file_name
-        image = cv2.imread(current_path)
+        # current_path = os.path.abspath(full_path_img + file_name)
+        image = cv2.imread(file_name)
         images.append(image)
         measurement = float(line[3])
         measurements.append(measurement)
