@@ -23,15 +23,15 @@ model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160, 320, 3)))
 model.add(Cropping2D(cropping=((70, 25), (0, 0))))
 
 # Conv layer 1
-model.add(Convolution2D(16, 8, 8, subsample=(4, 4), border_mode="same"))
+model.add(Convolution2D(16, (8, 8), subsample=(4, 4), border_mode="same"))
 model.add(ELU())
 
 # Conv layer 2
-model.add(Convolution2D(32, 5, 5, subsample=(2, 2), border_mode="same"))
+model.add(Convolution2D(32, (5, 5), subsample=(2, 2), border_mode="same"))
 model.add(ELU())
 
 # Conv layer 3
-model.add(Convolution2D(64, 5, 5, subsample=(2, 2), border_mode="same"))
+model.add(Convolution2D(64, (5, 5), subsample=(2, 2), border_mode="same"))
 
 model.add(Flatten())
 model.add(Dropout(.2))
