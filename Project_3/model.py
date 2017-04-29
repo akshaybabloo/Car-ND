@@ -56,7 +56,7 @@ print("Model summary:\n", model.summary())
 
 check_point = ModelCheckpoint(filepath="temp/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=False)
 
-model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=30, callbacks=[check_point])
+model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=5, callbacks=[check_point])
 
 # Saving model to json file
 model_json = model.to_json()
@@ -64,5 +64,9 @@ with open("model.json", "w") as json_file:
     json_file.write(model_json)
 
 # Saving weights
-model.save_weights("model.h5")
+model.save_weights("model_weights.h5")
+print("Saved model to disk")
+
+# Saving model
+model.save("model.h5")
 print("Saved model to disk")
