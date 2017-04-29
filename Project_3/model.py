@@ -70,7 +70,7 @@ with open("model.json", "w") as json_file:
 
 # Saving weights
 model.save_weights("model_weights.h5")
-print("Saved model to disk")
+print("Saved weights to disk")
 
 # Saving model
 model.save("model.h5")
