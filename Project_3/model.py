@@ -1,9 +1,10 @@
 import os
 import pickle
-from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Convolution2D, Dropout
-from keras.optimizers import Adam
-from keras.models import Sequential
+
 from keras.callbacks import ModelCheckpoint
+from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Convolution2D, Dropout
+from keras.models import Sequential
+from keras.optimizers import Adam
 
 """
 2. Creating the model
