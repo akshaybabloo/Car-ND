@@ -62,7 +62,7 @@ if not os.path.isdir('temp'):
 
 check_point = ModelCheckpoint(filepath="temp/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=False)
 
-model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=5, callbacks=[check_point])
+model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=35, callbacks=[check_point])
 
 # Saving model to json file
 model_json = model.to_json()
