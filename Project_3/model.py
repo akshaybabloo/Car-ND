@@ -1,3 +1,4 @@
+import os
 import pickle
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Convolution2D, Dropout
 from keras.optimizers import Adam
@@ -53,6 +54,10 @@ adam = Adam(lr=0.0001)
 model.compile(optimizer=adam, loss="mse", metrics=['accuracy'])
 
 print("Model summary:\n", model.summary())
+
+# Create temp directory if it does not exist.
+if not os.path.isdir('temp'):
+    os.mkdir('temp')
 
 check_point = ModelCheckpoint(filepath="temp/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=False)
 
