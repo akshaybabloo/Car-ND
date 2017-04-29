@@ -25,7 +25,6 @@ with open(full_path_csv) as csv_file:
     reader = csv.reader(csv_file)
     for line in reader:
         lines.append(line)
-
 log.info("driving_log.csv read.")
 log.info('Reading images.')
 
@@ -35,9 +34,9 @@ measurements = []
 for line in lines:
     for camera in range(3):
         source_path = line[camera]
-        file_name = source_path.split('/')[-1]
-        # current_path = os.path.abspath(full_path_img + file_name)
-        image = cv2.imread(file_name)
+        file_name = source_path.split(os.sep)[-1]
+        current_path = os.path.abspath(full_path_img + file_name)
+        image = cv2.imread(current_path)
         images.append(image)
         measurement = float(line[3])
         measurements.append(measurement)
