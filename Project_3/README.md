@@ -5,7 +5,7 @@
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [1 Preparing the data](#1-preparing-the-data)
-	- [1.1 Details of `make_pickle.py`](#11-details-of-makepicklepy)
+	- [1.1 Details of `preprocessor_modeler.py`](#11-details-of-preprocessormodelerpy)
 - [2 Data Modelling](#2-data-modelling)
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
 - [3 Loss Plots](#3-loss-plots)
@@ -14,7 +14,7 @@
 
 <!-- /TOC -->
 
-In this project the author has tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
+In this project, I have tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
 
 The simulator, once the recording is completed, outputs the camera frames as following files:
 
@@ -40,7 +40,7 @@ The simulator, once the recording is completed, outputs the camera frames as fol
 6. Column 6 - Angle to turn `right`
 7. Column 7 - Speed
 
-In this project the author would consider `[center, left and right]` as `x_train` and the `left` angles as `y_train`.
+In this project, I would consider `[center, left and right]` as `x_train` and the `left` angles as `y_train`.
 
 ![Merged first frame](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/merge_frame.jpg)
 First frame of `left`, `center` and `right` after the data has been acquired, whos data is given by:
@@ -51,7 +51,7 @@ First frame of `left`, `center` and `right` after the data has been acquired, wh
 
 ---
 
-The author has split this project into four sections:
+I have split this project into four sections:
 
 1. Preparing the data
 2. Data modelling
@@ -61,7 +61,7 @@ The author has split this project into four sections:
 **File Structure**
 
 * `drive.py` - A server to send regression angles to the simulator.
-* `make_pickle.py` - Read the data from the folder and pickle them into `data.p`.
+* `preprocessor_modeler.py` - Read the data from the folder and pickle them into `data.p`.
 * `model.py` - Create model for each epoch, save the loss values and the final model.
 * `plot_loss.py` - To plot the loss values.
 * `model.json` - Summary of the model in JSON format.
@@ -69,9 +69,9 @@ The author has split this project into four sections:
 
 ## 1 Preparing the data
 
-As mentioned earlier, the author used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the center of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
+As mentioned earlier, I used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the center of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
 
-The data was not converted into grayscale because the author thinks that the color aspect is an import feature for any neural network to work.
+The data was not converted into grayscale because I think that the color aspect is an import feature for any neural network to work.
 
 The next step was to augment the data to remove any noise, for this to happen the frames were flipped vertically and appended to the original data, which doubled the dataset to `13658` samples.
 
@@ -80,7 +80,7 @@ First frame of `left`, `center` and `right` flipped.
 
 These samples were then pickled into one file and named it as `data.p`.
 
-### 1.1 Details of `make_pickle.py`
+### 1.1 Details of `preprocessor_modeler.py`
 
 The content of the file is as follows:
 
@@ -144,7 +144,7 @@ Following is the description of `model.py` file:
 
 * From line `15` to `31`, its a custom class to log all the loss vales while training the data.
 * From line `35` to `36`, reading the pickled data.
-* AT line `38`, the author is loading `x_train` and `y_train`
+* AT line `38`, I am loading `x_train` and `y_train`
 * At line `41`, Keras `Sequential` model is initialised.
 * At line `44`, Keras `Lambda` class is added to write a Python's `lambda` function to normalise the data.
 * At line `46`, unwanted content of the image is cropped, `70` pixels of upper and `25` pixels of the bottom image is removed.
