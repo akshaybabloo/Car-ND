@@ -173,9 +173,9 @@ train-labels-idx1-ubyte.gz
 *.html
 *.npy
 /Term_1/behavioral_cloning_9/CarND-Behavioral-Cloning-P3/data/
-/Project_3/model.h5
-/Project_3/model50.h5
-/Project_3/temp/
-/Project_3/temp50/
+/Project_3/*.h5
+/Project_3/temp/*hdf5
+/Project_3/temp50/*hdf5
+/Project_3/temp100/*hdf5
 
 Project_3/model_weights\.h5
