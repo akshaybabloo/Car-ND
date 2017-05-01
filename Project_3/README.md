@@ -1,6 +1,6 @@
 # **Behavioral Cloning**
 
-** Table of Content **
+**Table of Content**
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -55,7 +55,7 @@ The author has split this project into four sections:
 3. Plotting the loss
 4. Data prediction (regression)
 
-** File Structure **
+**File Structure**
 
 * `drive.py` - A server to send regression angles to the simulator.
 * `make_pickle.py` - Read the data from the folder and pickle them into `data.p`.
