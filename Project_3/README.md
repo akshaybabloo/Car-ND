@@ -1,5 +1,11 @@
 # **Behavioral Cloning**
 
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [1 Preparing the data](#1-preparing-the-data)
+- [2 Data modelling](#2-data-modelling)
+<!-- /TOC -->
+
 In this project the author has tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
 
 The simulator, once the recording is completed, outputs the camera frames as following files:
