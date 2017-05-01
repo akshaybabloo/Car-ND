@@ -1,8 +1,30 @@
 # **Behavioral Cloning**
 
-## Writeup Template
+In this project the author has tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
 
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+The simulator, once the recording is completed, outputs the camera frames as following files:
+
+```
++-- IMG
+|    |
+|    +-- center_*.jpg
+|    +-- ..
+|    +-- right_*.jpg
+|    +-- ..
+|    +-- left_*.jpg
+|    `-- ..
+`-- driving_log.csv
+```
+
+`center_*.jpg`, `right_*.jpg` and `left_*.jpg` are the camera angles (3 cameras placed on left, right and center of the car.). `driving_log.csv` has seven columns, describing as follows:
+
+1. Column 1 - Location and name of `center` frame
+2. Column 2 - Location and name of `left` frame
+3. Column 3 - Location and name of `right` frame
+4. Column 4 - Angel to turn `left`
+5. Column 5 - Acceleration
+6. Column 6 - Angel to turn `right`
+7. Column 7 - Speed
 
 ---
 
@@ -51,6 +73,48 @@ python drive.py model.h5
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
 ### Model Architecture and Training Strategy
+
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+lambda_1 (Lambda)            (None, 160, 320, 3)       0
+_________________________________________________________________
+cropping2d_1 (Cropping2D)    (None, 65, 320, 3)        0
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 17, 80, 16)        3088
+_________________________________________________________________
+elu_1 (ELU)                  (None, 17, 80, 16)        0
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 9, 40, 32)         12832
+_________________________________________________________________
+elu_2 (ELU)                  (None, 9, 40, 32)         0
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 5, 20, 64)         51264
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 6400)              0
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 6400)              0
+_________________________________________________________________
+elu_3 (ELU)                  (None, 6400)              0
+_________________________________________________________________
+dense_1 (Dense)              (None, 512)               3277312
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 512)               0
+_________________________________________________________________
+elu_4 (ELU)                  (None, 512)               0
+_________________________________________________________________
+dense_2 (Dense)              (None, 50)                25650
+_________________________________________________________________
+elu_5 (ELU)                  (None, 50)                0
+_________________________________________________________________
+dense_3 (Dense)              (None, 1)                 51
+=================================================================
+Total params: 3,370,197
+Trainable params: 3,370,197
+Non-trainable params: 0
+_________________________________________________________________
+```
 
 #### 1. An appropriate model architecture has been employed
 
