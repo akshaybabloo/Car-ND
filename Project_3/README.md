@@ -44,6 +44,15 @@ The author has split this project into four sections:
 3. Plotting the loss
 4. Data prediction (regression)
 
+** File Structure **
+
+* `drive.py` - A server to send regression angles to the simulator.
+* `make_pickle.py` - Read the data from the folder and pickle them into `data.p`.
+* `model.py` - Create model for each epoch, save the loss values and the final model.
+* `plot_loss.py` - To plot the loss values.
+* `model.json` - Summary of the model in JSON format.
+* `README.md` - Detailed explanation of the project.
+
 ## 1 Preparing the data
 
 As mentioned earlier, the author used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the center of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
