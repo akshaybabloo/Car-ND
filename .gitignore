@@ -179,3 +179,4 @@ train-labels-idx1-ubyte.gz
 /Project_3/temp100/*hdf5
 
 Project_3/model_weights\.h5
+*.mp4
