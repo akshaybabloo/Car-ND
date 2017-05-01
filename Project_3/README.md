@@ -1,9 +1,14 @@
 # **Behavioral Cloning**
 
+** Table of Content **
+
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [1 Preparing the data](#1-preparing-the-data)
-- [2 Data modelling](#2-data-modelling)
+- [2 Data Modelling](#2-data-modelling)
+	- [2.1 Details of `model.py`](#21-details-of-modelpy)
+	- [2.2 Loss Plots](#22-loss-plots)
+
 <!-- /TOC -->
 
 In this project the author has tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
@@ -68,52 +73,14 @@ The data was not converted into grayscale because the author thinks that the col
 The next step was to augment the data to remove any noise, for this to happen the frames were flipped vertically and appended to the original data, which doubled the dataset to `13658` samples.
 
 ![Flipped image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/merge_flipped.jpg)
+First frame of `left`, `center` and `right` flipped.
 
 These samples were then pickled into one file and named it as `data.p`.
 
-The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior
-* Build, a convolution neural network in Keras that predicts steering angles from images
-* Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
+## 2 Data Modelling
 
+`model.py` contains the code for modelling that uses CNN, whose summery is given by:
 
-[//]: # (Image References)
-
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
-
----
-### Files Submitted & Code Quality
-
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
-
-My project includes the following files:
-* model.py containing the script to create and train the model
-* drive.py for driving the car in autonomous mode
-* model.h5 containing a trained convolution neural network
-* writeup_report.md or writeup_report.pdf summarizing the results
-
-#### 2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
-```sh
-python drive.py model.h5
-```
-
-#### 3. Submission code is usable and readable
-
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
-
-### Model Architecture and Training Strategy
 
 ```
 _________________________________________________________________
@@ -157,78 +124,40 @@ Non-trainable params: 0
 _________________________________________________________________
 ```
 
-#### 1. An appropriate model architecture has been employed
+### 2.1 Details of `model.py`
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24)
+Following is the description of `model.py` file:
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18).
+* From line `15` to `31`, its a custom class to log all the loss vales while training the data.
+* From line `35` to `36`, reading the pickled data.
+* AT line `38`, the author is loading `x_train` and `y_train`
+* At line `41`, Keras `Sequential` model is initialised.
+* At line `44`, Keras `Lambda` class is added to write a Python's `lambda` function to normalise the data.
+* At line `46`, unwanted content of the image is cropped, `70` pixels of upper and `25` pixels of the bottom image is removed.
+* From line `49` to `57`, Keras convolutions are used that has:
 
-#### 2. Attempts to reduce overfitting in the model
+| Layer                   | Details                                                                                  |
+|-------------------------|------------------------------------------------------------------------------------------|
+| Convolution Layer 1     | Filter: 16 <br> Kernal: 8-by-8 <br> Stride: 4-by-4<br> Padding: SAME<br> Activation: ELU |
+| Convolution Layer 2     | Filter: 32<br> Kernal: 5-by-5<br> Stride: 2-by-2<br> Padding: SAME<br> Activation: ELU   |
+| Convolution Layer 3     | Filter: 64<br> Kernal: 5-by-5<br> Stride: 2-by-2<br> Padding: SAME<br> Activation: ELU   |
+| Flatten layer           | Dropout: 0.2<br> Activation: ELU                                                         |
+| Fully Connected Layer 1 | Neurons: 512<br> Dropout: 0.5<br> Activation: ELU                                        |
+| Fully Connected Layer 1 | Neurons: 50<br> Activation: ELU                                                          |
+| Fully Connected Layer   | Neurons: 1<br> Activation: linear                                                          |
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21).
+* At line `75`, Keras `Adam` optimiser is used with learning rate of `0.0001`.
+* At line `77`, the learning is configured using `Mean Squared Error` for calculating the loss and to calculate the accuracy.
+* From line `82` to `85`, at every epoch, a model is saved.
+* Line `87`, initialises custom history to save loss.
+* At line `88`, the model is trained for `100` epochs, with a validation split of `0.2`, shuffling is enabled.
+* from `90` to `105`, the loss is saved to `model_loss.csv`, total model configuration is saved as JSON file (`model.json`), final model weights are saved to `model_weights.h5` and finally the complete model is saved to `model.h5`
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+### 2.2 Loss Plots
+Loss for `100` epochs is plotted as:
+![100 epochs loss](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/100_epochs.png)
 
-#### 3. Model parameter tuning
+and the average of `100` epochs is given by:
+![Average of 100 epochs](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/average_loss.png)
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
-#### 4. Appropriate training data
-
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ...
-
-For details about how I created the training data, see the next section.
-
-### Model Architecture and Training Strategy
-
-#### 1. Solution Design Approach
-
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting.
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ...
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
-
-#### 2. Final Model Architecture
-
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
-
-#### 3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-![alt text][image6]
-![alt text][image7]
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set.
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+You can see that, from the above plot, the data converges at epochs `77` to `100`, the average loss study between `0.0013` to `0.0012`
