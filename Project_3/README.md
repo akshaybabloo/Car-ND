@@ -8,7 +8,8 @@
 	- [1.1 Details of `make_pickle.py`](#11-details-of-makepicklepy)
 - [2 Data Modelling](#2-data-modelling)
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
-	- [2.2 Loss Plots](#22-loss-plots)
+- [3 Loss Plots](#3-loss-plots)
+	- [3.1 Details of `plot_loss.py`](#31-details-of-plotlosspy)
 
 <!-- /TOC -->
 
@@ -165,7 +166,7 @@ Following is the description of `model.py` file:
 * At line `88`, the model is trained for `100` epochs, with a validation split of `0.2`, shuffling is enabled.
 * from `90` to `105`, the loss is saved to `model_loss.csv`, total model configuration is saved as JSON file (`model.json`), final model weights are saved to `model_weights.h5` and finally the complete model is saved to `model.h5`
 
-### 2.2 Loss Plots
+## 3 Loss Plots
 Loss for `100` epochs is plotted as:
 ![100 epochs loss](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/100_epochs.png)
 
@@ -173,3 +174,12 @@ and the average of `100` epochs is given by:
 ![Average of 100 epochs](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/average_loss.png)
 
 You can see that, from the above plot, the data converges at epochs `77` to `100`, the average loss study between `0.0013` to `0.0012`
+
+### 3.1 Details of `plot_loss.py`
+
+The `plot_loss.py` contains the following:
+
+* At line `9`, an absolute path of `model_loss.csv` is taken.
+* At line `10`, using Pandas `read_csv`, the `modle_loss.csv` file is read.
+* From line `12` to `15`, the raw loss is plotted (which can be seen above).
+* From line `17` to `22`, an average is taken for each epoch and plotted (which can be seen above).
