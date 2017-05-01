@@ -21,14 +21,38 @@ The simulator, once the recording is completed, outputs the camera frames as fol
 1. Column 1 - Location and name of `center` frame
 2. Column 2 - Location and name of `left` frame
 3. Column 3 - Location and name of `right` frame
-4. Column 4 - Angel to turn `left`
+4. Column 4 - Angle to turn `left`
 5. Column 5 - Acceleration
-6. Column 6 - Angel to turn `right`
+6. Column 6 - Angle to turn `right`
 7. Column 7 - Speed
+
+In this project the author would consider `[center, left and right]` as `x_train` and the `left` angles as `y_train`.
+
+![Merged first frame](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/merge_frame.jpg)
+First frame of `left`, `center` and `right` after the data has been acquired, whos data is given by:
+
+| Left File Name                   | Center File Name                   | Right File Name                   | Left Angle | Acceleration | Right Angle | Speed |
+|----------------------------------|------------------------------------|-----------------------------------|------------|--------------|-------------|-------|
+| left_2017_04_28_16_17_58_298.jpg | center_2017_04_28_16_17_58_298.jpg | right_2017_04_28_16_17_58_298.jpg | 0          | 0            | 0           | 0     |
 
 ---
 
-**Behavioral Cloning Project**
+The author has split this project into four sections:
+
+1. Preparing the data
+2. Data modelling
+3. Plotting the loss
+4. Data prediction (regression)
+
+## 1 Preparing the data
+
+As mentioned earlier, the author used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the center of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
+
+The data was not converted into grayscale because the author thinks that the color aspect is an import feature for any neural network to work.
+
+The next step was to augment the data to remove any noise, for this to happen the frames were flipped vertically and appended to the original data, which doubled the dataset to `13658` samples.
+
+These samples were then pickled into one file and named it as `data.p`.
 
 The goals / steps of this project are the following:
 * Use the simulator to collect data of good driving behavior
