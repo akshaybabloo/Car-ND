@@ -10,6 +10,7 @@
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
 - [3 Loss Plots](#3-loss-plots)
 	- [3.1 Details of `plot_loss.py`](#31-details-of-plotlosspy)
+- [4 Discussion](#4-discussion)
 
 <!-- /TOC -->
 
@@ -183,3 +184,8 @@ The `plot_loss.py` contains the following:
 * At line `10`, using Pandas `read_csv`, the `modle_loss.csv` file is read.
 * From line `12` to `15`, the raw loss is plotted (which can be seen above).
 * From line `17` to `22`, an average is taken for each epoch and plotted (which can be seen above).
+
+## 4 Discussion
+
+* I have tried to train the model with different values but still the car was not able to turn at the first curve. I think the problem could be with the training data.
+* In future I would like to use `ResNet`.
