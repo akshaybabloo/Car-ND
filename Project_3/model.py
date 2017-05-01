@@ -35,6 +35,7 @@ model.add(ELU())
 # Conv layer 3
 model.add(Conv2D(64, (5, 5), strides=(2, 2), padding="same"))
 
+# Flatten the data
 model.add(Flatten())
 model.add(Dropout(.2))
 model.add(ELU())
