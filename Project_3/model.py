@@ -1,7 +1,6 @@
 import os
 import pickle
 
-import keras
 import numpy as np
 from keras.callbacks import ModelCheckpoint, Callback
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Conv2D, Dropout
