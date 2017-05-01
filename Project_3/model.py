@@ -1,7 +1,9 @@
 import os
 import pickle
 
-from keras.callbacks import ModelCheckpoint
+import keras
+import numpy as np
+from keras.callbacks import ModelCheckpoint, Callback
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, ELU, Conv2D, Dropout
 from keras.models import Sequential
 from keras.optimizers import Adam
@@ -9,6 +11,26 @@ from keras.optimizers import Adam
 """
 2. Creating the model
 """
+
+
+class LossHistory(Callback):
+    """
+    Getting the loss for the epochs.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.losses = []
+
+    def on_train_begin(self, logs=None):
+        if logs is None:
+            logs = {}
+
+    def on_batch_end(self, batch, logs=None):
+        if logs is None:
+            logs = {}
+        self.losses.append(logs.get('loss'))
+
 
 # Read the pickled data.
 with open('data.p', mode='rb') as f:
@@ -63,7 +85,12 @@ if not os.path.isdir('temp'):
 
 check_point = ModelCheckpoint(filepath="temp/weights.{epoch:02d}-{val_loss:.2f}.hdf5", verbose=1, save_best_only=False)
 
-model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=100, callbacks=[check_point])
+history = LossHistory()
+model.fit(x_train, y_train, validation_split=0.2, shuffle=True, epochs=100, callbacks=[history, check_point])
+
+# Save loss to file
+loss_array = np.asarray(history.losses)
+np.savetxt("model_loss.csv", loss_array, fmt='%10.5f', delimiter=",")
 
 # Saving model to json file
 model_json = model.to_json()
