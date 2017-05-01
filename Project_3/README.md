@@ -5,6 +5,7 @@
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [1 Preparing the data](#1-preparing-the-data)
+	- [1.1 Details of `make_pickle.py`](#11-details-of-makepicklepy)
 - [2 Data Modelling](#2-data-modelling)
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
 	- [2.2 Loss Plots](#22-loss-plots)
@@ -76,6 +77,17 @@ The next step was to augment the data to remove any noise, for this to happen th
 First frame of `left`, `center` and `right` flipped.
 
 These samples were then pickled into one file and named it as `data.p`.
+
+### 1.1 Details of `make_pickle.py`
+
+The content of the file is as follows:
+
+* Line `15` and `16`, points to the absolute path of the `IMG` folder and `driving_log.csv`
+* From line `23` to `27`, contents of the `driving_log.csv` is read.
+* From line `32` to `42`, all images and the angel of each image is read.
+* From line `47` to `54`, a copy of the original images and its angles are made, these copied images and angles are flipped vertically and appended to the copied images.
+* At line `57` and `58`, the data (`augmented_images`) and angles (`augmented_measurements`) are converted into `Numpy` arrays.
+* At line `61`, the data is added as a Python `dictionary` and at line `64`, they are pickled as `data.p`.
 
 ## 2 Data Modelling
 
