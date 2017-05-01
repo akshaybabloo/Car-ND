@@ -52,6 +52,8 @@ The data was not converted into grayscale because the author thinks that the col
 
 The next step was to augment the data to remove any noise, for this to happen the frames were flipped vertically and appended to the original data, which doubled the dataset to `13658` samples.
 
+![Flipped image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/merge_flipped.jpg)
+
 These samples were then pickled into one file and named it as `data.p`.
 
 The goals / steps of this project are the following:
