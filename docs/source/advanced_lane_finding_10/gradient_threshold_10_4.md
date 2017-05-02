@@ -60,3 +60,25 @@ The function you'll define for the exercise below should take in an image and op
 
 1. Fill out the function in the editor below to return a thresholded gradient magnitude. Again, you can apply exclusive ``(<, >)`` or inclusive ``(<=, >=)`` thresholds.
 2. Test that your function returns output similar to the example below for ``sobel_kernel=9, mag_thresh=(30, 100)``.
+
+Direction of the Gradient
+-------------------------
+
+When you play around with the thresholding for the gradient magnitude in the previous exercise, you find what you might expect, namely, that it picks up the lane lines well, but with a lot of other stuff detected too. Gradient magnitude is at the heart of Canny edge detection, and is why Canny works well for picking up all edges.
+
+In the case of lane lines, we're interested only in edges of a particular orientation. So now we will explore the direction, or orientation, of the gradient.
+
+The direction of the gradient is simply the inverse tangent (arctangent) of the y gradient divided by the x gradient:
+
+.. math::
+
+    arctan \left ( sobel_{y} / sobel_{x} \right )
+
+Each pixel of the resulting image contains a value for the angle of the gradient away from horizontal in units of radians, covering a range of :math:`-\frac{\pi }{2}` to :math:`\frac{\pi }{2}`. An orientation of 0 implies a horizontal line and orientations of :math:`\pm \frac{\pi }{2}`
+
+In this next exercise, you'll write a function to compute the direction of the gradient and apply a threshold. The direction of the gradient is much noisier than the gradient magnitude, but you should find that you can pick out particular features by orientation.
+
+**Steps to take in this exercise:**
+
+1. Fill out the function in the editor below to return a thresholded absolute value of the gradient direction. Use Boolean operators, again with exclusive ``(<, >)`` or inclusive ``(<=, >=)`` thresholds.
+2. Test that your function returns output similar to the example below for ``sobel_kernel=15, thresh=(0.7, 1.3)``.
