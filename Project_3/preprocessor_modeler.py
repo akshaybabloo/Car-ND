@@ -13,9 +13,7 @@ from keras.callbacks import Callback
 
 # Some useful constants
 DRIVING_LOG_FILE = os.path.abspath('data' + os.sep + 'driving_log.csv')
-print(DRIVING_LOG_FILE)
 IMG_PATH = os.path.abspath('data' + os.sep + 'IMG') + os.sep
-print(IMG_PATH)
 STEERING_COEFFICIENT = 0.229
 
 
