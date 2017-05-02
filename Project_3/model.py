@@ -59,7 +59,7 @@ adam = Adam(lr=0.0001)
 
 model.compile(optimizer=adam, loss="mse", metrics=['accuracy'])
 
-print("Model summary:\n", model.summary())
+model.summary()
 
 # Create temp directory if it does not exist.
 if not os.path.isdir('temp'):
