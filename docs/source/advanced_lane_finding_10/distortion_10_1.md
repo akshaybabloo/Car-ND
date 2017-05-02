@@ -41,3 +41,9 @@ There are two more coefficients that account for ``tangential distortion: p1 and
 
     x_{corrected} = x + \left [ 2p_{1} xy + p_{2} \left ( r^{2} + 2x^{2} \right ) \right ] \\
     y_{corrected} = y + \left [ p_{1} \left ( r^{2} + 2y^{2} \right ) + 2p_{2} xy \right ]
+
+.. automodule:: Term_1.advanced_lane_finding_10.distortion_10_1
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
