@@ -25,7 +25,7 @@ Note: The distortion coefficient ``k3`` is required to accurately reflect major 
 .. figure:: dist1.png
    :align: center
 
-   Source: Yan LeCun
+   Source: YUdacity
 
 
 Points in a distorted and undistorted (corrected) image. The point (x, y) is a single point in a distorted image and (x_corrected, y_corrected) is where that point will appear in the undistorted (corrected) image.

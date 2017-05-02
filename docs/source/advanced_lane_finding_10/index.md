@@ -10,3 +10,4 @@ In this project I try to locate the correct curves of the video, check for disto
 
    distortion_10_1
    perspective_10_3
+   gradient_threshold_10_4
