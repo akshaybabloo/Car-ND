@@ -80,19 +80,21 @@ history = model.fit_generator(train_gen,
                               validation_steps=6400,
                               verbose=1, callbacks=[history_loss])
 
+preprocessor_modeler(history)
+
 # Save loss to file
 loss_array = np.asarray(history.losses)
 np.savetxt("model_loss.csv", loss_array, fmt='%10.5f', delimiter=",")
 
-# Saving model to json file
-model_json = model.to_json()
-with open("model.json", "w") as json_file:
-    json_file.write(model_json)
-
-# Saving weights
-model.save_weights("model_weights.h5")
-print("Saved weights to disk")
-
-# Saving model
-model.save("model.h5")
-print("Saved model to disk")
+# # Saving model to json file
+# model_json = model.to_json()
+# with open("model.json", "w") as json_file:
+#     json_file.write(model_json)
+#
+# # Saving weights
+# model.save_weights("model_weights.h5")
+# print("Saved weights to disk")
+#
+# # Saving model
+# model.save("model.h5")
+# print("Saved model to disk")
