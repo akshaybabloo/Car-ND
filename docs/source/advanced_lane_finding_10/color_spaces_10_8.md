@@ -70,3 +70,9 @@ There are two possible equations; one is used depending on the value of L.
    :undoc-members:
    :show-inheritance:
    :private-members:
+
+.. automodule:: Term_1.advanced_lane_finding_10.color_gradient_10_9
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
