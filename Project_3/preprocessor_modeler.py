@@ -1,5 +1,3 @@
-import errno
-import json
 import os
 
 import cv2
@@ -225,46 +223,6 @@ def generate_next_batch(batch_size=64):
         yield np.array(X_batch), np.array(y_batch)
 
 
-def save_model(model, model_name_json='model.json', weights_name='model_weights.h5', model_name='model.h5'):
-    """
-    Save the model into the hard disk
-    :param model:
-        Keras model to be saved
-    :param model_name:
-        The name of the model file
-    :param weights_name:
-        The name of the weight file
-    :return:
-        None
-    """
-    silent_delete(model_name_json)
-    silent_delete(weights_name)
-
-    json_string = model.to_json()
-    with open(model_name_json, 'w') as outfile:
-        json.dump(json_string, outfile)
-
-    model.save_weights(weights_name)
-    model.save(model_name)
-
-
-def silent_delete(file):
-    """
-    This method delete the given file from the file system if it is available
-    Source: http://stackoverflow.com/questions/10840533/most-pythonic-way-to-delete-a-file-which-may-not-exist
-    :param file:
-        File to be deleted
-    :return:
-        None
-    """
-    try:
-        os.remove(file)
-
-    except OSError as error:
-        if error.errno != errno.ENOENT:
-            raise
-
-
 def save_loss(loss, file_name="model_loss.csv"):
     """
     Save model's loss to csv.
@@ -298,7 +256,3 @@ class LossHistory(Callback):
         if logs is None:
             logs = {}
         self.losses.append(logs.get('loss'))
-
-
-if __name__ == '__main__':
-    generate_next_batch().__next__()

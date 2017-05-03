@@ -48,15 +48,24 @@ model.summary()
 
 history_loss = preprocessor_modeler.LossHistory()
 
+# Getting the
 train_gen = preprocessor_modeler.generate_next_batch()
 validation_gen = preprocessor_modeler.generate_next_batch()
 
-history = model.fit_generator(train_gen,
-                              steps_per_epoch=20032,
-                              epochs=8,
-                              validation_data=validation_gen,
-                              validation_steps=6400,
-                              verbose=1, callbacks=[history_loss])
+model.fit_generator(train_gen,
+                    steps_per_epoch=10,
+                    epochs=1,
+                    validation_data=validation_gen,
+                    validation_steps=10,
+                    verbose=1, callbacks=[history_loss])
 
-preprocessor_modeler.save_model(history)
+# Saving model to json file
+model_json = model.to_json()
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+
+# Save model
+model.save('model.h5')
+
+# Save losses
 preprocessor_modeler.save_loss(history_loss.losses)
