@@ -53,10 +53,10 @@ train_gen = preprocessor_modeler.generate_next_batch()
 validation_gen = preprocessor_modeler.generate_next_batch()
 
 model.fit_generator(train_gen,
-                    steps_per_epoch=10,
-                    epochs=1,
+                    steps_per_epoch=20032,
+                    epochs=8,
                     validation_data=validation_gen,
-                    validation_steps=10,
+                    validation_steps=6400,
                     verbose=1, callbacks=[history_loss])
 
 # Saving model to json file
