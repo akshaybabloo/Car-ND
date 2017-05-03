@@ -265,6 +265,22 @@ def silent_delete(file):
             raise
 
 
+def save_loss(loss, file_name="model_loss.csv"):
+    """
+    Save model's loss to csv.
+    
+    Parameters
+    ----------
+    loss: list
+        List of errors.
+    file_name: str
+        File name.
+    """
+
+    loss_array = np.asarray(loss)
+    np.savetxt(file_name, loss_array, fmt='%10.5f', delimiter=",")
+
+
 class LossHistory(Callback):
     """
     Getting the loss for the epochs.

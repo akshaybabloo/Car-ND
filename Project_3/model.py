@@ -1,4 +1,3 @@
-import numpy as np
 import preprocessor_modeler
 from keras.layers import Flatten, Dense, Lambda, ELU, Conv2D, Dropout
 from keras.models import Sequential
@@ -59,8 +58,5 @@ history = model.fit_generator(train_gen,
                               validation_steps=6400,
                               verbose=1, callbacks=[history_loss])
 
-
-# Save loss to file
-loss_array = np.asarray(history.losses)
-np.savetxt("model_loss.csv", loss_array, fmt='%10.5f', delimiter=",")
 preprocessor_modeler.save_model(history)
+preprocessor_modeler.save_loss(history_loss.losses)
