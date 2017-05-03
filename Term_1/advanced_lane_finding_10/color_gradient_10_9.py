@@ -1,6 +1,14 @@
 """
 Color and Gradient
 ------------------
+
+At this point, it's okay to detect edges around trees or cars because these lines can be mostly filtered out by 
+applying a mask to the image and essentially cropping out the area outside of the lane lines. It's most important 
+that you reliably detect different colors of lane lines under varying degrees of daylight and shadow. 
+
+You can clearly see which parts of the lane lines were detected by the gradient threshold and which parts were 
+detected by the color threshold by stacking the channels and seeing the individual components. You can create a 
+binary combination of these two images to map out where either the color or gradient thresholds were met. 
 """
 
 import numpy as np
