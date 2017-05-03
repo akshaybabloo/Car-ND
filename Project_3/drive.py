@@ -4,6 +4,7 @@ import json
 import os
 import shutil
 from io import BytesIO
+import h5py
 
 import eventlet.wsgi
 import numpy as np
@@ -11,6 +12,7 @@ import socketio
 from PIL import Image
 from flask import Flask
 from keras.models import model_from_json
+from keras.models import load_model
 from keras import __version__ as keras_version
 
 import preprocessor_modeler
@@ -74,22 +76,6 @@ def send_control(steering_angle, throttle):
 
 
 if __name__ == '__main__':
-    # parser = argparse.ArgumentParser(description='Remote Driving')
-    # parser.add_argument('model', type=str,
-    #                     help='Path to model definition json. Model weights should be on the same path.')
-    # args = parser.parse_args()
-    # with open(args.model, 'r') as jfile:
-    #     model = model_from_json(json.load(jfile))
-    #
-    # model.compile("adam", "mse")
-    # weights_file = args.model.replace('json', 'h5')
-    # model.load_weights(weights_file)
-    #
-    # # wrap Flask application with engineio's middleware
-    # app = socketio.Middleware(sio, app)
-    #
-    # # deploy as an eventlet WSGI server
-    # eventlet.wsgi.server(eventlet.listen(('', 4567)), app)
     parser = argparse.ArgumentParser(description='Remote Driving')
     parser.add_argument(
         'model',
