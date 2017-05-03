@@ -82,3 +82,22 @@ In this next exercise, you'll write a function to compute the direction of the g
 
 1. Fill out the function in the editor below to return a thresholded absolute value of the gradient direction. Use Boolean operators, again with exclusive ``(<, >)`` or inclusive ``(<=, >=)`` thresholds.
 2. Test that your function returns output similar to the example below for ``sobel_kernel=15, thresh=(0.7, 1.3)``.
+
+Combining them together
+------------------------
+
+Combining them together using the following condition:
+
+.. code-block:: python
+
+   combined = np.zeros_like(dir_binary)
+   combined[((gradx == 1) & (grady == 1)) | ((mag_binary == 1) & (dir_binary == 1))] = 1
+
+Code for Combination
+^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: Term_1.advanced_lane_finding_10.combining_threshold_10_7
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
