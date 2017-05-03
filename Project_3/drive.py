@@ -1,20 +1,19 @@
 import argparse
 import base64
-from datetime import datetime
-import os
-import shutil
-
-import numpy as np
-import socketio
-import eventlet
-import eventlet.wsgi
-from PIL import Image
-from flask import Flask
+import json
 from io import BytesIO
 
-from keras.models import load_model
-import h5py
-from keras import __version__ as keras_version
+import eventlet.wsgi
+import numpy as np
+import socketio
+import tensorflow as tf
+from PIL import Image
+from flask import Flask
+from keras.models import model_from_json
+
+import preprocessor_modeler
+
+tf.python.control_flow_ops = tf
 
 sio = socketio.Server()
 app = Flask(__name__)
@@ -85,52 +84,23 @@ def connect(sid, environ):
 
 
 def send_control(steering_angle, throttle):
-    sio.emit(
-        "steer",
-        data={
-            'steering_angle': steering_angle.__str__(),
-            'throttle': throttle.__str__()
-        },
-        skip_sid=True)
+    sio.emit("steer", data={
+        'steering_angle': steering_angle.__str__(),
+        'throttle': throttle.__str__()
+    }, skip_sid=True)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Remote Driving')
-    parser.add_argument(
-        'model',
-        type=str,
-        help='Path to model h5 file. Model should be on the same path.'
-    )
-    parser.add_argument(
-        'image_folder',
-        type=str,
-        nargs='?',
-        default='',
-        help='Path to image folder. This is where the images from the run will be saved.'
-    )
+    parser.add_argument('model', type=str,
+                        help='Path to model definition json. Model weights should be on the same path.')
     args = parser.parse_args()
+    with open(args.model, 'r') as jfile:
+        model = model_from_json(json.load(jfile))
 
-    # check that model Keras version is same as local Keras version
-    f = h5py.File(args.model, mode='r')
-    model_version = f.attrs.get('keras_version')
-    keras_version = str(keras_version).encode('utf8')
-
-    if model_version != keras_version:
-        print('You are using Keras version ', keras_version,
-              ', but the model was built using ', model_version)
-
-    model = load_model(args.model)
-
-    if args.image_folder != '':
-        print("Creating image folder at {}".format(args.image_folder))
-        if not os.path.exists(args.image_folder):
-            os.makedirs(args.image_folder)
-        else:
-            shutil.rmtree(args.image_folder)
-            os.makedirs(args.image_folder)
-        print("RECORDING THIS RUN ...")
-    else:
-        print("NOT RECORDING THIS RUN ...")
+    model.compile("adam", "mse")
+    weights_file = args.model.replace('json', 'h5')
+    model.load_weights(weights_file)
 
     # wrap Flask application with engineio's middleware
     app = socketio.Middleware(sio, app)

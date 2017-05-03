@@ -134,18 +134,53 @@ def min_max(data, a=-0.5, b=0.5):
     return a + (b - a) * ((data - data_min) / (data_max - data_min))
 
 
+def resize(image, new_dim):
+    """
+    Resize image according to the new dimensions.
+    
+    Parameters
+    ----------
+    image: ndarray
+        Image.
+    new_dim: tuple
+        A tuple of new dimensions.
+
+    Returns
+    -------
+    Resize image: ndarray
+        A numpy array or resized image.
+
+    """
+
+    return scipy.misc.imresize(image, new_dim)
+
+
 def generate_new_image(image, steering_angle, top_crop_percent=0.35, bottom_crop_percent=0.1,
                        resize_dim=(64, 64), do_shear_prob=0.9):
     """
-    :param image:
-    :param steering_angle:
-    :param top_crop_percent:
-    :param bottom_crop_percent:
-    :param resize_dim:
-    :param do_shear_prob:
-    :param shear_range:
-    :return:
+    Generate a new image after applying random sheer, cropping, random flip, ransom gamma and resize.
+    Parameters
+    ----------
+    image: ndarray
+        Image.
+    steering_angle: float
+        Angle of steering, could be in ``+`` or ``-``
+    top_crop_percent: float
+        Split percentage between ``0`` and ``1``
+    bottom_crop_percent: float
+        Cropping percentage between ``0`` and ``1``
+    resize_dim: tuple
+        A tuple of resizing dimensions
+    do_shear_prob: float
+        Between ``0`` and ``1``
+
+    Returns
+    -------
+    image, angel: ndarray, float
+        Processed image and angel.
+
     """
+
     head = bernoulli.rvs(do_shear_prob)
     if head == 1:
         image, steering_angle = random_shear(image, steering_angle)
@@ -156,7 +191,7 @@ def generate_new_image(image, steering_angle, top_crop_percent=0.35, bottom_crop
 
     image = random_gamma(image)
 
-    image = scipy.misc.imresize(image, resize_dim)
+    image = resize(image, resize_dim)
 
     return image, steering_angle
 
