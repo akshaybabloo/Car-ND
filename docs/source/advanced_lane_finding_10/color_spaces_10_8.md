@@ -64,3 +64,9 @@ There are two possible equations; one is used depending on the value of L.
 
     S \leftarrow \frac{V_{max}-V_{min}}{V_{max}+V_{min}},~\textrm{if}~L<0.5 \\
     S \leftarrow \frac{V_{max}-V_{min}}{2-(V_{max}+V_{min})},~\textrm{if}~L \geq 0.5
+
+.. automodule:: Term_1.advanced_lane_finding_10.color_space_10_8
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :private-members:
