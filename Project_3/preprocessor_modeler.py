@@ -196,7 +196,7 @@ def resize(image, new_dim):
 def generate_new_image(image, steering_angle, top_crop_percent=0.35, bottom_crop_percent=0.1,
                        resize_dim=(64, 64), do_shear_prob=0.9):
     """
-    Generate a new image after applying random sheer, cropping, random flip, ransom gamma and resize.
+    Generate a new image after applying random shear, cropping, random flip, ransom gamma and resize.
     
     Parameters
     ----------
