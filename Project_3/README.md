@@ -9,7 +9,7 @@
 - [2 Data Modelling](#2-data-modelling)
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
 - [3 Loss Plots](#3-loss-plots)
-	- [3.1 Details of `plot_loss.py`](#31-details-of-plotlosspy)
+	- [3.1 Details of `plots.py`](#31-details-of-plotlosspy)
 - [4 Discussion](#4-discussion)
 
 <!-- /TOC -->
@@ -63,7 +63,7 @@ I have split this project into four sections:
 * `drive.py` - A server to send regression angles to the simulator.
 * `preprocessor_modeler.py` - Read the data from the folder and pickle them into `data.p`.
 * `model.py` - Create model for each epoch, save the loss values and the final model.
-* `plot_loss.py` - To plot the loss values.
+* `plots.py` - To plot the loss values.
 * `model.json` - Summary of the model in JSON format.
 * `README.md` - Detailed explanation of the project.
 
@@ -82,14 +82,10 @@ These samples were then pickled into one file and named it as `data.p`.
 
 ### 1.1 Details of `preprocessor_modeler.py`
 
-The content of the file is as follows:
+Before the data is trained, I maid sure that the data was preprocessed. This preprocessing of the data had the following flow:
 
-* Line `15` and `16`, points to the absolute path of the `IMG` folder and `driving_log.csv`
-* From line `23` to `27`, contents of the `driving_log.csv` is read.
-* From line `32` to `42`, all images and the angel of each image is read.
-* From line `47` to `54`, a copy of the original images and its angles are made, these copied images and angles are flipped vertically and appended to the copied images.
-* At line `57` and `58`, the data (`augmented_images`) and angles (`augmented_measurements`) are converted into `Numpy` arrays.
-* At line `61`, the data is added as a Python `dictionary` and at line `64`, they are pickled as `data.p`.
+1. Based on `Bernoulli trail`, if I get `1` a shear is added to the image.
+2.
 
 ## 2 Data Modelling
 
@@ -100,27 +96,25 @@ The content of the file is as follows:
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #
 =================================================================
-lambda_1 (Lambda)            (None, 160, 320, 3)       0
+lambda_1 (Lambda)            (None, 64, 64, 3)         0
 _________________________________________________________________
-cropping2d_1 (Cropping2D)    (None, 65, 320, 3)        0
+conv2d_1 (Conv2D)            (None, 16, 16, 16)        3088
 _________________________________________________________________
-conv2d_1 (Conv2D)            (None, 17, 80, 16)        3088
+elu_1 (ELU)                  (None, 16, 16, 16)        0
 _________________________________________________________________
-elu_1 (ELU)                  (None, 17, 80, 16)        0
+conv2d_2 (Conv2D)            (None, 8, 8, 32)          12832
 _________________________________________________________________
-conv2d_2 (Conv2D)            (None, 9, 40, 32)         12832
+elu_2 (ELU)                  (None, 8, 8, 32)          0
 _________________________________________________________________
-elu_2 (ELU)                  (None, 9, 40, 32)         0
+conv2d_3 (Conv2D)            (None, 4, 4, 64)          51264
 _________________________________________________________________
-conv2d_3 (Conv2D)            (None, 5, 20, 64)         51264
+flatten_1 (Flatten)          (None, 1024)              0
 _________________________________________________________________
-flatten_1 (Flatten)          (None, 6400)              0
+dropout_1 (Dropout)          (None, 1024)              0
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 6400)              0
+elu_3 (ELU)                  (None, 1024)              0
 _________________________________________________________________
-elu_3 (ELU)                  (None, 6400)              0
-_________________________________________________________________
-dense_1 (Dense)              (None, 512)               3277312
+dense_1 (Dense)              (None, 512)               524800
 _________________________________________________________________
 dropout_2 (Dropout)          (None, 512)               0
 _________________________________________________________________
@@ -132,11 +126,13 @@ elu_5 (ELU)                  (None, 50)                0
 _________________________________________________________________
 dense_3 (Dense)              (None, 1)                 51
 =================================================================
-Total params: 3,370,197
-Trainable params: 3,370,197
+Total params: 617,685
+Trainable params: 617,685
 Non-trainable params: 0
 _________________________________________________________________
 ```
+
+I have used slightly changed architecture comma.ai and with the help of Keras `fit_generator` method, I was able to do batch training.
 
 ### 2.1 Details of `model.py`
 
@@ -169,16 +165,16 @@ Following is the description of `model.py` file:
 
 ## 3 Loss Plots
 Loss for `100` epochs is plotted as:
-![100 epochs loss](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/100_epochs.png)
+![100 epochs loss](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/epochs.png)
 
 and the average of `100` epochs is given by:
 ![Average of 100 epochs](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/average_loss.png)
 
 You can see that, from the above plot, the data converges at epochs `77` to `100`, the average loss study between `0.0013` to `0.0012`
 
-### 3.1 Details of `plot_loss.py`
+### 3.1 Details of `plots.py`
 
-The `plot_loss.py` contains the following:
+The `plots.py` contains the following:
 
 * At line `9`, an absolute path of `model_loss.csv` is taken.
 * At line `10`, using Pandas `read_csv`, the `modle_loss.csv` file is read.
