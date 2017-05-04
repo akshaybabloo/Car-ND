@@ -42,13 +42,15 @@ model.add(Dense(1))
 
 adam = Adam(lr=0.0001)
 
+# Compiling NN to use Adam optimiser, calculating loss using Mean Squared Error and showing the accuracy results.
 model.compile(optimizer=adam, loss="mse", metrics=['accuracy'])
 
 model.summary()
 
+# Initialising loss object
 history_loss = preprocessor_modeler.LossHistory()
 
-# Getting the
+# Getting the generators
 train_gen = preprocessor_modeler.generate_next_batch()
 validation_gen = preprocessor_modeler.generate_next_batch()
 
