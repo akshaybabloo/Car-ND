@@ -38,6 +38,7 @@ for content in preprocessor_modeler.generate_next_batch():
 f.add_subplot(3, 1, 3)
 sort_data = np.sort(y_data)
 fit = stats.norm.pdf(sort_data, np.mean(sort_data), np.std(sort_data))
-ax3 = plt.plot(sort_data, fit, '-o')
+plt.plot(sort_data, fit, '-o')
+plt.hist(sort_data, normed=True)
 
 plt.show()
