@@ -85,12 +85,14 @@ These samples were then pickled into one file and named it as `data.p`.
 Before the data is trained, I maid sure that the data was preprocessed. This preprocessing of the data had the following flow:
 
 1. Based on `Bernoulli trail`, if I get `1` a shear is added to the image.
-2.
+2. Then, crop 35% from top and 10% from bottom.
+3. Again based on `Bernoulli trail`, flip the image and its steering angle.
+4. Then add random brightness using lookup table.
+5. Finally, resize the image to `(64, 64)`, to make the data smaller.
 
 ## 2 Data Modelling
 
 `model.py` contains the code for modelling that uses CNN, whose summery is given by:
-
 
 ```
 _________________________________________________________________
