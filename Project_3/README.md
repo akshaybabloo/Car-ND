@@ -9,8 +9,9 @@
 - [2 Data Modelling](#2-data-modelling)
 	- [2.1 Details of `model.py`](#21-details-of-modelpy)
 - [3 Loss Plots](#3-loss-plots)
-	- [3.1 Details of `plots.py`](#31-details-of-plotlosspy)
-- [4 Discussion](#4-discussion)
+	- [3.1 Details of `plots.py`](#31-details-of-plotspy)
+- [4 Autonomous Driving](#4-autonomous-driving)
+- [5 Discussion](#5-discussion)
 
 <!-- /TOC -->
 
@@ -75,6 +76,7 @@ The data was not converted into grayscale because I think that the color aspect 
 
 ![Random shear](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/random_shear.png)
 
+Above image shows a random image that is sheared and cropped.
 
 ### 1.1 Details of `preprocessor_modeler.py`
 
@@ -172,11 +174,17 @@ and the average of `8` epochs is given by:
 
 You can see that, from the above plot, there is a sudden dip at epoch `1` and gradually drops down, which shows that the model is able to train well.
 
+Also, the normal distribution of the steering angel is given by:
+
+![Histogram of steering angel](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/norm.png)
+
 ### 3.1 Details of `plots.py`
 
 `plots.py` is used to plot the loss of the model and the distribution of the data.
 
 `model_loss.csv` is read as Pandas `DataFrame` and is plotted as is. Next, the same data is averaged with the number of steps, i.e. `20032`, and plotted.
+
+Also, I tried to plot the random normal distribution of the steering angels.
 
 ## 4 Autonomous Driving
 
