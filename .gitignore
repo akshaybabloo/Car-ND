@@ -180,3 +180,4 @@ train-labels-idx1-ubyte.gz
 
 Project_3/model_weights\.h5
 *.mp4
+/Project_3/run1/
