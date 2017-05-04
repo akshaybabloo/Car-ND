@@ -1,20 +1,18 @@
 import argparse
 import base64
-import json
+from datetime import datetime
 import os
 import shutil
 from io import BytesIO
-import h5py
 
 import eventlet.wsgi
+import h5py
 import numpy as np
 import socketio
 from PIL import Image
 from flask import Flask
-from keras.models import model_from_json
-from keras.models import load_model
 from keras import __version__ as keras_version
-import datetime
+from keras.models import load_model
 
 import preprocessor_modeler
 
@@ -22,12 +20,6 @@ sio = socketio.Server()
 app = Flask(__name__)
 model = None
 prev_image_array = None
-
-
-def crop(image, top_cropping_percent):
-    assert 0 <= top_cropping_percent < 1.0, 'top_cropping_percent should be between zero and one'
-    percent = int(np.ceil(image.shape[0] * top_cropping_percent))
-    return image[percent:, :, :]
 
 
 class SimplePIController:
