@@ -94,7 +94,7 @@ def random_gamma(image):
 
 def random_shear(image, steering_angle, shear_range=200):
     """
-    Adding random noise to the data - https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.7k8vfppvk
+   Shearing the data - https://medium.com/@ksakmann/behavioral-cloning-make-a-car-drive-like-yourself-dc6021152713#.7k8vfppvk
     
     Parameters
     ----------
