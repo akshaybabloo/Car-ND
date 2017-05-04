@@ -15,7 +15,7 @@
 
 <!-- /TOC -->
 
-In this project, I have tried to clone the behavior of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while its been used.
+In this project, I have tried to clone the behaviour of the car following a path, he has used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to record the path while it's been used.
 
 The simulator, once the recording is completed, outputs the camera frames as following files:
 
@@ -31,9 +31,9 @@ The simulator, once the recording is completed, outputs the camera frames as fol
 `-- driving_log.csv
 ```
 
-`center_*.jpg`, `right_*.jpg` and `left_*.jpg` are the camera angles (3 cameras placed on left, right and center of the car.). `driving_log.csv` has seven columns, describing as follows:
+`center_*.jpg`, `right_*.jpg` and `left_*.jpg` are the camera angles (3 cameras placed on left, right and centre of the car.). `driving_log.csv` has seven columns, describing as follows:
 
-1. Column 1 - Location and name of `center` frame
+1. Column 1 - Location and name of `centre` frame
 2. Column 2 - Location and name of `left` frame
 3. Column 3 - Location and name of `right` frame
 4. Column 4 - Angle to turn `left`
@@ -41,7 +41,7 @@ The simulator, once the recording is completed, outputs the camera frames as fol
 6. Column 6 - Angle to turn `right`
 7. Column 7 - Speed
 
-In this project, I would consider `[center, left and right]` as `x_train` and the `left` angles as `y_train`.
+In this project, I would consider `[centre, left and right]` as `x_train` and the `left` angles as `y_train`.
 
 ![Merged first frame](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/merge_frame.jpg)
 First frame of `left`, `center` and `right` after the data has been acquired, whos data is given by:
@@ -62,17 +62,17 @@ I have split this project into four sections:
 **File Structure**
 
 * `drive.py` - A server to send regression angles to the simulator.
-* `preprocessor_modeler.py` - Read the data from the folder, preprocess them and yeal as generators for batch processing.
-* `model.py` - Create model for each epoch, save the loss values and the final model.
+* `preprocessor_modeler.py` - Read the data from the folder, preprocess them and yield as generators for batch processing.
+* `model.py` - Create the model for total epochs, save the loss values and the final model.
 * `plots.py` - To plot the loss values.
 * `model.json` - Summary of the model in JSON format.
-* `README.md` - Detailed explanation of the project.
+* `README.md` - A detailed explanation of the project.
 
 ## 1 Preparing the data
 
-As mentioned earlier, I used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the center of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
+As mentioned earlier, I used [Udacity's Self-Driving Car Simulator v2](https://github.com/udacity/self-driving-car-sim) to collect the data, he took six laps across the simulator and tried his best to keep the car in the centre of the road. One lap would not be enough for the network to be trained and it is not consistent enough.
 
-The data was not converted into grayscale because I think that the color aspect is an import feature for any neural network to work.
+The data was not converted into grayscale because I think that the colour aspect is an import feature for any neural network to work.
 
 ![Random shear](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/random_shear.png)
 
@@ -80,12 +80,12 @@ Above image shows a random image that is sheared and cropped.
 
 ### 1.1 Details of `preprocessor_modeler.py`
 
-Before the data is trained, I maid sure that the data was preprocessed. This preprocessing of the data had the following flow:
+Before the data is trained, I made sure that the data was preprocessed. This preprocessing of the data had the following flow:
 
-1. Based on `Bernoulli trail`, if I get `1` a shear is added to the image.
-2. Then, crop 35% from top and 10% from bottom.
-3. Again based on `Bernoulli trail`, flip the image and its steering angle.
-4. Then add random brightness using lookup table.
+1. Based on `Bernoulli trial`, if I get `1` a shear is added to the image.
+2. Then, crop 35% from the top and 10% from the bottom.
+3. Again based on `Bernoulli trial`, flip the image and its steering angle.
+4. Then add random brightness using the lookup table.
 5. Finally, resize the image to `(64, 64)`, to make the data smaller.
 
 ## 2 Data Modelling
@@ -138,7 +138,7 @@ I have used slightly changed architecture comma.ai and with the help of Keras `f
 
 Following is the description of `model.py` file:
 
-The model is initalised using Keras `Sequential` layer, then adding to it, the data is normalised and the input shape is given. Three convolution layers are added, two of which has `ELU` activation layer then the next layer goes through 2D convolution and finally flattened with `ELU` activation layer & `Dropout` over fitting function.
+The model is initialized using Keras `Sequential` layer, then adding to it, the data is normalised and the input shape is given. Three convolution layers are added, two of which has `ELU` activation layer then the next layer goes through 2D convolution and finally flattened with `ELU` activation layer & `Dropout` over-fitting function.
 
 Then, three fully connected layers are added, of which the first layer has `512` neuron, then `50` neurons and finally `1` output layer.
 
@@ -146,7 +146,7 @@ The Neural Network (NN) is compiled with `Adam` optimiser, Mean Squared Error (M
 
 Models summary is printed out using `model.summary()`, where `model` is an instantiated variable of `Sequential`.
 
-Data for training and validation is initialised, that are python `generators`, befor this an custom object `LossHistory` object is initialised, which logs all the loss that is generated by the `fit` method.
+Data for training and validation is initialised, that are python `generators`, before this a custom object `LossHistory` object is initialised, which logs all the loss that is generated by the `fit` method.
 
 The model is trained using Keras `fit_generator` method, with `8` epochs; each epoch has `20032` steps and `6400` validation steps. The custom loss logging method is given to this `fit` method.
 
@@ -165,7 +165,8 @@ Once the model is trained and validated, the model is exported as `model.h5`, it
 | Fully Connected Layer   | Neurons: 1<br> Activation: linear                                                          |
 
 ## 3 Loss Plots
-Loss for `8` epochs is plotted as:
+
+The loss for `8` epochs is plotted as:
 
 ![100 epochs loss](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/epochs.png)
 
@@ -174,7 +175,7 @@ and the average of `8` epochs is given by:
 
 You can see that, from the above plot, there is a sudden dip at epoch `1` and gradually drops down, which shows that the model is able to train well.
 
-Also, the normal distribution of the steering angel is given by:
+Also, the normal distribution of the steering angle is given by:
 
 ![Histogram of steering angel](https://github.com/akshaybabloo/Car-ND/raw/master/Project_3/assets/norm.png)
 
@@ -184,15 +185,15 @@ Also, the normal distribution of the steering angel is given by:
 
 `model_loss.csv` is read as Pandas `DataFrame` and is plotted as is. Next, the same data is averaged with the number of steps, i.e. `20032`, and plotted.
 
-Also, I tried to plot the random normal distribution of the steering angels.
+Also, I tried to plot the random normal distribution of the steering angles.
 
 ## 4 Autonomous Driving
 
 Using slightly changed version of Udacity's `drive.py`, the `model.h5` is given to it so that the `predict` method of Keras can predict the images from the saved model.
 
-The only thing that was changed is that, the `images` are matched with the models data, i.e. the model is cropped and resized before giving it to the `predict` method.
+The only thing that was changed is that the `images` are matched with the model's data, i.e. the model is cropped and resized before giving it to the `predict` method.
 
 ## 5 Discussion
 
-* I have trained the model with `6` laps of the simulation, the model could have been much better if the data was modeled on a better architecture.
+* I have trained the model with `6` laps of the simulation, the model could have been much better if the data was modelled on a better architecture.
 * In future I would like to use `ResNet` or `NVIDIA's` architecture.
