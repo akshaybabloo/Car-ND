@@ -13,3 +13,4 @@ In this project I try to locate the correct curves of the video, check for disto
    sobel_operator_10_4
    color_spaces_10_8
    finding_lane_10_10
+   project_tips_10_11
