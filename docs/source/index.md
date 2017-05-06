@@ -7,7 +7,7 @@ Welcome to Car-ND's documentation!
 ==================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 4
    :caption: Contents:
 
    miniflow/index
