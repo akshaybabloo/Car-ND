@@ -25,7 +25,18 @@ CAL_IMAGE_SIZE = (720, 1280, 3)
 class CalibrateCamera:
     def __init__(self, image_shape, calibration):
         """
+        Removed lens distortion.
+        
+        Parameters
+        ----------
+        image_shape: tuple
+            Width and height of the image.
+        calibration: dict
+            Calibrated image.
+        """
+        """
         Helper class to remove lens distortion from images
+        
         :param image_shape: with and height of the image
         :param calibration: calibration object which can be retrieved from "get_camera_calibration()"
         """
@@ -33,8 +44,7 @@ class CalibrateCamera:
         self.imgpoints = calibration['imgpoints']
         self.image_shape = image_shape
 
-        self.ret, self.mtx, self.dist, self.rvecs, self.tvecs = \
-            cv2.calibrateCamera(self.objpoints, self.imgpoints, image_shape, None, None)
+        self.ret, self.mtx, self.dist, self.rvecs, self.tvecs = cv2.calibrateCamera(self.objpoints, self.imgpoints, image_shape, None, None)
 
     def undistort(self, img):
         return cv2.undistort(img, self.mtx, self.dist, None, self.mtx)
@@ -120,6 +130,41 @@ def _calculate_camera_calibration(path_pattern, rows, cols):
 
     return calibration
 
+
+"""
+Other image utilities.
+"""
+
+
+def abs_sobel(img_ch, orient='x', kernel_size=3):
+    """
+    Takes the absolute values of Sobel derivative.
+    
+    Parameters
+    ----------
+    img_ch
+    orient: str
+        Orientation of the derivative. `x` or`y`
+    kernel_size: int
+        Kernel size.
+        
+    Returns
+    -------
+    abs_sobel: ndarray
+        Absolute array of Sobel derivative.
+    """
+
+    if orient == 'x':
+        axis = (1, 0)
+    elif orient == 'y':
+        axis = (0, 1)
+    else:
+        raise ValueError('orient has to be "x" or "y" not "%s"' % orient)
+
+    sobel = cv2.Sobel(img_ch, -1, *axis, ksize=kernel_size)
+    abs_sobel = np.absolute(sobel)
+
+    return abs_sobel
 
 if __name__ == '__main__':
     get_camera_calibration()
