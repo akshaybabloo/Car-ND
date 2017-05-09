@@ -30,11 +30,13 @@ fit_left = np.polyfit((left_bottom[0], apex[0]), (left_bottom[1], apex[1]), 1)
 fit_right = np.polyfit((right_bottom[0], apex[0]), (right_bottom[1], apex[1]), 1)
 fit_bottom = np.polyfit((left_bottom[0], right_bottom[0]), (left_bottom[1], right_bottom[1]), 1)
 
-color_thresholds = (image[:, :, 0] < rgb_threshold[0]) | (image[:, :, 1] < rgb_threshold[1]) | (image[:, :, 2] < rgb_threshold[2])
+color_thresholds = (image[:, :, 0] < rgb_threshold[0]) | (image[:, :, 1] < rgb_threshold[1]) | (
+image[:, :, 2] < rgb_threshold[2])
 
 # See https://docs.scipy.org/doc/numpy/reference/generated/numpy.meshgrid.html for more info
 xx, yy = np.meshgrid(np.arange(0, xsize), np.arange(0, ysize))
-region_thresholds = (yy > (xx*fit_left[0] + fit_left[1])) & (yy > (xx*fit_right[0] + fit_right[1])) & (yy < (xx*fit_bottom[0] + fit_bottom[1]))
+region_thresholds = (yy > (xx * fit_left[0] + fit_left[1])) & (yy > (xx * fit_right[0] + fit_right[1])) & (
+yy < (xx * fit_bottom[0] + fit_bottom[1]))
 
 # Mask color selection
 color_select[color_thresholds | ~region_thresholds] = [0, 0, 0]
@@ -46,16 +48,25 @@ f = plt.figure()
 x = [left_bottom[0], right_bottom[0], apex[0], left_bottom[0]]
 y = [left_bottom[1], right_bottom[1], apex[1], left_bottom[1]]
 
-f.add_subplot(1, 3, 1)
+f.add_subplot(2, 3, 1)
 plt.plot(x, y, 'b--', lw=4)
 plt.imshow(image)  # Image superimposed with plotted lines
-plt.title("Original image superimposed with plotted lines")
+plt.title("Step 1: Original image superimposed with plotted lines")
 
-f.add_subplot(1, 3, 2)
+f.add_subplot(2, 3, 2)
+plt.imshow(color_thresholds, cmap='gray')
+plt.title("Step 2: Get the threshold image")
+
+f.add_subplot(2, 3, 3)
+plt.imshow(region_thresholds, cmap='gray')
+plt.title("Step 3: Get the regional threshold")
+
+f.add_subplot(2, 3, 4)
 plt.imshow(color_select)  # bright color line with triangle
-plt.title("Bright lines with triangle selected")
+plt.title("Step 4: Bright lines with triangle selected")
 
-f.add_subplot(1, 3, 3)
+f.add_subplot(2, 3, 5)
 plt.imshow(line_image)  # Masked image
-plt.title("Original image with masked color")
+plt.title("Final: Original image with masked color")
+
 plt.show()
