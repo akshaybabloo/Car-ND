@@ -184,5 +184,26 @@ def gradient_magnitude(sobel_x, sobel_y):
     abs_grad_mag = np.sqrt(sobel_x ** 2 + sobel_y ** 2)
     return abs_grad_mag.astype(np.uint16)
 
+
+def gradient_direction(sobel_x, sobel_y):
+    """
+    Calculates the direction of the gradient. NaN values cause by zero division will be replaced
+    by the maximum value (np.pi / 2).
+    
+    Parameters
+    ----------
+    sobel_x
+    sobel_y
+
+    Returns
+    -------
+
+    """
+
+    abs_grad_dir = np.absolute(np.arctan(sobel_y / sobel_x))
+    abs_grad_dir[np.isnan(abs_grad_dir)] = np.pi / 2
+
+    return abs_grad_dir.astype(np.float32)
+
 if __name__ == '__main__':
     get_camera_calibration()
