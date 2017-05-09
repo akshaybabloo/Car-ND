@@ -205,5 +205,74 @@ def gradient_direction(sobel_x, sobel_y):
 
     return abs_grad_dir.astype(np.float32)
 
+
+def extract_yellow(img):
+    """
+    Mask all yellow pixels.
+    
+    Parameters
+    ----------
+    img
+
+    Returns
+    -------
+    mask: ndarray
+        Masked image
+
+    """
+
+    hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+    mask = cv2.inRange(hsv, (20, 50, 150), (40, 255, 255))
+
+    return mask
+
+
+def extract_highlights(img, p=99.9):
+    """
+    Get the selected highlights from the image.
+    
+    Parameters
+    ----------
+    img
+    p: float
+        Percentile to compute
+
+    Returns
+    -------
+    mask: ndarray
+        Masked image
+    """
+
+    p = int(np.percentile(img, p) - 30)
+    mask = cv2.inRange(img, p, 255)
+    return mask
+
+
+def binary_noise_reduction(img, thresh):
+    """
+    
+    Parameters
+    ----------
+    img
+    thresh
+
+    Returns
+    -------
+
+    """
+    """
+    Reduces noise of a binary image by applying a filter which counts neighbours with a value
+    and only keeping those which are above the threshold.
+    :param img: binary image (0 or 1)
+    :param thresh: min number of neighbours with value
+    :return:
+    """
+    k = np.array([[1, 1, 1],
+                  [1, 0, 1],
+                  [1, 1, 1]])
+    nb_neighbours = cv2.filter2D(img, ddepth=-1, kernel=k)
+    img[nb_neighbours < thresh] = 0
+    return img
+
 if __name__ == '__main__':
     get_camera_calibration()
