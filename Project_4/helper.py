@@ -166,5 +166,23 @@ def abs_sobel(img_ch, orient='x', kernel_size=3):
 
     return abs_sobel
 
+
+def gradient_magnitude(sobel_x, sobel_y):
+    """
+    Calculates the magnitude of the gradient.
+    
+    Parameters
+    ----------
+    sobel_x
+    sobel_y
+
+    Returns
+    -------
+
+    """
+
+    abs_grad_mag = np.sqrt(sobel_x ** 2 + sobel_y ** 2)
+    return abs_grad_mag.astype(np.uint16)
+
 if __name__ == '__main__':
     get_camera_calibration()
