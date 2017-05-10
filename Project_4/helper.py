@@ -132,8 +132,56 @@ def _calculate_camera_calibration(path_pattern, rows, cols):
 
 
 """
-Other image utilities.
+2. Generate images.
 """
+
+
+def generate_lane_mask(img, v_cutoff=0):
+    """
+    Generate a masking binary image with lane selected.
+
+    Parameters
+    ----------
+    img: ndarray
+        Image.
+    v_cutoff:
+        Image cutoff.
+
+    Returns
+    -------
+    mask: ndarray
+        A binary Numpy array of the masked image.
+
+    """
+
+    window = img[v_cutoff:, :, :]
+    yuv = cv2.cvtColor(window, cv2.COLOR_RGB2YUV)
+    yuv = 255 - yuv
+    hls = cv2.cvtColor(window, cv2.COLOR_RGB2HLS)
+    chs = np.stack((yuv[:, :, 1], yuv[:, :, 2], hls[:, :, 2]), axis=2)
+    gray = np.mean(chs, 2)
+
+    s_x = abs_sobel(gray, orient='x', kernel_size=3)
+    s_y = abs_sobel(gray, orient='y', kernel_size=3)
+
+    grad_dir = gradient_direction(s_x, s_y)
+    grad_mag = gradient_magnitude(s_x, s_y)
+
+    ylw = extract_yellow(window)
+    highlights = extract_highlights(window[:, :, 0])
+
+    mask = np.zeros(img.shape[:-1], dtype=np.uint8)
+
+    mask[v_cutoff:, :][((s_x >= 25) & (s_x <= 255) &
+                        (s_y >= 25) & (s_y <= 255)) |
+                       ((grad_mag >= 30) & (grad_mag <= 512) &
+                        (grad_dir >= 0.2) & (grad_dir <= 1.)) |
+                       (ylw == 255) |
+                       (highlights == 255)] = 1
+
+    mask = binary_noise_reduction(mask, 4)
+
+    return mask
 
 
 def abs_sobel(img_ch, orient='x', kernel_size=3):
@@ -258,15 +306,10 @@ def binary_noise_reduction(img, thresh):
 
     Returns
     -------
+    img: ndarray
+        Filtered image.
+    """
 
-    """
-    """
-    Reduces noise of a binary image by applying a filter which counts neighbours with a value
-    and only keeping those which are above the threshold.
-    :param img: binary image (0 or 1)
-    :param thresh: min number of neighbours with value
-    :return:
-    """
     k = np.array([[1, 1, 1],
                   [1, 0, 1],
                   [1, 1, 1]])
@@ -274,5 +317,14 @@ def binary_noise_reduction(img, thresh):
     img[nb_neighbours < thresh] = 0
     return img
 
+
 if __name__ == '__main__':
-    get_camera_calibration()
+    import matplotlib.pyplot as plt
+    from scipy import misc
+    import os
+
+    image = misc.imread('test_images' + os.sep + 'test8.jpg')
+    masked_image = generate_lane_mask(image)
+
+    plt.imshow(masked_image, cmap='gray')
+    plt.show()
