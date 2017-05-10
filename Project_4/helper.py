@@ -132,6 +132,64 @@ def _calculate_camera_calibration(path_pattern, rows, cols):
 
 
 """
+3. Change the perspective
+"""
+
+
+class PerspectiveTransformer:
+    """
+    Helps to change the perspective of the image.
+    """
+    def __init__(self, src, dst):
+        """
+        Parameters
+        ----------
+        src: str
+            Source coordinates.
+        dst:
+            Destination coordinates.
+        """
+
+        self.src = src
+        self.dst = dst
+        self.M = cv2.getPerspectiveTransform(src, dst)
+        self.M_inv = cv2.getPerspectiveTransform(dst, src)
+
+    def transform(self, img):
+        """
+        Transform the image using CV2's `warpPerspective`.
+        
+        Parameters
+        ----------
+        img: ndarray
+            Image.
+
+        Returns
+        -------
+        image: ndarray
+            Transformed image.
+
+        """
+        return cv2.warpPerspective(img, self.M, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
+
+    def inverse_transform(self, img):
+        """
+        Inverse transform the image using CV2's `warpPerspective`.
+        
+        Parameters
+        ----------
+        img: ndarray
+            Image.
+
+        Returns
+        -------
+        image: ndarray
+            Transformed image.
+        """
+        return cv2.warpPerspective(img, self.M_inv, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
+
+
+"""
 2. Generate images.
 """
 
@@ -323,7 +381,7 @@ if __name__ == '__main__':
     from scipy import misc
     import os
 
-    image = misc.imread('test_images' + os.sep + 'test8.jpg')
+    image = misc.imread('test_images' + os.sep + 'test2.jpg')
     masked_image = generate_lane_mask(image)
 
     plt.imshow(masked_image, cmap='gray')
