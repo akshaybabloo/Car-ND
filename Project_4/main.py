@@ -46,7 +46,7 @@ def to_image_sequence():
 
 def run():
     """
-    Runs the flow.
+    Runs the pipeline.
     """
 
     if not os.path.isdir('video' + os.sep + 'seq'):
@@ -54,19 +54,20 @@ def run():
         to_image_sequence()
 
     video_in = VideoFileClip(VIDEO_LOCATION)
-    video_size = tuple(video_in.size)
+    video_size = tuple(video_in.size)  # Get the video frames size.
 
+    # Load calibrated images.
     cam_calibration = helper.get_camera_calibration()
-
     cam_calibrator = helper.CalibrateCamera(video_size, cam_calibration)
 
+    # Load images with img_*.jpeg
     content = glob('video/seq/img_*.jpeg')
     images = []
-
     for con in tqdm(range(len(content)), desc='Reading files'):
         # images.append(imread('../video/seq/img_%s.jpeg' % i))
         images.append(imread('video/seq/img_%s.jpeg' % con))
 
+    # Apply line detection to the read images and write them to a folder.
     rows = len(images)
     processed_images = []
     for row in tqdm(range(rows), desc='Applying DetectLines'):
@@ -90,11 +91,11 @@ def run():
     new_content = glob('video/seq_new/img_*.jpeg')
     images_new = []
 
-    for i in range(len(new_content)):
-        # images.append(imread('../video/seq/img_%s.jpeg' % i))
+    # Read the images from the processed folder
+    for i in tqdm(range(len(new_content)), desc='Reading processed images'):
         images_new.append(imread('video/seq_new/img_%s.jpeg' % i))
 
-    # Write sequence of images to file.
+    # Write sequence of images to file as a video.
     new_clip = ImageSequenceClip(images_new, fps=video_in.fps)
     new_clip.write_videofile('processed_video.mp4')
 

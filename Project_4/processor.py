@@ -36,6 +36,19 @@ class DetectLanes:
         self.dists = []
 
     def generate_frame(self, frame):
+        """
+        Apply line detection to each frame.
+        
+        Parameters
+        ----------
+        frame: ndarray
+            Image.
+
+        Returns
+        -------
+        copy_frame: ndarray
+            Processed image.
+        """
 
         copy_frame = np.copy(frame)
 
