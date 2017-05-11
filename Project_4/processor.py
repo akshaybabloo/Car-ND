@@ -1,4 +1,5 @@
 import helper
+import cv2
 
 
 class DetectLanes:
@@ -17,6 +18,10 @@ class DetectLanes:
         # Boolean values for detecting left and right line
         self.left_line = None
         self.right_line = None
+
+        # UI calibrations
+        self.curvature = 0.0
+        self.offset = 0.0
 
     def generate_frame(self):
         pass
@@ -51,6 +56,22 @@ class DetectLanes:
                 right_detected = True
 
         return left_detected, right_detected
+
+    def _draw_ui(self, img):
+        """
+        Draws UI with all the information of what is happeening.
+        
+        Parameters
+        ----------
+        img: ndarray
+            Image.
+        """
+        font = cv2.FONT_HERSHEY_SIMPLEX
+
+        cv2.putText(img, 'Radius of Curvature = %d(m)' % self.curvature, (50, 50), font, 1, (255, 255, 255), 2)
+        left_or_right = 'left' if self.offset < 0 else 'right'
+        cv2.putText(img, 'Vehicle is %.2fm %s of center' % (np.abs(self.offset), left_or_right), (50, 100), font, 1,
+                    (255, 255, 255), 2)
 
 
 def is_line(left_line, right_line, parallel_thresh=(0.0003, 0.55), dist_thresh=(350, 460)):
