@@ -11,13 +11,13 @@ from PIL import Image
 from moviepy.editor import ImageSequenceClip
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from scipy.misc import imread
+from tqdm import tqdm
 
 import helper
 import processor
 
-HIST_STEPS = 10
 OFFSET = 250
-FRAME_MEMORY = 5
+FRAME_MEMORY = 1
 SRC = np.float32([
     (132, 703),
     (540, 466),
@@ -39,7 +39,7 @@ def to_image_sequence():
     """
     video_in = VideoFileClip(VIDEO_LOCATION)
 
-    for idx, frame in enumerate(video_in.iter_frames()):
+    for idx, frame in tqdm(enumerate(video_in.iter_frames()), desc='Converting video to images'):
         im = Image.fromarray(frame)
         im.save('video' + os.sep + 'seq' + os.sep + 'img_{}.jpeg'.format(idx))
 
@@ -61,17 +61,15 @@ def run():
     cam_calibrator = helper.CalibrateCamera(video_size, cam_calibration)
 
     content = glob('video/seq/img_*.jpeg')
-    content_len = len(content)
     images = []
 
-    for i in range(len(content)):
+    for con in tqdm(range(len(content)), desc='Reading files'):
         # images.append(imread('../video/seq/img_%s.jpeg' % i))
-        images.append(imread('video/seq/img_%s.jpeg' % i))
-        print(content_len - i)
+        images.append(imread('video/seq/img_%s.jpeg' % con))
 
     rows = len(images)
     processed_images = []
-    for row in range(rows):
+    for row in tqdm(range(rows), desc='Applying DetectLines'):
         img = images[row]
 
         ld = processor.DetectLanes(SRC, DST, number_frame=FRAME_MEMORY, camera_calibration=cam_calibrator,
@@ -83,7 +81,6 @@ def run():
         # Write as image
         im = Image.fromarray(img)
         im.save('video/seq_new/img_{}.jpeg'.format(row))
-        print(rows - row)
 
     # Create a backup.
     with open('data.p', 'w') as p:
@@ -91,13 +88,11 @@ def run():
 
     # Read the contents of processed image and make a video of it.
     new_content = glob('video/seq_new/img_*.jpeg')
-    new_content_len = len(new_content)
     images_new = []
 
     for i in range(len(new_content)):
         # images.append(imread('../video/seq/img_%s.jpeg' % i))
         images_new.append(imread('video/seq_new/img_%s.jpeg' % i))
-        print(new_content_len - i)
 
     # Write sequence of images to file.
     new_clip = ImageSequenceClip(images_new, fps=video_in.fps)
