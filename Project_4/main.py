@@ -47,7 +47,7 @@ def run():
     """
     
     """
-
+    
     video_in = VideoFileClip(VIDEO_LOCATION)
     video_size = tuple(video_in.size)
 
@@ -56,33 +56,54 @@ def run():
     cam_calibrator = helper.CalibrateCamera(video_size, cam_calibration)
 
     content = glob('video/seq/img_*.jpeg')
-
+    content_len = len(content)
     images = []
 
     for i in range(len(content)):
         # images.append(imread('../video/seq/img_%s.jpeg' % i))
         images.append(imread('video/seq/img_%s.jpeg' % i))
-        print(len(content)-i)
+        print(content_len-i)
 
     rows = len(images)
-    # add_to_me = []
+    add_to_me = []
     for row in range(rows):
         img = images[row]
 
         ld = processor.DetectLanes(SRC, DST, number_frame=FRAME_MEMORY, camera_calibration=cam_calibrator, transform_offset=OFFSET)
         img = ld.generate_frame(img)
 
-        # add_to_me.append(img)
+        add_to_me.append(img)
 
+        # Write as image
         im = Image.fromarray(img)
         im.save('video/seq_new/img_{}.jpeg'.format(row))
         print(rows-row)
 
+    # Create a backup.
+    with open('data.p', 'w') as p:
+        pickle.dump({'images': add_to_me}, p, protocol=pickle.HIGHEST_PROTOCOL)
 
-    # with open('data.p', 'w'):
-    #     pickle.dumps({'images': add_to_me}, protocol=pickle.HIGHEST_PROTOCOL)
-    # print(len(add_to_me))
+    # Read the contents of processed image and make a video of it.
+    new_content = glob('video/seq_new/img_*.jpeg')
+    new_content_len = len(new_content)
+    images_new = []
+
+    for i in range(len(new_content)):
+        # images.append(imread('../video/seq/img_%s.jpeg' % i))
+        images_new.append(imread('video/seq_new/img_%s.jpeg' % i))
+        print(new_content_len-i)
+
+    new_clip = ImageSequenceClip(images_new, fps=video_in.fps)
+    new_clip.write_videofile('processed_video.mp4')
+
 
 if __name__ == '__main__':
     run()
-    # to_image_sequence()
+
+
+    # content_new = glob('video/seq_new/*.jpeg')
+    # # print(content_new[0])
+    # sorted(content_new, key=int)
+    # print(content_new)
+
+    # new_clip = ImageSequenceClip()
