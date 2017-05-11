@@ -144,9 +144,9 @@ class PerspectiveTransformer:
         """
         Parameters
         ----------
-        src: str
+        src: ndarray
             Source coordinates.
-        dst:
+        dst: ndarray
             Destination coordinates.
         """
 
@@ -168,7 +168,6 @@ class PerspectiveTransformer:
         -------
         image: ndarray
             Transformed image.
-
         """
         return cv2.warpPerspective(img, self.M, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
 
