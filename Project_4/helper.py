@@ -47,6 +47,19 @@ class CalibrateCamera:
         self.ret, self.mtx, self.dist, self.rvecs, self.tvecs = cv2.calibrateCamera(self.objpoints, self.imgpoints, image_shape, None, None)
 
     def undistort(self, img):
+        """
+        The function transforms an image to compensate radial and tangential lens distortion.
+        
+        Parameters
+        ----------
+        img: ndarray
+            Image.
+
+        Returns
+        -------
+        ndarray: ndarray
+            Undistorted image.
+        """
         return cv2.undistort(img, self.mtx, self.dist, None, self.mtx)
 
 
@@ -390,9 +403,9 @@ class Line:
         ----------
         n_frames: int
             Number of frames to smooth
-        x: int
+        x: list
             `X` coordinates
-        y: int
+        y: list
             `Y` coordinates
         """
 
@@ -515,6 +528,33 @@ class Line:
 
         return np.abs(self.best_fit_poly(719) - other_line.best_fit_poly(719))
 
+
+def calc_curvature(fit_cr):
+    """
+    Calculates the curvature of a line in meters
+    
+    Parameters
+    ----------
+    fit_cr
+
+    Returns
+    -------
+    curved: float
+        Curvature of line.
+    """
+
+    # Define conversions in x and y from pixels space to meters
+    ym_per_pix = 30 / 720  # meters per pixel in y dimension
+    xm_per_pix = 3.7 / 700  # meteres per pixel in x dimension
+
+    y = np.array(np.linspace(0, 719, num=10))
+    x = np.array([fit_cr(x) for x in y])
+    y_eval = np.max(y)
+
+    fit_cr = np.polyfit(y * ym_per_pix, x * xm_per_pix, 2)
+    curverad = ((1 + (2 * fit_cr[0] * y_eval / 2. + fit_cr[1]) ** 2) ** 1.5) / np.absolute(2 * fit_cr[0])
+
+    return curverad
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
