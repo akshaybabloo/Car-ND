@@ -442,13 +442,6 @@ def calculate_lane_area(lanes, area_height, steps):
         All the pixels between the two given lines.
     """
 
-    """
-    Returns a list of pixel coordinates marking the area between two lanes
-    :param lanes: Tuple of Lines. Expects the line polynomials to be a function of y.
-    :param area_height:
-    :param steps:
-    :return:
-    """
     points_left = np.zeros((steps + 1, 2))
     points_right = np.zeros((steps + 1, 2))
 
