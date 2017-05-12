@@ -34,12 +34,7 @@ class CalibrateCamera:
         calibration: dict
             Calibrated image.
         """
-        """
-        Helper class to remove lens distortion from images
-        
-        :param image_shape: with and height of the image
-        :param calibration: calibration object which can be retrieved from "get_camera_calibration()"
-        """
+
         self.objpoints = calibration['objpoints']
         self.imgpoints = calibration['imgpoints']
         self.image_shape = image_shape
@@ -296,7 +291,7 @@ def gradient_magnitude(sobel_x, sobel_y):
 
     Returns
     -------
-
+    abs_grad_mag: int
     """
 
     abs_grad_mag = np.sqrt(sobel_x ** 2 + sobel_y ** 2)
@@ -315,6 +310,7 @@ def gradient_direction(sobel_x, sobel_y):
 
     Returns
     -------
+    abs_grad_dir: ndarray
 
     """
 
@@ -444,6 +440,7 @@ class Line:
     def update(self, x, y):
         """
         Update the lines.
+        
         Parameters
         ----------
         x: list
@@ -478,6 +475,7 @@ class Line:
 
     def is_current_fit_parallel(self, other_line, threshold=(0, 0)):
         """
+        Does the line fit well?
         
         Parameters
         ----------
@@ -487,7 +485,8 @@ class Line:
 
         Returns
         -------
-
+        is_parallel: bool
+            True or False
         """
 
         first_coefi_dif = np.abs(self.current_fit[0] - other_line.current_fit[0])
@@ -507,7 +506,8 @@ class Line:
 
         Returns
         -------
-
+        abs: ndarray
+            Distance.
         """
 
         return np.abs(self.current_fit_poly(719) - other_line.current_fit_poly(719))
