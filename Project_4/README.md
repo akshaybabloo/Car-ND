@@ -74,3 +74,7 @@ As seen in [2 Change the Perspective](#2-change-the-perspective), let's add some
 ![Perspective of lines](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/perspective_extracted.png)
 
 ## 4 Detecting Lanes
+
+| Left Line                                                                                                 | Detected Lane                                                                                              | Right Lane                                                                                                  |
+|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| ![Left lines hist](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/left_line_hist.png) | ![Extracted lines](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/extracted_lines.png) | ![Right lines hist](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/right_line_hist.png) |
