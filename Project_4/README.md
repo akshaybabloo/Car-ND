@@ -32,6 +32,13 @@ This calibration can be applied to an image to undistort the image, which would 
 
 ## 2 Change the Perspective
 
+Changing the perspective of an image can make simple adjustments easy; for example lets consider image
+
+![Undistorted image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/test2.jpg)
+
+Changing its perspective to something
+
+![perspective image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/perspective.png)
 
 ## 3 Generate Lane Masking
 
