@@ -7,6 +7,7 @@
 - [1 Calibrate the Camera](#1-calibrate-the-camera)
 - [2 Change the Perspective](#2-change-the-perspective)
 - [3 Generate Lane Masking](#3-generate-lane-masking)
+	- [3.1 Step-by-step Explanation](#31-step-by-step-explanation)
 - [4 Detecting Lanes](#4-detecting-lanes)
 
 <!-- /TOC -->
@@ -48,8 +49,21 @@ Let's look at the image step-by-step without perspective transformation:
 
 ![Extracted lines](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/extract_lines_no_per.png)
 
-Using OpenCV, the detection of the lanes are done as follows:
+### 3.1 Step-by-step Explanation
 
-
+1. First, read the image and remove the first `400` vertical pixels pixels'.
+2. After removing the image's pixels, Convert the image to `YUV` color space, where `Y` represents the brightness, `U` represents difference of `blue` & `brightness` (B-Y) and `V` represents the difference of `red` & `brightness` (R-Y)
+3. Then remove the `RED` hue from the `YUV` color space.
+4. Now, convert the original image to `HLS` color space, where `H` represents `Hue`, `L` represents `Lightness` and `S` represents `Saturation`.
+5. Stack the `brightness` & difference of `blue-brightness` of `YUV` with `HLS`'s `Lightness`.
+6. Convert the stacked image to grayscale.
+7. Take the Sobel derivative of the gray scaled image in `X` direction.
+8. Take the Sobel derivative of the gray scaled image in `Y` direction.
+9. Calculate the direction of the gradient for `X` and `Y` Sobel.
+10. Calculate the gradient magnitude of Sobel `X` and `Y`.
+11. Extract `Yellow` pixels from the original image.
+12. Extract `Red` highlights from original image.
+13. Create a binary image using the conditions at line `d` of `helper.py`
+14. Reduce binary noise.
 
 ## 4 Detecting Lanes
