@@ -84,7 +84,7 @@ def run():
         im.save('video/seq_new/img_{}.jpeg'.format(row))
 
     # # Create a backup.
-    # with open('data.p', 'w') as p:
+    # with open('data.p', 'wb') as p:
     #     pickle.dump({'images': processed_images}, p, protocol=pickle.HIGHEST_PROTOCOL)
 
     # Read the contents of processed image and make a video of it.
