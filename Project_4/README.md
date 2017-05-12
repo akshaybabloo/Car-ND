@@ -20,6 +20,9 @@ In this project, I have tried to detect the road lanes and draw a polygon on all
 
 ## 1 Calibrate the Camera
 
+Using the chessboard images provided by Udacity ([https://github.com/udacity/CarND-Advanced-Lane-Lines](https://github.com/udacity/CarND-Advanced-Lane-Lines)), I have implemented a way to calibrate the input image and undistort them.
+
+To calibrate the camera, I have used `OpenCV` internal function to detect the chessboard points (corners). If the chessboard corners are found, the lines are drawn from point-to-point.
 
 ## 2 Change the Perspective
 
