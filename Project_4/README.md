@@ -7,7 +7,7 @@
 - [1 Calibrate the Camera](#1-calibrate-the-camera)
 - [2 Change the Perspective](#2-change-the-perspective)
 - [3 Generate Lane Masking](#3-generate-lane-masking)
-- [4 Draw the Polys](#4-draw-the-polys)
+- [4 Detecting Lanes](#4-detecting-lanes)
 
 <!-- /TOC -->
 
@@ -16,7 +16,7 @@ In this project, I have tried to detect the road lanes and draw a polygon on all
 1. Calibrate the Camera
 2. Change the Perspective
 3. Generate Lane Masking
-4. Draw the Polys
+4. Detecting Lanes
 
 ## 1 Calibrate the Camera
 
@@ -36,11 +36,20 @@ Changing the perspective of an image can make simple adjustments easy; for examp
 
 ![Undistorted image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/test2.jpg)
 
-Changing its perspective to something
+Changing its perspective to something like
 
 ![perspective image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/perspective.png)
 
+This perspective helps in detecting lines (easily) as if we are looking at it from above (birds eye view).
+
 ## 3 Generate Lane Masking
 
+Let's look at the image step-by-step without perspective transformation:
 
-## 4 Draw the Polys
+![Extracted lines](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/extract_lines_no_per.png)
+
+Using OpenCV, the detection of the lanes are done as follows:
+
+
+
+## 4 Detecting Lanes
