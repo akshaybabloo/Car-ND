@@ -24,6 +24,12 @@ Using the chessboard images provided by Udacity ([https://github.com/udacity/Car
 
 To calibrate the camera, I have used `OpenCV` internal function to detect the chessboard points (corners). If the chessboard corners are found, the lines are drawn from point-to-point.
 
+![Chessboard](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/chessboard.png)
+
+This calibration can be applied to an image to undistort the image, which would look like:
+
+![Undistorted image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/undistort.png)
+
 ## 2 Change the Perspective
 
 
