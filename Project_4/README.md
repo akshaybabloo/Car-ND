@@ -28,6 +28,8 @@ To calibrate the camera, I have used `OpenCV` internal function to detect the ch
 
 ![Chessboard](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/chessboard.png)
 
+![Undistorted chessboard](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/undistort_chess.png)
+
 This calibration can be applied to an image to undistort the image, which would look like:
 
 ![Undistorted image](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/undistort.png)
