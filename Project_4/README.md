@@ -8,6 +8,7 @@
 - [2 Change the Perspective](#2-change-the-perspective)
 - [3 Generate Lane Masking](#3-generate-lane-masking)
 	- [3.1 Step-by-step Explanation](#31-step-by-step-explanation)
+	- [3.2 Add Perspective to the Image](#32-add-perspective-to-the-image)
 - [4 Detecting Lanes](#4-detecting-lanes)
 
 <!-- /TOC -->
@@ -63,7 +64,13 @@ Let's look at the image step-by-step without perspective transformation:
 10. Calculate the gradient magnitude of Sobel `X` and `Y`.
 11. Extract `Yellow` pixels from the original image.
 12. Extract `Red` highlights from original image.
-13. Create a binary image using the conditions at line `d` of `helper.py`
+13. Create a binary image using the conditions at line `240` of `helper.py`
 14. Reduce binary noise.
+
+### 3.2 Add Perspective to the Image
+
+As seen in [2 Change the Perspective](#2-change-the-perspective), let's add some perspective to the image so that it could be manipulated later. The following is it's result:
+
+![Perspective of lines](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/perspective_extracted.png)
 
 ## 4 Detecting Lanes
