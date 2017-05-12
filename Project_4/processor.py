@@ -13,6 +13,26 @@ class DetectLanes:
 
     def __init__(self, perspective_source, perspective_destination, camera_calibration=None, number_frame=1,
                  line_segments=10, transform_offset=0, verbose=False):
+        """
+        Contents for DetectLanes
+        
+        Parameters
+        ----------
+        perspective_source: ndarray:
+            Perspective coordinates
+        perspective_destination: ndarray
+            Perspective coordinates
+        camera_calibration: helper.CalibrateCamera
+            CalibrateCamera object
+        number_frame: int
+            Number of frames to process (memory
+        line_segments: int
+            Steps for windowed histogram.
+        transform_offset: int
+            Search window for histogram.
+        verbose: bool
+            Output with other information.
+        """
 
         # Creates and object of perspective.
         self.perspective_transform = helper.PerspectiveTransformer(perspective_source, perspective_destination)
@@ -37,7 +57,7 @@ class DetectLanes:
 
     def generate_frame(self, frame):
         """
-        Apply line detection to each frame.
+        Apply lane detection to each frame.
         
         Parameters
         ----------

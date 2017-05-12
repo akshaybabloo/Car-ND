@@ -395,7 +395,7 @@ def binary_noise_reduction(img, thresh):
 
 class Line:
     """
-    Detect th lines on th road.
+    Detect the lines on th road.
     """
     def __init__(self, n_frames=1, x=None, y=None):
         """
