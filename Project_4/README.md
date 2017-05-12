@@ -64,7 +64,7 @@ Let's look at the image step-by-step without perspective transformation:
 10. Calculate the gradient magnitude of Sobel `X` and `Y`.
 11. Extract `Yellow` pixels from the original image.
 12. Extract `Red` highlights from original image.
-13. Create a binary image using the conditions at line `240` of `helper.py`
+13. Create a binary image using the conditions at line `240` of `helper.py` (thresholds)
 14. Reduce binary noise.
 
 ### 3.2 Add Perspective to the Image
@@ -82,3 +82,5 @@ As seen in [2 Change the Perspective](#2-change-the-perspective), let's add some
 From the above image, we can see that the histogram on left and right side represents the position at which the bright pixels were found. This function returns the pixel value at which the bright pixels are found, keeping these positions as is a line is drawn between them.
 
 ![Perspective of Lane drawn](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/line_poly.png)
+
+The above image shows a poly drawn over the perspective image. You can also see that the top right line seems to be out of alignment, this happens because the detection of line is by chance and number of iterations for the histogram search for the lines. Higher the iterations the better the line fits.
