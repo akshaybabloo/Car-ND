@@ -162,3 +162,6 @@ texinfo_documents = [
 
 # to include __init__
 autoclass_content = 'both'
+
+
+autodoc_mock_imports = ['helper', 'processor']
