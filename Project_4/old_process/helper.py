@@ -12,8 +12,8 @@ import os
 
 # Constants
 OUTPUT_DIR = os.path.abspath('output')
-CALIBRATION_PATH_PICKLE = os.path.abspath('output' + os.sep + 'calibration.p')
-CAL_IMAGE_PATH = os.path.abspath('camera_cal' + os.sep + 'calibration*.jpg')
+CALIBRATION_PATH_PICKLE = os.path.abspath('../output' + os.sep + 'calibration.p')
+CAL_IMAGE_PATH = os.path.abspath('../camera_cal' + os.sep + 'calibration*.jpg')
 ROWS, COLS = (6, 9)
 CAL_IMAGE_SIZE = (720, 1280, 3)
 
