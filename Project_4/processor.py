@@ -6,11 +6,12 @@ import old_process.helper as hp
 prev_left_coeffs = None
 prev_right_coeffs = None
 
+
 class DetectLanes:
     def __init__(self):
         pass
 
-    def generate_frame(self, file, filepath=False):
+    def generate_frame(self, file, src, dst, filepath=False):
         global prev_left_coeffs
         global prev_right_coeffs
 
@@ -23,17 +24,17 @@ class DetectLanes:
         # Parameters
         imshape = raw.shape
 
-        src = np.float32(
-            [[120, 720],
-             [550, 470],
-             [700, 470],
-             [1160, 720]])
-
-        dst = np.float32(
-            [[200, 720],
-             [200, 0],
-             [1080, 0],
-             [1080, 720]])
+        # src = np.float32(
+        #     [[120, 720],
+        #      [550, 470],
+        #      [700, 470],
+        #      [1160, 720]])
+        #
+        # dst = np.float32(
+        #     [[200, 720],
+        #      [200, 0],
+        #      [1080, 0],
+        #      [1080, 720]])
 
         # M = cv2.getPerspectiveTransform(src, dst)
         Minv = cv2.getPerspectiveTransform(dst, src)

@@ -13,7 +13,7 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 from scipy.misc import imread
 from tqdm import tqdm
 
-import helper
+import numpy as np
 import processor
 
 OFFSET = 250
@@ -68,7 +68,7 @@ def run():
     processed_images = []
     for row in tqdm(range(rows), desc='Applying DetectLines'):
 
-        img = ld.generate_frame('video/seq/img_%s.jpeg' % row, filepath=True)
+        img = ld.generate_frame('video/seq/img_%s.jpeg' % row, src=SRC, dst=DST, filepath=True)
 
         processed_images.append(img)
 
