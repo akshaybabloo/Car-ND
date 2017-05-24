@@ -10,6 +10,7 @@
 	- [3.1 Step-by-step Explanation](#31-step-by-step-explanation)
 	- [3.2 Add Perspective to the Image](#32-add-perspective-to-the-image)
 - [4 Detecting Lanes](#4-detecting-lanes)
+- [5 Discussion](#5-discussion)
 
 <!-- /TOC -->
 
@@ -90,3 +91,8 @@ The above image shows a poly drawn over the perspective image. You can also see 
 Converting the perspective to the normal and adding some information about the image, we would get something like this:
 
 ![Car ND](https://github.com/akshaybabloo/Car-ND/raw/master/Project_4/assets/car-nd.png)
+
+## 5 Discussion
+
+* If you look at cell `21`of the Jupyter notebook, you can see that the `fifth` row, first from left, could not find the binary threshold of the left, the `brightness` was able to detect the a dot, because it didn't have any previous information of the frame before the current frame, it couldn't add a straight line.
+* If you see the `seventh` figure of cell `21`, you can see that there are two yellow lines, maybe this problem could be solved by filling the dark spots between the two lines with yellow (or any color that is recognised)
