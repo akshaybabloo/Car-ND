@@ -19,6 +19,7 @@ Welcome to Car-ND's documentation!
    Transfer_Learning_8/index
    behavioral_cloning_9/index
    advanced_lane_finding_10/index
+   machine_learning_11/index
    others
 
 Projects
