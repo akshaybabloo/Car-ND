@@ -55,7 +55,7 @@ Let's look at the image step-by-step without perspective transformation:
 
 ### 3.1 Step-by-step Explanation
 
-1. First, read the image and remove the first `400` vertical pixels pixels'.
+1. First, read the image and remove the first `400` vertical pixels.
 2. After removing the image's pixels, Convert the image to `YUV` color space, where `Y` represents the brightness, `U` represents difference of `blue` & `brightness` (B-Y) and `V` represents the difference of `red` & `brightness` (R-Y)
 3. Then remove the `RED` hue from the `YUV` color space.
 4. Now, convert the original image to `HLS` color space, where `H` represents `Hue`, `L` represents `Lightness` and `S` represents `Saturation`.
@@ -67,7 +67,7 @@ Let's look at the image step-by-step without perspective transformation:
 10. Calculate the gradient magnitude of Sobel `X` and `Y`.
 11. Extract `Yellow` pixels from the original image.
 12. Extract `Red` highlights from original image.
-13. Create a binary image using the conditions at line `240` of `helper.py` (thresholds)
+13. Create a binary image based on thresholds.
 14. Reduce binary noise.
 
 ### 3.2 Add Perspective to the Image
