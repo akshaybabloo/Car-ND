@@ -21,6 +21,7 @@ Welcome to Car-ND's documentation!
    advanced_lane_finding_10/index
    machine_learning_11/index
    support_vector_machine_12/index
+   decision_tree_13/index
    others
 
 Projects
