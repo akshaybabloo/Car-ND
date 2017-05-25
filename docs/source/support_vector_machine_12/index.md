@@ -11,3 +11,10 @@ When trying to classify the data, SVM follows two principals;
 2. Then maximise the margin.
 
 See http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+
+SVM Kernels
+-----------
+
+Converts the non-separable data and transforms it into higher dimensions, so that the data can be easily separable.
+
+See http://scikit-learn.org/stable/modules/svm.html#svm-kernels
