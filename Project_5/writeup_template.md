@@ -131,7 +131,7 @@ The heatmap of found hot windows overlap:
 
 The final result of an image with cars boundaries.
 
-![Image proc](assets/image_fin.jpg)
+![Image proc](assets/image_fin.png)
 
 
 ## Results and discussion
